@@ -2726,3 +2726,4 @@ import re
 # print(count_items(names))
 
 print("Текст в локальном репозитории")
+print("Текст в глобальном репозитории")
