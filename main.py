@@ -2740,7 +2740,7 @@ import re
 # f.close()
 # print(f.closed)
 
-f = open(r"test.txt")
+f = open(r"text.txt")
 print(f.read(3))
 print(f.read())
 f.close()
