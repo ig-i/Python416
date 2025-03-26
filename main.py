@@ -2726,7 +2726,21 @@ import re
 # print(count_items(names))
 
 # print("Текст в локальном и глобальном репозитории")
-print("Новый репозиторий")
+# print("Новый репозиторий")
 
+# Файлы
 
+# f = open(r"C:\Users\user\Desktop\Pithon\test.txt")
+# print(*f)
+# print(f)
+# print(f.mode)
+# print(f.name)
+# print(f.encoding)
+#
+# f.close()
+# print(f.closed)
 
+f = open(r"test.txt")
+print(f.read(3))
+print(f.read())
+f.close()
