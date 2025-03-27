@@ -2726,7 +2726,24 @@ import re
 # print(count_items(names))
 
 # print("Текст в локальном и глобальном репозитории")
-print("Новый репозиторий")
+# print("Новый репозиторий")
+# print("Код на новом устройстве")
 
+# Файлы
 
+# f = open(r"text.txt")
+# f = open(r"C:\Users\user\Desktop\Pithon\text.txt")            # r - подавляет экранирование элементов
+# print(*f)
+# print(f)
+# print(f.mode)                                                 # режим доступа к файлу (чтение)
+# print(f.name)                                                 # просмотреть имя файла
+# print(f.encoding)                                             # название кодировки
+#
+# f.close()                                                     # закрывает файл
+# print(f.closed)                                               # показывает True если файл закрыт, False если открыт
+
+f = open(r"text.txt")
+print(f.read(3))
+print(f.read())
+f.close()
 
