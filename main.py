@@ -2730,15 +2730,16 @@ import re
 
 # Файлы
 
-# f = open(r"C:\Users\user\Desktop\Pithon\test.txt")
+# f = open(r"text.txt")
+# f = open(r"C:\Users\user\Desktop\Pithon\text.txt")            # r - подавляет экранирование элементов
 # print(*f)
 # print(f)
-# print(f.mode)
-# print(f.name)
-# print(f.encoding)
+# print(f.mode)                                                 # режим доступа к файлу (чтение)
+# print(f.name)                                                 # просмотреть имя файла
+# print(f.encoding)                                             # название кодировки
 #
-# f.close()
-# print(f.closed)
+# f.close()                                                     # закрывает файл
+# print(f.closed)                                               # показывает True если файл закрыт, False если открыт
 
 f = open(r"text.txt")
 print(f.read(3))
