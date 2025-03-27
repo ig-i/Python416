@@ -2727,7 +2727,10 @@ import re
 
 # print("Текст в локальном и глобальном репозитории")
 # print("Новый репозиторий")
+<<<<<<< HEAD
 # print("Код на новом устройстве")
+=======
+>>>>>>> d02b85cec930cec3b700063a4a5f99b1de1b7267
 
 # Файлы
 
@@ -2741,9 +2744,16 @@ import re
 #
 # f.close()                                                     # закрывает файл
 # print(f.closed)                                               # показывает True если файл закрыт, False если открыт
+<<<<<<< HEAD
 
 f = open(r"text.txt")
 print(f.read(3))
 print(f.read())
 f.close()
+=======
+>>>>>>> d02b85cec930cec3b700063a4a5f99b1de1b7267
 
+f = open(r"text.txt")
+print(f.read(3))
+print(f.read())
+f.close()
