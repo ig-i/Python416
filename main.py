@@ -4,6 +4,7 @@
 # print(age)
 # print(type(name))  # тип данных строка
 # print(type(age))  # тип данных целое число
+import os
 from itertools import count
 from multiprocessing.context import set_spawning_popen
 from sys import base_prefix
@@ -2727,10 +2728,9 @@ import re
 
 # print("Текст в локальном и глобальном репозитории")
 # print("Новый репозиторий")
-<<<<<<< HEAD
+
 # print("Код на новом устройстве")
-=======
->>>>>>> d02b85cec930cec3b700063a4a5f99b1de1b7267
+
 
 # Файлы
 
@@ -2744,16 +2744,286 @@ import re
 #
 # f.close()                                                     # закрывает файл
 # print(f.closed)                                               # показывает True если файл закрыт, False если открыт
-<<<<<<< HEAD
 
-f = open(r"text.txt")
-print(f.read(3))
-print(f.read())
-f.close()
-=======
->>>>>>> d02b85cec930cec3b700063a4a5f99b1de1b7267
 
-f = open(r"text.txt")
-print(f.read(3))
-print(f.read())
-f.close()
+# f = open(r"text.txt")
+# print(f.read(3))
+# print(f.read())
+# f.close()
+
+# f = open("xyz.txt", "w")                                        # запись и чтение нового файла
+# f.write("This is line1.\nThis is line2.\nThis is line3.\n")     # функция для записи данных в файл
+# f.close()
+
+# f = open("xyz.txt")
+# print(f.read())            # метод позволяет считать файл полностью все символы
+# print(f.readline())          # метод позволяет считать 1 строку
+# print(f.readline(8))       # метод позволяет считать 8 символов
+# print(f.readline())
+# f.close()
+
+# print(f.readlines(15))         # метод позволяет считать данные в виде списка строк
+
+# f = open("xyz.txt")              # вывод этих же строк в цикле
+# for line in f:
+#     print(line)
+# f.close()
+
+# lines = ["This is line1.\n", "This is line2.\n", "This is line3.\n"]
+# f = open("lines.txt", "w")
+# f.writelines(lines)                 # метод для записи списка строк в файл
+# f.close()
+
+# lines = [str(i) for i in range(10, 1000, 15)]      # в чистом виде файлы работают только строкой
+# print(lines)
+#
+# f = open("lines.txt", "w")
+# for index in lines:
+#     f.write(index + "\t")
+# f.close()
+
+# file = "text2.txt"
+# f = open(file, "w", encoding="utf-8")
+# f.write("Замена строки в тестовом файле;\nизменить строку в списке\nзаписать список в файл\n")
+# f.close()
+#
+# f = open(file, "r", encoding="utf-8")
+# read_line = f.readlines()    # считывает все строки из текст. файла и возвр. каждую строку как строковый элем. в списке.
+# print(read_line)
+# read_line[1] = "Hello world!\n"
+# print(read_line)
+# f.close()
+#
+# f = open(file, "w", encoding="utf-8")
+# f.writelines(read_line)                  # метод для записи списка строк в файл
+# f.close()
+
+# f = open("text.txt", "r")
+# print(f.read(3))                      # указываем что необходимо считать 3 символа
+# print(f.tell())                       # возвращает текущую позицию условного курсора в файле
+#
+# print(f.seek(1))                     # перемещает условный курсор в заданную позицию
+# print(f.read())                      # считываем данные с 1 позиции
+# print(f.tell())
+# f.close()
+
+
+# f = open("text.txt", "a")            # запись (если файл существует, то данные добавляются в конец файла)
+# # f = open("text.txt", "w")              # запись (если файл существует, он будет очищен, если нет - создан)
+# print(f.write("I am learning Python"))     # покажет количество символов которые мы записали
+# f.close()
+
+# with open("text.txt", "w") as f:    # контекстный менеджер with закрывает файл автоматически если не будет табуляции
+#     print(f.write("0123456789"))
+# print(f.closed)
+
+# lst = [4.5, 2.8, 3.9, 0.3, 4.33]
+#
+#
+# def get_line(lt):
+#     lt = list(map(str, lt))      # в цикле к каждому элементу применим строковое значение
+#     return " ".join(lt)          # список строковых значений преобразуем в строку через пробел
+#
+#
+# with open("res.txt", "w") as f:
+#     f.write(get_line(lst))     # вызываем функцию и потом полученную строку запишем в файл f
+# print("Конец программы")
+
+# так же мы можем эти все данные считать и найти сумму данных вещественных чисел
+# with open("res.txt") as f:
+#     nums = f.read()
+#
+# print(nums)
+# print(list(map(float, nums.split())))  # чтобы просто посмотреть в print список элементов ф-ция list обязателено
+# print(sum(map(float, nums.split())))  # в цикле map проходим по каждому элем. и преобразовать к типу данных float
+
+# задача
+
+# with open("res2.txt", "w") as f:
+#     f.write("Файл — именованная область данных на носителе информации, используемая как базовый объект  "
+#             "с данными в операционных системах.")  # взаимодействия
+#
+#
+# def longest_words(file):
+#     with open(file, "r") as text:
+#         w = text.read().split()     # методом split строку разбиваем на список по символу разделителю по пробелу
+#         max_lenght = len(max(w, key=len))
+#         res = [word for word in w if len(word) == max_lenght]
+#         if len(res) == 1:
+#             return res[0]
+#         return res
+#
+#
+# print(longest_words("res2.txt"))
+
+
+# text = "Строка №1\nСтрока №2\nСтрока №3\nСтрока №4\nСтрока №5\nСтрока №6\nСтрока №7\nСтрока №8\nСтрока №9\n
+# Строка №10\n"
+# with open("one.txt", "w", encoding="utf-8") as f:
+#     f.write(text)
+#
+# with open("one.txt", "r", encoding="utf-8") as fr, open("two.txt", "w", encoding="utf-8") as fw:
+#     for line in fr:
+#         line = line.replace("Строка", "Линия -")
+#         fw.write(line)
+#
+# import os
+#
+# print(os.getcwd())  # путь к текущей директории
+#
+# print(os.listdir())  # возвращает список директорий и файлов
+# print(os.listdir(".."))
+# print(os.listdir(".venv"))
+
+# os.mkdir("folder")  # создать папку
+# os.rmdir("folder.txt")  # удалить папку
+
+# os.makedirs("nested1/nested2/nested3")  # создает директорию с промежуточными папками
+
+# os.remove("xyz.txt")  # удалить файл
+
+# os.rename("two.txt", "www.txt")  # переименовали файл
+
+# os.rename("www.txt", "folder/www.txt")  # переместили файл в заданную папку
+
+# os.renames("text4.txt", "test/text4.txt")  # переместили файл, создавая промежуточные папки
+
+
+# занятие 01.04
+
+# import os
+#
+# # print(os.walk("nested1"))
+# # for root, dirs, files in os.walk("nested1", topdown=False):
+# #     print("Root:", root)
+# #     print("\tdirs:", dirs)
+# #     print("\tFiles:", files)
+#
+# # import os.path
+#
+# print(os.path.split(r"E:\Python416\nested1\nested2\nested3\text5.txt"))
+#
+# print(os.path.join("nested1", r"E:\Python416", "nested2", "nested3", "text5.txt"))
+
+
+# import os
+#
+# dirs = [r"Work\F1", r"Work\F2\F21"]
+# # for d in dirs:
+# #     os.makedirs(d)
+#
+# files = {
+#     "Work": ["w.txt"],
+#     r"Work\F1": ["f11.txt", "f12.txt", "f13.txt"],
+#     r"Work\F2\F21": ["f211.txt", "f212.txt"]
+# }
+#
+# for d, files in files.items():
+#     for file in files:
+#         file_path = os.path.join(d, file)
+#         # print(file_path)
+#         open(file_path, "w").close()
+#
+#
+# file_with_text = [r"Work\w.txt", r"Work\F1\f12.txt", r"Work\F2\F21\f211.txt", r"Work\F2\F21\f212.txt"]
+#
+# for file in file_with_text:
+#     with open(file, "w") as f:
+#         f.write(f"Такой-то текст в файле {file}")
+#
+#
+# def print_tree(root, topdown):
+#     print(f"Обход {root} {'сверху вниз' if topdown else 'снизу вверх'}")
+#     for root1, directory, file_name in os.walk(root, topdown):
+#         print(root1)
+#         print(directory)
+#         print(file_name)
+#     print("-" * 50)
+#
+#
+# print_tree("Work", False)
+# print_tree("Work", True)
+
+# import os
+# import time
+#
+# # print(os.path.exists(r"nested1\nested2\nested3\text5.txt"))
+# # print(os.path.isfile(r"nested1\nested2\nested3\text5.txt"))
+# # print(os.path.isdir(r"nested1\nested2\nested3"))
+#
+# file = "main.py"
+#
+# print(os.path.getsize(file))  # размер файла в байтах
+# print(os.path.getatime(file))  # возвращает время последнего доступа к файлу
+# print(os.path.getmtime(file))  # возвращает время последнего изменения файла
+# print(os.path.getctime(file))  # возвращает время создания файла
+#
+# kb = os.path.getsize(file)
+# a = os.path.getatime(file)
+# m = os.path.getmtime(file)
+# c = os.path.getctime(file)
+#
+# print(time.strftime("%d.%m.%Y, %H:%M:%S", time.localtime(a)))
+# print(time.strftime("%d.%m.%Y, %H:%M:%S", time.localtime(m)))
+# print(time.strftime("%d.%m.%Y, %H:%M:%S", time.localtime(c)))
+# print(kb // 1024)
+
+# ООП
+
+
+# class Point:
+#     x = 1  # 100
+#     y = 2
+#
+#
+# p1 = Point()
+# p1.x = 10
+# p1.y = 20
+# # Point.x = 100
+# print(p1.x, p1.y)
+# print(p1.__dict__)
+#
+# p2 = Point()
+# print(p2.x, p2.y)
+# p2.x = 5
+# print(p2.__dict__)
+#
+# print(Point.__dict__)
+
+# def func():
+#     print("текст")
+#
+#
+# func()
+#
+#
+# class Point:
+#     """Класс для предоставления координат точек на плоскости"""
+#     x = 1
+#     y = 2
+#
+#     def set_coord(self, x1, y1):
+#         self.x = x1
+#         self.y = y1
+#
+#
+# p1 = Point()  # экземпляр класса (объект)
+# p1.set_coord(5, 3)
+# print(p1.__dict__)
+# print(Point.__doc__)
+# print(Point.__dict__)
+# print(type(p1))
+# print(type(5))
+# p1.x = 5
+# p1.y = 10
+# p1.set_coord(5, 10)
+# print(p1.__dict__)
+# print(p1.x)
+# # Point.set_coord(p1, 20, 30)
+# # print(p1.__dict__)
+# #
+# p2 = Point()
+# p2.set_coord(100, 200)
+# print(p2.__dict__)
+# print(p2.x)
+
