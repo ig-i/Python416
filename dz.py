@@ -309,31 +309,41 @@ from fileinput import filename
 
 # print("Текст на удаленном репозитории")
 
-f = open("test3.txt", "w")
-f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;\n")
-f.close()
+# f = open("test3.txt", "w")
+# f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;\n")
+# f.close()
+#
+# f = open("test3.txt", "r")
+# read_line = f.readlines()
+# print(read_line)
+# f.close()
+#
+# pos1 = int(input("pos1 = "))
+# pos2 = int(input("pos2 = "))
+#
+# if 0 <= pos1 < len(read_line) and 0 <= pos2 < len(read_line):
+#     read_line[pos1], read_line[pos2] = read_line[pos2],  read_line[pos1]
+# else:
+#     print("Такой строки нет")
+#
+# print(read_line)
+#
+# f = open("test3.txt", "w")
+# f.writelines(read_line)
+# f.close()
 
-f = open("test3.txt", "r")
-read_line = f.readlines()
-print(read_line)
-f.close()
+import os
+from os.path import split
 
-pos1 = int(input("pos1 = "))
-pos2 = int(input("pos2 = "))
+#  в папке nested3 находятся: text.txt, tex2.txt, text3.txt
 
-if 0 <= pos1 < len(read_line) and 0 <= pos2 < len(read_line):
-    read_line[pos1], read_line[pos2] = read_line[pos2],  read_line[pos1]
-else:
-    print("Такой строки нет")
-
-print(read_line)
-
-f = open("test3.txt", "w")
-f.writelines(read_line)
-f.close()
-
-
-
-
+first_file = input("Введите имя для файла папки nested3: ")
+file = r"C:\Users\user\Desktop\Python\Python416\nested1\nested2\nested3"
+for root, dirs, files in os.walk(file, topdown=False):
+    if first_file in files:
+        print(split(file))
+        print(f"{os.path.split(file)[1]}/{first_file}", "-", "last access time", os.path.getatime(file), "sec")
+    else:
+        print("Нет такого файла")
 
 
