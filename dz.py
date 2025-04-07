@@ -332,18 +332,114 @@ from fileinput import filename
 # f.writelines(read_line)
 # f.close()
 
-import os
-from os.path import split
+# import os
+# from os.path import split
+#
+# #  в папке nested3 находятся: text.txt, tex2.txt, text3.txt
+#
+# first_file = input("Введите имя для файла папки nested3: ")
+# file = r"C:\Users\user\Desktop\Python\Python416\nested1\nested2\nested3"
+# for root, dirs, files in os.walk(file, topdown=False):
+#     if first_file in files:
+#         print(split(file))
+#         print(f"{os.path.split(file)[1]}/{first_file}", "-", "last access time", os.path.getatime(file), "sec")
+#     else:
+#         print("Нет такого файла")
 
-#  в папке nested3 находятся: text.txt, tex2.txt, text3.txt
 
-first_file = input("Введите имя для файла папки nested3: ")
-file = r"C:\Users\user\Desktop\Python\Python416\nested1\nested2\nested3"
-for root, dirs, files in os.walk(file, topdown=False):
-    if first_file in files:
-        print(split(file))
-        print(f"{os.path.split(file)[1]}/{first_file}", "-", "last access time", os.path.getatime(file), "sec")
-    else:
-        print("Нет такого файла")
+class Mobile:
 
+    def __init__(self, name, year, manufacturer, engine_power, color, price):  # инициализатор
+        self.__name = name
+        self.__year = year
+        self.__manufacturer = manufacturer
+        self.__engine_power = engine_power
+        self.__price = price
+        self.__color = color
+
+    def __check_value(s):
+        if isinstance(s, int):
+            return True
+        return False
+
+    def __check_value2(s):
+        if isinstance(s, str):
+            return True
+        return False
+    
+    def print_info(self):
+        print(" Данные автомобиля ".center(40, "*"))
+        print(f"Название модели: {self.__name}\nГод выпуска: {self.__year}\nПроизводитель: {self.__manufacturer}\n"
+              f"Мощность двигателя: {self.__engine_power}\nЦвет машины: {self.__color}\nЦена: {self.__price}")
+        print("=" * 40)
+
+    def set_name(self, name):
+        if Mobile.__check_value2(name):
+            self.__name = name
+        else:
+            print("Введите строковое значение")
+
+    def get_name(self):
+        return self.__name
+
+    def set_year(self, year):
+        if Mobile.__check_value(year):
+            self.__year = year
+        else:
+            print("Введите числовое значение")
+
+    def get_year(self):
+        return self.__year
+
+    def set_manufacturer(self, manufacturer):
+        if Mobile.__check_value2(manufacturer):
+            self.__manufacturer = manufacturer
+        else:
+            print("Ведите строковое значение")
+
+    def get_manufacturer(self):
+        return self.__manufacturer
+
+    def set_engine_power(self, engine_power):
+        if Mobile.__check_value2(engine_power):
+            self.__engine_power = engine_power
+        else:
+            print("Введите строковое значение")
+
+    def get_engine_power(self):
+        return self.__engine_power
+
+    def set_color(self, color):
+        if Mobile.__check_value2(color):
+            self.__color = color
+        else:
+            print("Введите строковое значение")
+
+    def get_color(self):
+        return self.__color
+
+    def set_price(self, price):
+        if Mobile.__check_value(price):
+            self.__price = price
+        else:
+            print("Введите числовое значение")
+
+    def get_price(self):
+        return self.__price
+
+
+m1 = Mobile("X7 M50i", "2021", "BMW", "530 л.с.", "white", "10790000")
+m1.print_info()
+m1.set_name(555)
+print(m1.get_name())
+m1.set_year("abc")
+print(m1.get_year())
+m1.set_manufacturer(1985)
+print(m1.get_manufacturer())
+m1.set_engine_power(123)
+print(m1.get_engine_power())
+m1.set_color(489)
+print(m1.get_color())
+m1.set_price("def")
+print(m1.get_price())
 

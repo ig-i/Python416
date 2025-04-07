@@ -2555,6 +2555,8 @@ import math  # либо from math import *  либо  from math import sqrt, cei
 # урок 18.03 - флаги
 
 import re
+
+
 # from tkinter.font import names
 
 # print(re.findall(r"\w+", "12 + й"))
@@ -2891,7 +2893,7 @@ import re
 
 # занятие 01.04
 
-import os
+# import os
 
 # print(os.walk("nested1"))                                      # генерирует имена файлов в дереве каталогов
 # for root, dirs, files in os.walk("nested1", topdown=False):  # обход дерева снизу вверх, True - сверху вниз
@@ -2973,42 +2975,66 @@ import os
 
 
 # class Point:
-#     x = 1  # 100
-#     y = 2
+#     x = 1             # это свойства класса. К ним обращаются через экземпляр класса
+#     y = 2             # это свойства класса. К ним обращаются через экземпляр класса
 #
 #
-# p1 = Point()
+#
+# p1 = Point()            # это имя класса (экземпляр класса)
 # p1.x = 10
 # p1.y = 20
-# # Point.x = 100
+# # Point.x = 100         # перезаписываем значение х в классе Point
 # print(p1.x, p1.y)
 # print(p1.__dict__)
 #
+
 # p2 = Point()
 # print(p2.x, p2.y)
 # p2.x = 5
-# print(p2.__dict__)
+# print(p2.__dict__)     # служебный метод показывает словарь из свойств которые принадлежат данному экземпляру p.2
 #
-# print(Point.__dict__)
+# print(Point.__dict__)  # показывает словарь из свойств которые принадлежат данному классу Point
 
-# def func():
-#     print("текст")
-#
-#
-# func()
-#
-#
+
 # class Point:
-#     """Класс для предоставления координат точек на плоскости"""
+#     x = 1
+#     y = 2
+
+# def set_coord(self):  # Это метод класса. Пишется с одним пробелом
+#     print(self.__dict__)
+
+
+# p1 = Point()
+# p1.x = 5
+# p1.y = 10
+# p1.set_coord()         # к методу обращаемся через имя экземпляра класса. В self приходит имя экземпляра класса p1
+# Point.set_coord(p1)
+
+# class Point:
+#     """"Класс для предоставления координат точек на плоскости"""
 #     x = 1
 #     y = 2
 #
 #     def set_coord(self, x1, y1):
-#         self.x = x1
-#         self.y = y1
-#
-#
-# p1 = Point()  # экземпляр класса (объект)
+#         self.x = x1                   # self это как независимый элемент в который попадет ссылка на экземпляр класса
+#         self.y = y1                   # в self приходит сколько угодно экземпляров класса
+
+
+# p1 = Point()
+# p1.x = 5
+# p1.y = 10
+# p1.set_coord(5,10)  # к методу обращаемся через имя экземпляра класса. В self приходит имя экземпляра класса p1
+# print(p1.__dict__)
+# Point.set_coord(p1,20,30)
+# print(p1.__dict__)
+
+# p2 = Point()                     # экземпляр класса (обьект)
+# p2.set_coord(100,200)
+# print(p2.__dict__)                # магический метод (служебный)
+# print(Point.__doc__)              # магический метод (служебный) выводит документацию у класса
+
+
+# p1 = Point()                      # экземпляр класса (объект)
 # p1.set_coord(5, 3)
 # print(p1.__dict__)
 # print(Point.__doc__)
@@ -3039,7 +3065,7 @@ import os
 #     address = "street, house"
 #
 #     def print_info(self):
-#         print(" Персональные данные ".center(40, "*"))
+#         print(" Персональные данные ".center(40, "*")) # метод строк center делает графическое оформление
 #         print(f"Имя: {self.name}\nДата рождения: {self.birthday}\n"
 #               f"Номер телефона: {self.phone}\nСтрана: {self.country}\n"
 #               f"Город: {self.city}\nДомашний адрес: {self.address}")
@@ -3053,13 +3079,15 @@ import os
 #         self.city = city
 #         self.address = address
 #
-#     def set_name(self, name):  # устанавливаем новое имя
+#     def set_name(self, name):  # этот метод устанавливаем новое имя (сэттэры) set - установить
 #         self.name = name
 #
-#     def get_name(self):  # получаем имя
+#     def get_name(self):        # этот методом получаем имя (геттеры) get - получить
 #         return self.name
-# h1 = Human()
-# h1.print_info()
+#
+#
+# h1 = Human()                                # cначала обращаемся к имени экземпляра класса
+# h1.print_info()                             # а после этого обращаемся к методу класса
 # h1.input_info("Юля", "23.05.1986", "45-46-98", "Россия", "Москва", "Чистопрудный бульвар, 1A")
 # h1.print_info()
 # h1.set_name("Юлия")
@@ -3067,21 +3095,24 @@ import os
 # print(h1.get_name())
 
 # class Person:
-#     skill = 10
+#     skill = 10                        # статическое свойство (постоянное)
+#     # name = ""
+#     # surname = ""
 #
-#     def __init__(self, name, surname):  # инициализатор
-#         self.name = name
+#     def __init__(self, name, surname):  # магический метод (инициализация наших свойств)
+#         self.name = name                # динамические свойства в классе (изменяются)
 #         self.surname = surname
 #         # print("Инициализатор для", self.name, self.surname)
 #
-#     def __del__(self):
-#         print("Удаление экземпляра")
-#
-#     def print_info(self):
+#     def print_info(self):  # инициализатор
 #         print("Данные сотрудника:", self.name, self.surname)
 #
+#     def __del__(self):  # магический метод для удаления экземпляра (разрывается ссылка) т.е. финализатор
+#         print("Удаление экземпляра")
+#
+#
 #     def add_skill(self, k):
-#         self.skill += k
+#         self.skill = self.skill + k
 #         print("Квалификация сотрудника:", self.skill, "\n")
 #
 #
@@ -3089,26 +3120,27 @@ import os
 # p1.print_info()
 # p1.add_skill(3)
 #
-# del p1
+# del p1                # разрывает ссылку между 2 экз. классов (p1 и p2)
 # print()
 #
 # p2 = Person("Анна", "Долгих")
 # p2.print_info()
 # p2.add_skill(2)
-
-# class Point:
+#
+# class Point:  # задача - нужно посчитать сколько создано всего экземпляров класса
 #     count = 0
 #
 #     def __init__(self, x=0, y=0):
 #         self.x = x
 #         self.y = y
-#         Point.count += 1
+#         Point.count += 1     # к статическим переменнным лучше обращаться через имя класса (Point), т.к. в каких то                                                   # моментах он может брать значение одного экземпляра класса и все
 #
 #
 # p1 = Point()
 # p2 = Point()
 # p3 = Point()
-# print(Point.count)
+# print(Point.count)  # получаем доступ к статическому свойству класса через имя класса
+# print(p1.count)     # а также через имя экземпляра класса
 
 
 # class Robot:
@@ -3154,59 +3186,59 @@ import os
 # print("Численность роботов:", Robot.k)
 
 
-# class Point:
-#
-#     def __init__(self, x, y):
-#         self.__x = self.__y = 0
-#         if Point.__check_value(x) and Point.__check_value(y):
-#             self.__x = x
-#             self.__y = y
-#
-#     def __check_value(s):
-#         if isinstance(s, int) or isinstance(s, float):
-#             return True
-#         return False
-#
-#     def set_coord(self, x, y):
-#         if Point.__check_value(x) and Point.__check_value(y):
-#             self.__x = x
-#             self.__y = y
-#         else:
-#             print("Координаты должны быть числами")
-#
-#     def set_coord_x(self, x):
-#         if Point.__check_value(x):
-#             self.__x = x
-#         else:
-#             print("Координаты должны быть числами")
-#
-#     def set_coord_y(self, y):
-#         if Point.__check_value(y):
-#             self.__y = y
-#         else:
-#             print("Координаты должны быть числами")
-#
-#     def get_coord(self):
-#         return self.__x, self.__y
-#
-#     def get_coord_x(self):
-#         return self.__x
-#
-#     def get_coord_y(self):
-#         return self.__y
-#
-#
-# p1 = Point(5, "10")
-# # print(p1.__dict__)
-# # p1.z = 20
-# # print(p1.__x, p1.__y)
-# # p1.__x = 50
-# # p1.__y = "abc"
-# p1.set_coord(5.2, 100)
-# print(p1.get_coord())
-# p1.set_coord_x(10)
-# p1.set_coord_y(50)
-#
+class Point:
+
+    def __init__(self, x, y):
+        self.__x = self.__y = 0
+        if Point.__check_value(x) and Point.__check_value(y):
+            self.__x = x
+            self.__y = y
+
+    def __check_value(s):
+        if isinstance(s, int) or isinstance(s, float):
+            return True
+        return False
+
+    def set_coord(self, x, y):
+        if Point.__check_value(x) and Point.__check_value(y):
+            self.__x = x
+            self.__y = y
+        else:
+            print("Координаты должны быть числами")
+
+    def set_coord_x(self, x):
+        if Point.__check_value(x):
+            self.__x = x
+        else:
+            print("Координаты должны быть числами")
+
+    def set_coord_y(self, y):
+        if Point.__check_value(y):
+            self.__y = y
+        else:
+            print("Координаты должны быть числами")
+
+    def get_coord(self):
+        return self.__x, self.__y
+
+    def get_coord_x(self):
+        return self.__x
+
+    def get_coord_y(self):
+        return self.__y
+
+
+p1 = Point(5, "10")
+# print(p1.__dict__)
+# p1.z = 20
+# print(p1.__x, p1.__y)
+# p1.__x = 50
+# p1.__y = "abc"
+p1.set_coord(5.2, 100)
+print(p1.get_coord())
+p1.set_coord_x(10)
+p1.set_coord_y(50)
+
 # p1._Point__x = "abc"
-# # print(p1._Point__x)
+# print(p1._Point__x)
 # print(p1.__dict__)
