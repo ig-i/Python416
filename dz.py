@@ -347,99 +347,137 @@ from fileinput import filename
 #         print("Нет такого файла")
 
 
-class Mobile:
+# class Mobile:
+#
+#     def __init__(self, name, year, manufacturer, engine_power, color, price):  # инициализатор
+#         self.__name = name
+#         self.__year = year
+#         self.__manufacturer = manufacturer
+#         self.__engine_power = engine_power
+#         self.__price = price
+#         self.__color = color
+#
+#     def __check_value(s):
+#         if isinstance(s, int):
+#             return True
+#         return False
+#
+#     def __check_value2(s):
+#         if isinstance(s, str):
+#             return True
+#         return False
+#
+#     def print_info(self):
+#         print(" Данные автомобиля ".center(40, "*"))
+#         print(f"Название модели: {self.__name}\nГод выпуска: {self.__year}\nПроизводитель: {self.__manufacturer}\n"
+#               f"Мощность двигателя: {self.__engine_power}\nЦвет машины: {self.__color}\nЦена: {self.__price}")
+#         print("=" * 40)
+#
+#     def set_name(self, name):
+#         if Mobile.__check_value2(name):
+#             self.__name = name
+#         else:
+#             print("Введите строковое значение")
+#
+#     def get_name(self):
+#         return self.__name
+#
+#     def set_year(self, year):
+#         if Mobile.__check_value(year):
+#             self.__year = year
+#         else:
+#             print("Введите числовое значение")
+#
+#     def get_year(self):
+#         return self.__year
+#
+#     def set_manufacturer(self, manufacturer):
+#         if Mobile.__check_value2(manufacturer):
+#             self.__manufacturer = manufacturer
+#         else:
+#             print("Ведите строковое значение")
+#
+#     def get_manufacturer(self):
+#         return self.__manufacturer
+#
+#     def set_engine_power(self, engine_power):
+#         if Mobile.__check_value2(engine_power):
+#             self.__engine_power = engine_power
+#         else:
+#             print("Введите строковое значение")
+#
+#     def get_engine_power(self):
+#         return self.__engine_power
+#
+#     def set_color(self, color):
+#         if Mobile.__check_value2(color):
+#             self.__color = color
+#         else:
+#             print("Введите строковое значение")
+#
+#     def get_color(self):
+#         return self.__color
+#
+#     def set_price(self, price):
+#         if Mobile.__check_value(price):
+#             self.__price = price
+#         else:
+#             print("Введите числовое значение")
+#
+#     def get_price(self):
+#         return self.__price
+#
+#
+# m1 = Mobile("X7 M50i", "2021", "BMW", "530 л.с.", "white", "10790000")
+# m1.print_info()
+# m1.set_name(555)
+# print(m1.get_name())
+# m1.set_year("abc")
+# print(m1.get_year())
+# m1.set_manufacturer(1985)
+# print(m1.get_manufacturer())
+# m1.set_engine_power(123)
+# print(m1.get_engine_power())
+# m1.set_color(489)
+# print(m1.get_color())
+# m1.set_price("def")
+# print(m1.get_price())
 
-    def __init__(self, name, year, manufacturer, engine_power, color, price):  # инициализатор
-        self.__name = name
-        self.__year = year
-        self.__manufacturer = manufacturer
-        self.__engine_power = engine_power
-        self.__price = price
-        self.__color = color
 
-    def __check_value(s):
-        if isinstance(s, int):
-            return True
-        return False
+class Numbers:
+    __count = 0
 
-    def __check_value2(s):
-        if isinstance(s, str):
-            return True
-        return False
-    
-    def print_info(self):
-        print(" Данные автомобиля ".center(40, "*"))
-        print(f"Название модели: {self.__name}\nГод выпуска: {self.__year}\nПроизводитель: {self.__manufacturer}\n"
-              f"Мощность двигателя: {self.__engine_power}\nЦвет машины: {self.__color}\nЦена: {self.__price}")
-        print("=" * 40)
+    @staticmethod
+    def get_count():
+        return Numbers.__count
 
-    def set_name(self, name):
-        if Mobile.__check_value2(name):
-            self.__name = name
-        else:
-            print("Введите строковое значение")
+    @staticmethod
+    def area(a, b, c):     # площадь треугольника по формуле Герона.
+        s = (a + b + c) / 2
+        Numbers.__count += 1
+        return s
 
-    def get_name(self):
-        return self.__name
+    @staticmethod
+    def area_1(a, b):      # площадь треугольника через основание и высоту
+        s = (a * b) * 0.5
+        Numbers.__count += 1
+        return s
 
-    def set_year(self, year):
-        if Mobile.__check_value(year):
-            self.__year = year
-        else:
-            print("Введите числовое значение")
+    @staticmethod
+    def area_3(a):        # площадь квадрата
+        s = a ** 2
+        Numbers.__count += 1
+        return s
 
-    def get_year(self):
-        return self.__year
-
-    def set_manufacturer(self, manufacturer):
-        if Mobile.__check_value2(manufacturer):
-            self.__manufacturer = manufacturer
-        else:
-            print("Ведите строковое значение")
-
-    def get_manufacturer(self):
-        return self.__manufacturer
-
-    def set_engine_power(self, engine_power):
-        if Mobile.__check_value2(engine_power):
-            self.__engine_power = engine_power
-        else:
-            print("Введите строковое значение")
-
-    def get_engine_power(self):
-        return self.__engine_power
-
-    def set_color(self, color):
-        if Mobile.__check_value2(color):
-            self.__color = color
-        else:
-            print("Введите строковое значение")
-
-    def get_color(self):
-        return self.__color
-
-    def set_price(self, price):
-        if Mobile.__check_value(price):
-            self.__price = price
-        else:
-            print("Введите числовое значение")
-
-    def get_price(self):
-        return self.__price
+    @staticmethod
+    def area_4(a, b):      # площадь прямоугольника
+        s = a * b
+        Numbers.__count += 1
+        return s
 
 
-m1 = Mobile("X7 M50i", "2021", "BMW", "530 л.с.", "white", "10790000")
-m1.print_info()
-m1.set_name(555)
-print(m1.get_name())
-m1.set_year("abc")
-print(m1.get_year())
-m1.set_manufacturer(1985)
-print(m1.get_manufacturer())
-m1.set_engine_power(123)
-print(m1.get_engine_power())
-m1.set_color(489)
-print(m1.get_color())
-m1.set_price("def")
-print(m1.get_price())
-
+print("Площадь треугольника по формуле Герона: ", Numbers.area(3, 4, 5))
+print("Площадь треугольника через основание и высоту: ", Numbers.area_1(6, 7))
+print("Площадь квадрата: ", Numbers.area_3(7))
+print("Площадь прямоугольника: ", Numbers.area_4(2, 6))
+print("Количество подсчетов площади: ", Numbers.get_count())
