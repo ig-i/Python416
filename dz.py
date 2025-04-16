@@ -8,6 +8,7 @@
 #
 # import builtins
 from fileinput import filename
+from unittest.mock import PropertyMock
 
 
 # num = 97531
@@ -444,40 +445,338 @@ from fileinput import filename
 # print(m1.get_price())
 
 
-class Numbers:
-    __count = 0
+# class Numbers:
+#     __count = 0
+#
+#     @staticmethod
+#     def get_count():
+#         return Numbers.__count
+#
+#     @staticmethod
+#     def area(a, b, c):     # площадь треугольника по формуле Герона.
+#         s = (a + b + c) / 2
+#         Numbers.__count += 1
+#         return s
+#
+#     @staticmethod
+#     def area_1(a, b):      # площадь треугольника через основание и высоту
+#         s = (a * b) * 0.5
+#         Numbers.__count += 1
+#         return s
+#
+#     @staticmethod
+#     def area_3(a):        # площадь квадрата
+#         s = a ** 2
+#         Numbers.__count += 1
+#         return s
+#
+#     @staticmethod
+#     def area_4(a, b):      # площадь прямоугольника
+#         s = a * b
+#         Numbers.__count += 1
+#         return s
+#
+#
+# print("Площадь треугольника по формуле Герона: ", Numbers.area(3, 4, 5))
+# print("Площадь треугольника через основание и высоту: ", Numbers.area_1(6, 7))
+# print("Площадь квадрата: ", Numbers.area_3(7))
+# print("Площадь прямоугольника: ", Numbers.area_4(2, 6))
+# print("Количество подсчетов площади: ", Numbers.get_count())
+
+
+# -// вариант 1 //- (через @property # через декоратор Property можно передавать только 1 свойство)
+
+# class Account:
+#     rate_usd = 0.013                                  # статические свойства
+#     rate_eur = 0.011
+#     suffix = "RUB"
+#     suffix_usd = "USD"
+#     suffix_eur = "EUR"
+#
+#     def __init__(self, num, surname, percent, value):  # инициализатор
+#         self.__num = num                               # динамические свойства
+#         self.__surname = surname
+#         self.__percent = percent
+#         self.__value = value
+#         print(f"Счет #{self.__num} принадлежащий {self.__surname} был открыт.")
+#         print("*" * 50)
+#
+#     def __del__(self):             # служебный метод DEL отработает после выполнения программы (разрывает ссылку)
+#         print("*" * 50)
+#         print(f"Счет #{self.__num} принадлежащий {self.__surname} был закрыт.")
+#         # del self.__num
+#
+#     @staticmethod
+#     def convert(value, rate):
+#         return value * rate
+#
+#     @classmethod
+#     def set_usd_rate(cls, rate):
+#         cls.rate_usd = rate
+#
+#     @classmethod
+#     def set_eur_rate(cls, rate):
+#         cls.rate_eur = rate
+#
+#     @staticmethod
+#     def __check_value(z):
+#         if isinstance(z, int) or isinstance(z, str):
+#             return True
+#         return False
+#
+#     @property
+#     def new_num(self):
+#         return self.__num
+#
+#     @new_num.setter
+#     def new_num(self, n):
+#         if Account.__check_value(n):
+#             self.__num = n
+#         else:
+#             print("Неверный формат")
+#
+#     @property
+#     def new_surname(self):
+#         return self.__surname
+#
+#     @new_surname.setter
+#     def new_surname(self, s):
+#         if Account.__check_value(s):
+#             self.__surname = s
+#         else:
+#             print("Неверный формат")
+#
+#     @property
+#     def new_percent(self):
+#         return self.__percent
+#
+#     @new_percent.setter
+#     def new_percent(self, p):
+#         if Account.__check_value(p):
+#             self.__percent = p
+#         else:
+#             print("Неверный формат")
+#
+#     @property
+#     def new_val(self):
+#         return self.__value
+#
+#     @new_val.setter
+#     def new_val(self, v):
+#         if Account.__check_value(v):
+#             self.__value = v
+#         else:
+#             print("Неверный формат")
+#
+#     def convert_to_usd(self):
+#         usd_val = Account.convert(self.__value, Account.rate_usd)
+#         print(f"Состояние счета: {usd_val} {Account.suffix_usd}")
+#
+#     def convert_to_eur(self):
+#         eur_val = Account.convert(self.__value, Account.rate_eur)
+#         print(f"Состояние счета: {eur_val} {Account.suffix_eur}")
+#
+#     def edit_owner(self, surname):
+#         self.__surname = surname
+#
+#     def add_percents(self):
+#         self.__value += self.__value * self.__percent
+#         print("Проценты были успешно начислены")
+#         self.print_balance()
+#
+#     def withdraw_money(self, val):
+#         if val > self.__value:
+#             print(f"К сожалению у вас нет {val} {Account.suffix}")
+#         else:
+#             self.__value -= val
+#             print(f"{val} {Account.suffix} было успешно снято")
+#         self.print_balance()
+#
+#     def add_money(self, val):
+#         self.__value += val
+#         print(f"{val} {Account.suffix} было успешно добавлено!")
+#         self.print_balance()
+#
+#     def print_balance(self):
+#         print(f"Текущий баланс {self.__value} {Account.suffix}")
+#
+#     def print_info(self):
+#         print("Информация о счете: ")
+#         print("-" * 20)
+#         print(f"#{self.__num}")
+#         print(f"Владелец: {self.__surname}")
+#         self.print_balance()
+#         print(f"Проценты: {self.__percent:.0%}")               # 0 - это количество символов после точки с процентом
+#         print("-" * 20)
+#
+#
+# acc = Account("12345", "Долгих", 0.03, 1000)
+# # acc.print_balance()
+#
+# acc.print_info()
+# acc.convert_to_usd()
+# acc.convert_to_eur()
+# print()
+# acc.new_num(5)
+#
+#
+#
+# Account.set_usd_rate(2)
+# acc.convert_to_usd()
+# Account.set_eur_rate(3)
+# acc.convert_to_eur()
+# print()
+#
+# acc.edit_owner("Дюма")
+# acc.print_info()
+# print()
+#
+# acc.add_percents()
+# print()
+#
+# acc.withdraw_money(100)
+# print()
+#
+# # acc.withdraw_money(3000)
+# # print()
+#
+# acc.add_money(5000)
+# print()
+#
+# acc.withdraw_money(3000)
+# print()
+
+
+# -// ВАРИАНТ 2 //- (через get, set)
+
+
+class Account:
+    rate_usd = 0.013  # статические свойства
+    rate_eur = 0.011  # статические свойства
+    suffix = "RUB"  # статические свойства
+    suffix_usd = "USD"  # статические свойства
+    suffix_eur = "EUR"  # статические свойства
+
+    def __init__(self, num, surname, percent, value):  # инициализатор
+        self.__num = num  # динамические свойства
+        self.__surname = surname
+        self.__percent = percent
+        self.__value = value
+        print(f"Счет #{self.__num} принадлежащий {self.__surname} был открыт.")
+        print("*" * 50)
+
+    def __del__(self):  # служебный метод DEL отработает после выполнения программы (разрывает ссылку)
+        print("*" * 50)
+        print(f"Счет #{self.__num} принадлежащий {self.__surname} был закрыт.")
 
     @staticmethod
-    def get_count():
-        return Numbers.__count
+    def convert(value, rate):
+        return value * rate
 
-    @staticmethod
-    def area(a, b, c):     # площадь треугольника по формуле Герона.
-        s = (a + b + c) / 2
-        Numbers.__count += 1
-        return s
+    @classmethod
+    def set_usd_rate(cls, rate):
+        cls.rate_usd = rate
 
-    @staticmethod
-    def area_1(a, b):      # площадь треугольника через основание и высоту
-        s = (a * b) * 0.5
-        Numbers.__count += 1
-        return s
+    @classmethod
+    def set_eur_rate(cls, rate):
+        cls.rate_eur = rate
 
-    @staticmethod
-    def area_3(a):        # площадь квадрата
-        s = a ** 2
-        Numbers.__count += 1
-        return s
+    def __check_value(self):  # метод проверки
+        if isinstance(self, int) or isinstance(self, float):
+            return True
+        return False
 
-    @staticmethod
-    def area_4(a, b):      # площадь прямоугольника
-        s = a * b
-        Numbers.__count += 1
-        return s
+    def set_coord(self, num, surname, percent, value):
+        if Account.__check_value(self):
+            self.__num = num
+            self.__surname = surname
+            self.__percent = percent
+            self.__value = value
+        else:
+            print("Неверный формат")
+
+    def get_coord_num(self):
+        return self.__num
+
+    def get_coord_surname(self):
+        return self.__surname
+
+    def get_coord_percent(self):
+        return self.__percent
+
+    def get_coord_value(self):
+        return self.__value
+
+    def convert_to_usd(self):
+        usd_val = Account.convert(self.__value, Account.rate_usd)
+        print(f"Состояние счета: {usd_val} {Account.suffix_usd}")
+
+    def convert_to_eur(self):
+        eur_val = Account.convert(self.__value, Account.rate_eur)
+        print(f"Состояние счета: {eur_val} {Account.suffix_eur}")
+
+    def edit_owner(self, surname):
+        self.__surname = surname
+
+    def add_percents(self):
+        self.__value += self.__value * self.__percent
+        print("Проценты были успешно начислены")
+        self.print_balance()
+
+    def withdraw_money(self, val):
+        if val > self.__value:
+            print(f"К сожалению у вас нет {val} {Account.suffix}")
+        else:
+            self.__value -= val
+            print(f"{val} {Account.suffix} было успешно снято")
+        self.print_balance()
+
+    def add_money(self, val):
+        self.__value += val
+        print(f"{val} {Account.suffix} было успешно добавлено!")
+        self.print_balance()
+
+    def print_balance(self):
+        print(f"Текущий баланс {self.__value} {Account.suffix}")
+
+    def print_info(self):
+        print("Информация о счете: ")
+        print("-" * 20)
+        print(f"#{self.__num}")
+        print(f"Владелец: {self.__surname}")
+        self.print_balance()
+        print(f"Проценты: {self.__percent:.0%}")  # 0 - это количество символов после точки с процентом
+        print("-" * 20)
 
 
-print("Площадь треугольника по формуле Герона: ", Numbers.area(3, 4, 5))
-print("Площадь треугольника через основание и высоту: ", Numbers.area_1(6, 7))
-print("Площадь квадрата: ", Numbers.area_3(7))
-print("Площадь прямоугольника: ", Numbers.area_4(2, 6))
-print("Количество подсчетов площади: ", Numbers.get_count())
+acc = Account("12345", "Долгих", 0.03, 1000)
+# acc.print_balance()
+acc.print_info()
+acc.convert_to_usd()
+acc.convert_to_eur()
+print()
+
+Account.set_usd_rate(2)
+acc.convert_to_usd()
+Account.set_eur_rate(3)
+acc.convert_to_eur()
+print()
+
+acc.edit_owner("Дюма")
+acc.print_info()
+print()
+
+acc.add_percents()
+print()
+
+acc.withdraw_money(100)
+print()
+
+# acc.withdraw_money(3000)
+# print()
+
+acc.add_money(5000)
+print()
+
+acc.withdraw_money(3000)
+print()

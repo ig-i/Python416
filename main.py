@@ -3329,121 +3329,125 @@ import re
 # print(p1.__dict__)
 
 
+class Point:
+    def __init__(self, x, y):
+        self.__x = x
+        self.__y = y
+
+    def __check_value(c):  # метод проверки
+        if isinstance(c, int) or isinstance(c, float):
+            return True
+        return False
+
+    def __set_coord_x(self, x):
+        # print("Вызов __set_coord_x")
+        if Point.__check_value(x):
+            self.__x = x
+        else:
+            print("Неверный формат данных")
+
+    def __get_coord_x(self):
+        # print("Вызов __get_coord_x")
+        return self.__x
+
+    def __del_coord_x(self):
+        print("Удаление свойства")
+        del self.__x
+
+    x = property(__get_coord_x, __set_coord_x, __del_coord_x)  # свойство котор. предост-ет доступ к закрытым методам
+    # первым должен идти get потом set
+
+
+p1 = Point(5, 10)
+# print(p1.__set_coord_x(50))
+# print(p1.__get_coord_x())
+p1.x = 50  # это set отработал
+print(p1.x)  # это get отработал
+del p1.x  # это del отработал (удалил свойство х)
+print(p1.__dict__)
+
+
+#  Метод Property
+
+class Point:  # новая запись методов через декораторы в т.ч. property
+    def __init__(self, x, y):
+        self.__x = x
+        self.__y = y
+
+    @staticmethod
+    def __check_value(c):
+        if isinstance(c, int) or isinstance(c, float):
+            return True
+        return False
+
+    @property  # это геттер
+    def x(self):  # тут х это название метода
+        return self.__x
+
+    @x.setter  # это сеттер
+    def x(self, x):
+        if Point.__check_value(x):
+            self.__x = x
+        else:
+            print("Неверный формат данных")
+
+    @x.deleter  # это делитер
+    def x(self):
+        del self.__x
+
+    # x = property(__get_coord_x, __set_coord_x, __del_coord_x)
+
+
+p1 = Point(5, 10)
+p1.x = 50  # set
+print(p1.x)  # get
+del p1.x  # del
+print(p1.__dict__)
+
+
+#
+#
+class Person:
+    def __init__(self, name, old):
+        self.__name = name
+        self.__old = old
+
+    @property  # через декоратор Property можно передавать только 1 свойство
+    def name(self):
+        return self.__name
+
+    @name.setter
+    def name(self, n):
+        self.__name = n
+
+    @name.deleter
+    def name(self):
+        del self.__name
+
+    @property
+    def old(self):
+        return self.__old
+
+    @old.setter
+    def old(self, year):
+        self.__old = year
+
+    @old.deleter
+    def old(self):
+        del self.__old
+
+
+p1 = Person("Irina", 26)
+print(p1.__dict__)
+p1.name = "Igor"
+p1.old = 31
+print(p1.__dict__)
+del p1.name
+# del p1.old
+print(p1.__dict__)
+
 # class Point:
-#     def __init__(self, x, y):
-#         self.__x = x
-#         self.__y = y
-#
-#     def __check_value(c):   # метод проверки
-#         if isinstance(c, int) or isinstance(c, float):
-#             return True
-#         return False
-#
-#     def __set_coord_x(self, x):
-#         # print("Вызов __set_coord_x")
-#         if Point.__check_value(x):
-#             self.__x = x
-#         else:
-#             print("Неверный формат данных")
-#
-#     def __get_coord_x(self):
-#         # print("Вызов __get_coord_x")
-#         return self.__x
-#
-#     def __del_coord_x(self):
-#         print("Удаление свойства")
-#         del self.__x
-#
-#     x = property(__get_coord_x, __set_coord_x, __del_coord_x)  # свойство котор. предост. доступ к закрытым методам
-#                                                                 # первым должен идти get потом set
-#
-# p1 = Point(5, 10)
-# # print(p1.__set_coord_x(50))
-# # print(p1.__get_coord_x())
-# p1.x = 50                           # это set отработал
-# print(p1.x)                          # это get отработал
-# del p1.x                              # это del отработал (удалил свойство х)
-# print(p1.__dict__)
-
-
-# class Point:   # новая запись методов через декораторы в т.ч. property
-#     def __init__(self, x, y):
-#         self.__x = x
-#         self.__y = y
-#
-#     @staticmethod
-#     def __check_value(c):
-#         if isinstance(c, int) or isinstance(c, float):
-#             return True
-#         return False
-#
-#     @property  # это геттер
-#     def x(self):  # тут х это название метода
-#         return self.__x
-#
-#     @x.setter   # это сеттер
-#     def x(self, x):
-#         if Point.__check_value(x):
-#             self.__x = x
-#         else:
-#             print("Неверный формат данных")
-#
-#     @x.deleter  # это делитер
-#     def x(self):
-#         del self.__x
-#
-#     # x = property(__get_coord_x, __set_coord_x, __del_coord_x)
-#
-#
-# p1 = Point(5, 10)
-# p1.x = 50  # set
-# print(p1.x)  # get
-# del p1.x  # del
-# print(p1.__dict__)
-
-
-# class Person:
-#     def __init__(self, name, old):
-#         self.__name = name
-#         self.__old = old
-#
-#     @property     # через декоратор Property можно передавать только 1 свойство
-#     def name(self):
-#         return self.__name
-#
-#     @name.setter
-#     def name(self, n):
-#         self.__name = n
-#
-#     @name.deleter
-#     def name(self):
-#         del self.__name
-#
-#     @property
-#     def old(self):
-#         return self.__old
-#
-#     @old.setter
-#     def old(self, year):
-#         self.__old = year
-#
-#     @old.deleter
-#     def old(self):
-#         del self.__old
-#
-#
-# p1 = Person("Irina", 26)
-# print(p1.__dict__)
-# p1.name = "Igor"
-# p1.old = 31
-# print(p1.__dict__)
-# del p1.name
-# # del p1.old
-# print(p1.__dict__)
-
-
-# class Point:
-#     __count = 0                          # закрываем статическое свойство через метод  Privat
+#     __count = 0                          # закрываем статическое свойство через метод Privat
 #
 #     def __init__(self, x=0, y=0):
 #         self.x = x
@@ -3537,24 +3541,25 @@ import re
 
 # class Date:
 #     def __init__(self, day, month, year):
-#         self.day = day
+#         self.day = day               # здесь экземпляр класса date изменил динамические  свойства в инициализаторе
 #         self.month = month
 #         self.year = year
 #
 #     @classmethod
-#     def from_string(cls, string_date):
+#     def from_string(cls, string_date):   # здесь в cls попадает имя класса Date из переменной d
 #         day, month, year = map(int, string_date.split("."))  # [23, 01, 2025]
-#         date = cls(day, month, year)  # d = Date(day, month, year)
+#         date = cls(day, month, year)  # d = Date(day, month, year), здесь создается экземпляр класса - date
 #         return date
 #
 #     def string_to_db(self):
-#         return f"{self.year}-{self.month}-{self.day}"
+#         return f"{self.year}-{self.month}-{self.day}"    # возвращаем в print строку: год, месяц, день
 #
 #
 # # string_date = "23.01.2025"
-# # day, month, year = map(int, string_date.split("."))  # [23, 01, 2025]
-# # d = Date(day, month, year)
+# # day, month, year = map(int, string_date.split("."))  # формируем список разбиваем элементы через точку [23, 01, 2025]
+# # d = Date(day, month, year)                           # в инициализатор передаем 3 переменные разбитые методом split
 # d = Date.from_string("23.01.2025")
+# # print(string_date.split("."))
 # print(d.string_to_db())
 #
 # d1 = Date.from_string("15.12.2024")
@@ -3562,21 +3567,21 @@ import re
 
 
 # class Account:
-#     rate_usd = 0.013
-#     rate_eur = 0.011
-#     suffix = "RUB"
-#     suffix_usd = "USD"
-#     suffix_eur = "EUR"
+#     rate_usd = 0.013  # статические свойства
+#     rate_eur = 0.011  # статические свойства
+#     suffix = "RUB"    # статические свойства
+#     suffix_usd = "USD"  # статические свойства
+#     suffix_eur = "EUR"   # статические свойства
 #
-#     def __init__(self, num, surname, percent, value):
-#         self.num = num
+#     def __init__(self, num, surname, percent, value):  # инициализатор
+#         self.num = num            # динамические свойства
 #         self.surname = surname
 #         self.percent = percent
 #         self.value = value
 #         print(f"Счет #{self.num} принадлежащий {self.surname} был открыт.")
 #         print("*" * 50)
 #
-#     def __del__(self):
+#     def __del__(self):  # служебный метод DEL отработает после выполнения программы (разрывает ссылку)
 #         print("*" * 50)
 #         print(f"Счет #{self.num} принадлежащий {self.surname} был закрыт.")
 #
@@ -3630,7 +3635,7 @@ import re
 #         print(f"#{self.num}")
 #         print(f"Владелец: {self.surname}")
 #         self.print_balance()
-#         print(f"Проценты: {self.percent:.0%}")
+#         print(f"Проценты: {self.percent:.0%}")  # 0 - это количество символов после точки с процентом
 #         print("-" * 20)
 #
 #
@@ -3657,8 +3662,8 @@ import re
 # acc.withdraw_money(100)
 # print()
 #
-# acc.withdraw_money(3000)
-# print()
+# # acc.withdraw_money(3000)
+# # print()
 #
 # acc.add_money(5000)
 # print()
@@ -3666,58 +3671,253 @@ import re
 # acc.withdraw_money(3000)
 # print()
 
-import re
+# import re
+#
+#
+# class UserData:
+#     def __init__(self, fio, old, ps, weight):
+#         self.fio = fio
+#         self.old = old
+#         self.password = ps
+#         self.weight = weight
+#
+#     @staticmethod
+#     def verify_fio(fio):
+#         if not isinstance(fio, str):
+#             raise TypeError("ФИО должно быть строкой")
+#         f = fio.split()  # ['Волков', 'Игорь', 'Николаевич!!!']
+#         if len(f) != 3:
+#             raise TypeError("Неверный формат ФИО")
+#         letters = "".join(re.findall(r"[a-zа-яё-]", fio, flags=re.IGNORECASE))  # ВолковИгорьНиколаевич
+#         for s in f:
+#             # print(s.strip(letters))
+#             if len(s.strip(letters)) != 0:
+#                 raise TypeError("В ФИО можно использовать только буквы и дефис")
+#
+#     @staticmethod
+#     def verify_old(old):
+#         if not isinstance(old, int) or not 14 <= old <= 100:  # old < 14 or old > 100
+#             raise TypeError("Возраст должен быть числом в диапазоне от 14 до 100 лет")
+#
+#     @staticmethod
+#     def verify_weight(w):
+#         if not isinstance(w, float) or w < 20:
+#             raise TypeError("Вес должен быть вещественным числом от 20 кг и выше")
+#
+#     @staticmethod
+#     def verify_ps(ps):
+#         if not isinstance(ps, str):
+#             raise TypeError("Паспорт должен быть строкой")
+#         s = ps.split()  # ['1234', '567890']
+#         if len(s) != 2 or len(s[0]) != 4 or len(s[1]) != 6:
+#             raise TypeError("Неверный формат паспорта")
+#         for p in s:
+#             if not p.isdigit():
+#                 raise TypeError("Серия и номер паспорта должны быть числами")
+#
+#     @property
+#     def fio(self):
+#         return self.__fio
+#
+#     @fio.setter
+#     def fio(self, fio):
+#         self.verify_fio(fio)
+#         self.__fio = fio
+#
+#     @property
+#     def old(self):
+#         return self.__old
+#
+#     @old.setter
+#     def old(self, year):
+#         self.verify_old(year)
+#         self.__old = year
+#
+#     @property
+#     def password(self):
+#         return self.__password
+#
+#     @password.setter
+#     def password(self, ps):
+#         self.verify_ps(ps)
+#         self.__password = ps
+#
+#     @property
+#     def weight(self):
+#         return self.__weight
+#
+#     @weight.setter
+#     def weight(self, w):
+#         self.verify_weight(w)
+#         self.__weight = w
+#
+#
+# p1 = UserData("Волков Игорь Николаевич", 26, "1234 567890", 80.8)
+# p1.fio = "Ветров Игорь Николаевич"
+# print(p1.fio)
+# print(p1.__dict__)
 
 
-class UserData:
-    def __init__(self, fio, old, ps, weight):
-        self.verify_fio(fio)
-        self.verify_old(old)
-        self.verify_weight(weight)
-        self.verify_ps(ps)
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#
+# print(Point.__dict__)
+# print(issubclass(Point, object))
+# print(type(5))
 
-        self.__fio = fio
-        self.__old = old
-        self.__password = ps
-        self.__weight = weight
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     def __str__(self) -> str:
+#         return f"({self.__x}, {self.__y})"
+#
+#
+# class Prop:
+#     def __init__(self, sp: Point, ep: Point, color: str = "red", width: int = 1) -> None:
+#         self._sp = sp
+#         self._ep = ep
+#         self._color = color
+#         self._width = width
+#
+#
+# class Line(Prop):
+#     def __init__(self, *args):
+#         print("Переопределенный инициализатор Line")
+#         # Prop.__init__(self, *args)
+#         super().__init__(*args)
+#
+#     def draw_line(self):
+#         print(f"Рисование линии: {self._sp}, {self._ep}, {self._color}, {self._width}")
+#
+#
+# class Rect(Prop):
+#     def draw_rect(self):
+#         print(f"Рисование прямоугольника: {self._sp}, {self._ep}, {self._color}, {self._width}")
+#
+#
+# line = Line(Point(1, 2), Point(10, 20), "green", 5)
+# line.draw_line()
+#
+# rect = Rect(Point(30, 40), Point(70, 80))
+# rect.draw_rect()
 
-    @staticmethod
-    def verify_fio(fio):
-        if not isinstance(fio, str):
-            raise TypeError("ФИО должно быть строкой")
-        f = fio.split()  # ['Волков', 'Игорь', 'Николаевич!!!']
-        if len(f) != 3:
-            raise TypeError("Неверный формат ФИО")
-        letters = "".join(re.findall(r"[a-zа-яё-]", fio, flags=re.IGNORECASE))  # ВолковИгорьНиколаевич
-        for s in f:
-            # print(s.strip(letters))
-            if len(s.strip(letters)) != 0:
-                raise TypeError("В ФИО можно использовать только буквы и дефис")
+# class Figure:
+#     def __init__(self, color):
+#         self.__color = color
+#
+#     @property
+#     def color(self):
+#         return self.__color
+#
+#     @color.setter
+#     def color(self, c):
+#         self.__color = c
+#
+#
+# class Rectangle(Figure):
+#     def __init__(self, width, height, color):
+#         super().__init__(color)
+#         self.width = width
+#         self.height = height
+#
+#     @property
+#     def width(self):
+#         return self.__width
+#
+#     @width.setter
+#     def width(self, w):
+#         if isinstance(w, int) and w > 0:
+#             self.__width = w
+#         else:
+#             raise ValueError("Ширина должна быть положительным числом")
+#
+#     @property
+#     def height(self):
+#         return self.__height
+#
+#     @height.setter
+#     def height(self, h):
+#         if isinstance(h, int) and h > 0:
+#             self.__height = h
+#         else:
+#             raise ValueError("Высота должна быть положительным числом")
+#
+#     def area(self):
+#         print(f"Площадь {self.color} прямоугольника:", end=" ")
+#         return self.__width * self.__height
+#
+#
+# rect = Rectangle(10, 20, "green")
+#
+# print(rect.area())
+# print(rect.__dict__)
 
-    @staticmethod
-    def verify_old(old):
-        if not isinstance(old, int) or not 14 <= old <= 100:  # old < 14 or old > 100
-            raise TypeError("Возраст должен быть числом в диапазоне от 14 до 100 лет")
 
-    @staticmethod
-    def verify_weight(w):
-        if not isinstance(w, float) or w < 20:
-            raise TypeError("Вес должен быть вещественным числом от 20 кг и выше")
+# class Rect:
+#     def __init__(self, width, height):
+#         self.width = width
+#         self.height = height
+#
+#     def show_rect(self):
+#         print(f"Прямоугольник:\nШирина: {self.width}\nВысота: {self.height}")
+#
+#
+# class RectFon(Rect):
+#     def __init__(self, width, height, background):
+#         super().__init__(width, height)
+#         self.fon = background
+#
+#     def show_rect(self):
+#         super().show_rect()
+#         print("Фон:", self.fon)
+#
+#
+# class RectBorder(Rect):
+#     ...
+#
+#
+# shape1 = RectFon(400, 200, "yellow")
+# shape1.show_rect()
+# print()
+# shape2 = RectBorder(600, 300, "1px", "solid", "red")
+# shape2.show_rect()
 
-    @staticmethod
-    def verify_ps(ps):
-        if not isinstance(ps, str):
-            raise TypeError("Паспорт должен быть строкой")
-        s = ps.split()  # ['1234', '567890']
-        if len(s) != 2 or len(s[0]) != 4 or len(s[1]) != 6:
-            raise TypeError("Неверный формат паспорта")
-        for p in s:
-            if not p.isdigit():
-                raise TypeError("Серия и номер паспорта должны быть числами")
+
+# class Vector(list):
+#     def __str__(self):
+#         return " ".join(map(str, self))
+#
+#
+# v = Vector([1, 2, 3])
+# print(v)  # "1 2 3"
+# print(type(v))
 
 
-p1 = UserData("Волков Игорь Николаевич", 26, "1234 567890", 80.8)
-
-
-
-
+# class Point:
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#
+#     def set_coord(self, x=None, y=None):
+#         if y is None:
+#             self.x = x
+#         elif x is None:
+#             self.y = y
+#         else:
+#             self.x = x
+#             self.y = y
+#
+#
+# p1 = Point(5, 10)
+# print(p1.__dict__)
+# p1.set_coord(20, 30)
+# print(p1.__dict__)
+# p1.set_coord(50)
+# print(p1.__dict__)
+# p1.set_coord(y=100)
+# print(p1.__dict__)
