@@ -8,6 +8,7 @@
 #
 # import builtins
 from fileinput import filename
+from linecache import clearcache
 from unittest.mock import PropertyMock
 
 
@@ -776,41 +777,74 @@ from unittest.mock import PropertyMock
 # acc.withdraw_money(3000)
 # print()
 
-class Rect:
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
+# class Rect:
+#     def __init__(self, width, height):
+#         self.width = width
+#         self.height = height
+#
+#     def show_rect(self):
+#         print(f"Прямоугольник:\nШирина: {self.width}\nВысота: {self.height}")
+#
+#
+# class RectFon(Rect):
+#     def __init__(self, width, height, background):
+#         super().__init__(width, height)
+#         self.fon = background
+#
+#     def show_rect(self):
+#         super().show_rect()
+#         print("Фон:", self.fon)
+#
+#
+# class RectBorder(Rect):
+#     def __init__(self, width, height, thin, typed, color):
+#         super().__init__(width, height)
+#         self.thin = thin
+#         self.typed = typed
+#         self.color = color
+#
+#     def show_rect(self):
+#         super().show_rect()
+#         print("Толщина рамки:", self.thin)
+#         print("Тип рамки:", self.typed)
+#         print("Цвет рамки:", self.color)
+#
+#
+# shape1 = RectFon(400, 200, "yellow")
+# shape1.show_rect()
+# print()
+# shape2 = RectBorder(600, 300, "1px", "solid", "red")
+# shape2.show_rect()
 
-    def show_rect(self):
-        print(f"Прямоугольник:\nШирина: {self.width}\nВысота: {self.height}")
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+        self.note = self.Noteboock()
+
+    def show(self):
+        print(self.name, end="")
+        self.note.show()             # обращаемся к методу show вложенному в класс Noteboock
+
+    class Noteboock:
+        def __init__(self):
+            self.model = "HP"
+            self.cpu = "i7"
+            self.ddr = "16"
+
+        def show(self):
+            print(f" => {self.model}, {self.cpu}, {self.ddr}")
 
 
-class RectFon(Rect):
-    def __init__(self, width, height, background):
-        super().__init__(width, height)
-        self.fon = background
+s1 = Student("Roman")
+s2 = Student("Vladimir")
 
-    def show_rect(self):
-        super().show_rect()
-        print("Фон:", self.fon)
+s1.show()
+s2.show()
 
 
-class RectBorder(Rect):
-    def __init__(self, width, height, thin, typed, color):
-        super().__init__(width, height)
-        self.thin = thin
-        self.typed = typed
-        self.color = color
-
-    def show_rect(self):
-        super().show_rect()
-        print("Толщина рамки:", self.thin)
-        print("Тип рамки:", self.typed)
-        print("Цвет рамки:", self.color)
 
 
-shape1 = RectFon(400, 200, "yellow")
-shape1.show_rect()
-print()
-shape2 = RectBorder(600, 300, "1px", "solid", "red")
-shape2.show_rect()
+
+
+

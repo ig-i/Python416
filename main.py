@@ -5,7 +5,9 @@
 # print(type(name))  # тип данных строка
 # print(type(age))  # тип данных целое число
 import os
+from idlelib.debugger_r import close_subprocess_debugger
 from itertools import count
+from mimetypes import inited
 from multiprocessing.context import set_spawning_popen
 from sys import base_prefix
 from tkinter.font import names
@@ -3934,12 +3936,12 @@ import re
 
 # Абстрактные методы
 
-# class Point:
+# class Point:     # 1 подход абстрактный метод в чистом виде
 #     def __init__(self, x, y):
 #         self.x = x
 #         self.y = y
 #
-#     def __str__(self):
+#     def __str__(self):   # метод возвращает строковое представление обьекта
 #         return f"({self.x}, {self.y})"
 #
 #
@@ -3950,8 +3952,8 @@ import re
 #         self.color = color
 #         self.width = width
 #
-#     def draw(self):
-#         raise NotImplementedError("В дочернем классе должен быть определен метод draw()")
+#     def draw(self):    # метод обьявлен в родительском классе но не реализован в дочернем классе (выбрасывает ошибку)
+#         raise NotImplementedError("В дочернем классе должен быть определен метод draw()")   # выбрасываем исключение
 #
 #
 # class Line(Prop):
@@ -3979,15 +3981,15 @@ import re
 # for i in shapes:
 #     i.draw()
 
-# from abc import ABC, abstractmethod
+# from abc import ABC, abstractmethod                  # 2 подход к созданию абстрактных методов
 #
 #
 # class Chess(ABC):
 #     def draw(self):
 #         print("Нарисовал шахматную доску")
 #
-#     @abstractmethod
-#     def move(self):
+#     @abstractmethod                                  # декоратор что метод абстрактный
+#     def move(self):                                  # иногда в абстракт методе может быть реализация
 #         print("Метод move() в базовом классе")
 #
 #
@@ -4017,7 +4019,7 @@ import re
 #         else:
 #             self.radius = radius
 #
-#     def calc_area(self):
+#     def calc_area(self):            # здесь реализуем абстрактный метод на других дочерних классах
 #         raise NotImplementedError("В дочернем классе должен быть определен метод calc_area()")
 #
 #
@@ -4107,7 +4109,7 @@ import re
 # from abc import ABC, abstractmethod
 #
 #
-# class Father(ABC):
+# class Father(ABC): # классы могут наследоватся друг от друга
 #     @abstractmethod
 #     def display1(self):
 #         pass
@@ -4158,8 +4160,8 @@ import re
 #             print(self.inner_inner)
 #             MyOuter.outer_static_method()
 #             self.obj.outer_obj_method()
-#
-#
+
+
 # out = MyOuter("внешний")
 # print(out.name)
 # inner = out.MyInner("внутренний", out)
@@ -4167,31 +4169,31 @@ import re
 # print(inner.inner_inner)
 # inner.inner_method()
 
-# class LightColor:
-#     def __init__(self):
-#         self.name = "LightGreen"
-#
-#     def display(self):
-#         print("Name:", self.name)
-#
-#
+
 # class Color:
 #     def __init__(self):
 #         self.name = "Green"
-#         self.lg = LightColor()
-#         self.dg = self.DarkColor()
+#         self.lg = self.LightColor()      #  в наружнем классе создаем экземпляр вложенного класса
+#         # self.dg = self.DarkColor()
 #
 #     def show(self):
 #         print("Name:", self.name)
 #
-#     class DarkColor:
+#     class LightColor:
 #         def __init__(self):
 #             self.name = "DarkGreen"
 #
 #         def display(self):
 #             print("Name:", self.name)
-#
-#
+
+    # class DarkColor:
+    #     def __init__(self):
+    #         self.name = "DarkGreen"
+    #
+    #     def display(self):
+    #         print("Name:", self.name)
+
+
 # outer = Color()
 # outer.show()
 # print(outer.name)
@@ -4226,3 +4228,306 @@ import re
 # print(my_os.system())
 # print(my_cpu.make())
 # print(my_cpu.model())
+
+# 22/04/2025
+
+# class Cat:
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def __str__(self):
+#         return f"{self.name}"
+#
+#     def __repr__(self):
+#         return f"{self.__class__}: {self.name}"
+#
+#
+# cat = Cat("Пушок")
+# print(cat)
+# import math
+#
+#
+# class Point:
+#     __slots__ = ('x', 'y', '__length')
+#
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#         self.length = math.sqrt(x * x + y * y)
+#
+#     @property
+#     def length(self):
+#         return self.__length
+#
+#     @length.setter
+#     def length(self, value):
+#         self.__length = value
+#
+#
+# p1 = Point(10, 20)
+# # p1.z = 30
+# # print(p1.__dict__)
+# p1.length = 10
+# print(p1.length)
+
+
+# class Point:
+#     __slots__ = ('x', 'y')
+#
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#
+#
+# class Point2D:
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#
+#
+# p1 = Point(10, 20)
+# p2 = Point2D(10, 20)
+# print("p1 =", p1.__sizeof__())
+# print("p2 =", p2.__sizeof__() + p2.__dict__.__sizeof__())
+
+
+# class Point:
+#     __slots__ = ('x', 'y')
+#
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#
+#
+# class Point3D(Point):
+#     __slots__ = 'z',
+#
+#     def __init__(self, x, y, z):
+#         super().__init__(x, y)
+#         self.z = z
+#
+#
+# pt = Point(1, 2)
+# pt3 = Point3D(10, 2, 30)
+# # pt3.z = 30
+# print(pt3.x, pt3.y, pt3.z)
+# # print(pt3.__dict__)
+
+
+# Множественное наследование
+
+# class Creature:
+#     def __init__(self, name):
+#         self.name = name
+#
+#
+# class Animal(Creature):
+#     def sleep(self):
+#         print(self.name + " is sleeping")
+#
+#
+# class Pet(Creature):
+#     def play(self):
+#         print(self.name + " is playing")
+#
+#
+# class Dog(Animal, Pet):
+#     def bark(self):
+#         print(self.name + " is barking")
+#
+#
+# dog = Dog("Buddy")
+# dog.bark()
+# dog.sleep()
+# dog.play()
+
+
+# class A:
+#     def __init__(self):
+#         print("Инициализатор класса A")
+#
+#
+# class B(A):
+#     def __init__(self):
+#         print("Инициализатор класса B")
+#
+#
+# class C(A):
+#     def __init__(self):
+#         print("Инициализатор класса C")
+#
+#
+# class D(B, C):
+#     def __init__(self):
+#         print("Инициализатор класса D")
+#
+#
+# d = D()
+# print(D.mro())
+# print(D.__mro__)
+
+
+# class A:
+#     def __init__(self):
+#         print("Инициализатор класса A")
+#
+#
+# class AA:
+#     def __init__(self):
+#         print("Инициализатор класса AA")
+#
+#
+# class B(A):
+#     def __init__(self):
+#         print("Инициализатор класса B")
+#
+#
+# class C(AA):
+#     def __init__(self):
+#         print("Инициализатор класса C")
+#
+#
+# class D(B, C):
+#     def __init__(self):
+#         print("Инициализатор класса D")
+#
+#
+# d = D()
+# print(D.mro())
+
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     def __str__(self):
+#         return f"({self.__x}, {self.__y})"
+#
+#
+# class Styles:
+#     def __init__(self, color="red", width=1):
+#         print("Инициализатор Styles")
+#         self.color = color
+#         self.width = width
+#
+#
+# class Pos:
+#     def __init__(self, sp: Point, ep: Point, *args):
+#         print("Инициализатор класса Pos")
+#         self.sp = sp
+#         self.ep = ep
+#         # Styles.__init__(self, *args)
+#         super().__init__(*args)
+#
+#
+# class Line(Pos, Styles):
+#     def draw(self):
+#         print(f"Рисование линии: {self.sp}, {self.ep}, {self.color}, {self.width}")
+#
+#
+# l1 = Line(Point(10, 10), Point(100, 100), "green", 5)
+# l1.draw()
+
+# class MixinLog:
+#     ID = 0
+#
+#     def __init__(self):
+#         print("Init MixinLog")
+#         MixinLog.ID += 1
+#         self.id = MixinLog.ID
+#
+#     def save_sell_log(self):
+#         print(f"{self.id}: товар был продан в 17:15")
+#
+#
+# class Goods:
+#     def __init__(self, name, weight, price):
+#         print("Init Goods")
+#         self.name = name
+#         self.weight = weight
+#         self.price = price
+#         super().__init__()
+#
+#     def print_info(self):
+#         print(f"{self.name}, {self.weight}, {self.price}")
+#
+#
+# class Notebook(Goods, MixinLog):
+#     pass
+#
+#
+# n = Notebook("HP", 1.5, 35000)
+# n2 = Notebook("HP", 1.5, 35000)
+# n.print_info()
+# n.save_sell_log()
+# n2.save_sell_log()
+
+
+# Перегрузка операторов
+
+# Число секунд в одном дне: 24 * 60 * 60 = 86400
+
+# class Clock:
+#     __DAY = 86400
+#
+#     def __init__(self, sec: int):
+#         if not isinstance(sec, int):
+#             raise ValueError("Секунды должны быть целым числом")
+#         self.sec = sec % self.__DAY
+#
+#     def get_format_time(self):
+#         s = self.sec % 60
+#         m = (self.sec // 60) % 60
+#         h = (self.sec // 3600) % 24
+#         return f"{Clock.__get_form(h)}:{Clock.__get_form(m)}:{Clock.__get_form(s)}"
+#
+#     @staticmethod
+#     def __get_form(x):
+#         return str(x) if x > 9 else "0" + str(x)
+#
+#     def __add__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типом Clock")
+#         return Clock(self.sec + other.sec)
+#
+#     def __eq__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типом Clock")
+#         return self.sec == other.sec
+#
+#     def __ne__(self, other):
+#         return not self.__eq__(other)
+#
+#
+# c1 = Clock(100)
+# c2 = Clock(200)
+# c3 = c1 + c2
+# print(c1.get_format_time())
+# print(c2.get_format_time())
+# # c1 += c2
+# print(c3.get_format_time())
+# print(c1.get_format_time())
+# if c1 == c2:
+#     print("Время равно")
+# else:
+#     print("Время разное")
+
+# if c1 != c2:
+#     print("Время разное")
+# else:
+#     print("Время равно")
+
+class Student:
+    def __init__(self, name, *marks):
+        self.name = name
+        self.marks = list(marks)
+
+    def __getitem__(self, item):
+        return self.marks[item]
+
+
+s1 = Student("Сергей", 5, 5, 3, 4, 5)
+# print(s1.marks[2])
+print(s1[2])
+print(s1[2])
