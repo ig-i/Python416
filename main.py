@@ -4244,6 +4244,7 @@ import re
 #
 # cat = Cat("Пушок")
 # print(cat)
+
 # import math
 #
 #
@@ -4287,7 +4288,7 @@ import re
 #
 # p1 = Point(10, 20)
 # p2 = Point2D(10, 20)
-# print("p1 =", p1.__sizeof__())
+# print("p1 =", p1.__sizeof__())                    # метод показывает размер обьекта
 # print("p2 =", p2.__sizeof__() + p2.__dict__.__sizeof__())
 
 
@@ -4300,7 +4301,8 @@ import re
 #
 #
 # class Point3D(Point):
-#     __slots__ = 'z',
+#
+#     __slots__ = 'z',  # можно добавлять метод slots в дочерний класс но только с новыми св-вами которых нет в родителе
 #
 #     def __init__(self, x, y, z):
 #         super().__init__(x, y)
@@ -4309,9 +4311,9 @@ import re
 #
 # pt = Point(1, 2)
 # pt3 = Point3D(10, 2, 30)
-# # pt3.z = 30
+# pt3.z = 30
 # print(pt3.x, pt3.y, pt3.z)
-# # print(pt3.__dict__)
+# # # print(pt3.__dict__)
 
 
 # Множественное наследование
@@ -4363,8 +4365,8 @@ import re
 #
 #
 # d = D()
-# print(D.mro())
-# print(D.__mro__)
+# print(D.mro())  # метод порядок, в котором Python ищет методы и атрибуты при их вызове
+# print(D.__mro__)  # магический метод - порядок, в котором Python ищет методы и атрибуты при их вызове
 
 
 # class A:
@@ -4429,18 +4431,6 @@ import re
 # l1 = Line(Point(10, 10), Point(100, 100), "green", 5)
 # l1.draw()
 
-# class MixinLog:
-#     ID = 0
-#
-#     def __init__(self):
-#         print("Init MixinLog")
-#         MixinLog.ID += 1
-#         self.id = MixinLog.ID
-#
-#     def save_sell_log(self):
-#         print(f"{self.id}: товар был продан в 17:15")
-#
-#
 # class Goods:
 #     def __init__(self, name, weight, price):
 #         print("Init Goods")
@@ -4451,6 +4441,18 @@ import re
 #
 #     def print_info(self):
 #         print(f"{self.name}, {self.weight}, {self.price}")
+#
+#
+# class MixinLog:  # Миксины (класс)
+#     ID = 0
+#
+#     def __init__(self):
+#         print("Init MixinLog")
+#         MixinLog.ID += 1
+#         self.id = MixinLog.ID
+#
+#     def save_sell_log(self):
+#         print(f"{self.id}: товар был продан в 17:15")
 #
 #
 # class Notebook(Goods, MixinLog):
@@ -4474,6 +4476,140 @@ import re
 #     def __init__(self, sec: int):
 #         if not isinstance(sec, int):
 #             raise ValueError("Секунды должны быть целым числом")
+#         self.sec = sec
+#
+#     def get_format_time(self):
+#         s = self.sec % 60   # вычисляем секунды
+#         m = (self.sec // 60) % 60  # вычисляем минуты
+#         h = (self.sec // 3600) % 24  # вычисляем часы
+#         return f"{Clock.__get_form(h)}:{Clock.__get_form(m)}:{Clock.__get_form(s)}"
+#
+#     @staticmethod
+#     def __get_form(x):
+#         return str(x) if x > 9 else "0" + str(x)
+#
+#     def __add__(self, other):                                  # метод вычисления суммы экземпляров класса
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типом Clock")
+#         return Clock(self.sec + other.sec)
+#
+#     def __sub__(self, other):                                 # метод вычисления разности экземпляров класса
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типом Clock")
+#         return Clock(self.sec - other.sec)
+#
+#     def __mul__(self, other):                                # метод вычисления произведения экземпляров класса
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типом Clock")
+#         return Clock(self.sec * other.sec)
+#
+#     def __floordiv__(self, other):                          # метод целочисленного деления экземпляров класса
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типом Clock")
+#         return Clock(self.sec // other.sec)
+#
+#     def __mod__(self, other):                               # метод деления с остатком экземпляров класса
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типом Clock")
+#         return Clock(self.sec % other.sec)
+#
+#     def __eq__(self, other):                                 # метод сравнения экземпляров класса на равенство
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типом Clock")
+#         return self.sec == other.sec
+#
+#     def __ne__(self, other):                                 # метод сравнения на неравенство экземпляров класса
+#         return not self.__eq__(other)
+#
+#     def __lt__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типом Clock")
+#         return self.sec < other.sec
+#
+#     def __le__(self, other):
+#         return not self.__eq__(other)
+#
+#     def __gt__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типом Clock")
+#         return self.sec > other.sec
+#
+#     def __ge__(self, other):
+#         return not self.__eq__(other)
+#
+#
+# c1 = Clock(100)
+# c2 = Clock(200)
+# # c3 = c1 * c2
+# print(c1.get_format_time())
+# print(c2.get_format_time())
+# c1 *= c2
+# print(c3.get_format_time())
+# print(c1.get_format_time())
+# if c1 == c2:
+#     print("Время равно")
+# else:
+#     print("Время разное")
+
+# if c1 != c2:
+#     print("Время разное")
+# else:
+#     print("Время равно")
+#
+# if c1 <= c2:
+#     print("Время разное")
+# else:
+#     print("Время равно")
+
+# if c1 >= c2:
+#     print("Время разное")
+# else:
+#     print("Время равно")
+
+
+# 24/04/2025
+
+# class Student:
+#     def __init__(self, name, *marks):
+#         self.name = name
+#         self.marks = list(marks)
+#
+#     def __getitem__(self, item):
+#         if 0 <= item < len(self.marks):
+#             return self.marks[item]
+#         else:
+#             raise IndexError("Неверный индекс")
+#
+#     def __setitem__(self, key, value):
+#         if not isinstance(key, int) or key < 0:
+#             raise TypeError("Индекс должен быть целым положительным числом")
+#
+#         if key >= len(self.marks):
+#             off = key + 1 - len(self.marks)  # off = 10 + 1 - 5  => 6
+#             self.marks.extend([None] * off)  # [5, 5, 3, 4, 5, None, None, None, None, None, None]
+#
+#         self.marks[key] = value  # [5, 5, 3, 4, 5, None, None, None, None, None, 4]
+#
+#     def __delitem__(self, key):
+#         if not isinstance(key, int):
+#             raise TypeError("Индекс должен быть целым числом")
+#         del self.marks[key]
+#
+#
+# s1 = Student("Сергей", 5, 5, 3, 4, 5)
+# # print(s1.marks[2])
+# print(s1[2])
+# s1[10] = 4
+# del s1[2]
+# print(s1.marks)
+
+
+# class Clock:
+#     __DAY = 86400
+#
+#     def __init__(self, sec: int):
+#         if not isinstance(sec, int):
+#             raise ValueError("Секунды должны быть целым числом")
 #         self.sec = sec % self.__DAY
 #
 #     def get_format_time(self):
@@ -4486,48 +4622,266 @@ import re
 #     def __get_form(x):
 #         return str(x) if x > 9 else "0" + str(x)
 #
+#     def __getitem__(self, item):
+#         if not isinstance(item, str):
+#             raise ValueError("Ключ должен быть строкой")
+#
+#         if item == "hour":
+#             return (self.sec // 3600) % 24
+#         if item == "min":
+#             return (self.sec // 60) % 60
+#         if item == "sec":
+#             return self.sec % 60
+#
+#         return "Неверный ключ"
+#
+#     def __setitem__(self, key, value):
+#         if not isinstance(key, str):
+#             raise ValueError("Ключ должен быть строкой")
+#
+#         if not isinstance(value, int):
+#             raise ValueError("Значение должно быть целым числом")
+#
+#         s = self.sec % 60
+#         m = (self.sec // 60) % 60
+#         h = (self.sec // 3600) % 24
+#
+#         if key == "hour":
+#             self.sec = s + 60 * m + value * 3600
+#         if key == "min":
+#             self.sec = s + 60 * value + h * 3600
+#         if key == "sec":
+#             self.sec = value + 60 * m + h * 3600
+#
+#
+# c1 = Clock(8000)
+# print(c1.get_format_time())
+# c1["hour"] = 10
+# c1["min"] = 20
+# c1["sec"] = 30
+# print(c1["hour"], c1["min"], c1["sec"])
+
+# from random import choice, randint
+#
+#
+# class Cat:
+#     def __init__(self, name, age, pol):
+#         self.name = name
+#         self.age = age
+#         self.pol = pol
+#
+#     def __str__(self):
+#         if self.pol == "M":
+#             return f"{self.name} is good boy!!!"
+#         elif self.pol == "F":
+#             return f"{self.name} is good girl!!!"
+#         else:
+#             return f"{self.name} is good Kitty!!!"
+#
+#     def __repr__(self):
+#         return f"Cat(name='{self.name}', age={self.age}, pol='{self.pol}')"
+#
 #     def __add__(self, other):
-#         if not isinstance(other, Clock):
-#             raise ArithmeticError("Правый операнд должен быть типом Clock")
-#         return Clock(self.sec + other.sec)
-#
-#     def __eq__(self, other):
-#         if not isinstance(other, Clock):
-#             raise ArithmeticError("Правый операнд должен быть типом Clock")
-#         return self.sec == other.sec
-#
-#     def __ne__(self, other):
-#         return not self.__eq__(other)
+#         if self.pol != other.pol:
+#             return [Cat("No name", 0, choice(["M", "F"])) for _ in range(1, randint(2, 9))]  # range(1, 9)  # от 1 по 8
+#         else:
+#             raise TypeError("Type are not supported!")
 #
 #
-# c1 = Clock(100)
-# c2 = Clock(200)
-# c3 = c1 + c2
-# print(c1.get_format_time())
-# print(c2.get_format_time())
-# # c1 += c2
-# print(c3.get_format_time())
-# print(c1.get_format_time())
-# if c1 == c2:
-#     print("Время равно")
-# else:
-#     print("Время разное")
-
-# if c1 != c2:
-#     print("Время разное")
-# else:
-#     print("Время равно")
-
-class Student:
-    def __init__(self, name, *marks):
-        self.name = name
-        self.marks = list(marks)
-
-    def __getitem__(self, item):
-        return self.marks[item]
+# cat1 = Cat("Tom", 4, "M")
+# cat2 = Cat("Elsa", 5, "F")
+# # cat3 = Cat("Murzik", 3, "M")
+# print(cat1)
+# print(cat2)
+# # print(cat3)
+# print(cat1 + cat2)
 
 
-s1 = Student("Сергей", 5, 5, 3, 4, 5)
-# print(s1.marks[2])
-print(s1[2])
-print(s1[2])
+# class Rectangle:
+#     def __init__(self, w, h):
+#         self.w = w
+#         self.h = h
+#
+#     def perimeter(self):
+#         return 2 * (self.w + self.h)
+#
+#
+# class Square:
+#     def __init__(self, a):
+#         self.a = a
+#
+#     def perimeter(self):
+#         return 4 * self.a
+#
+#
+# class Triangle:
+#     def __init__(self, a, b, c):
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#
+#     def perimeter(self):
+#         return self.a + self.b + self.c
+#
+#
+# r1 = Rectangle(1, 2)
+# r2 = Rectangle(3, 4)
+#
+# s1 = Square(10)
+# s2 = Square(20)
+#
+# t1 = Triangle(1, 2, 3)
+# t2 = Triangle(4, 5, 6)
+#
+# shape = [r1, r2, s1, s2, t1, t2]
+#
+# for g in shape:
+#     print(g.perimeter())
+
+
+# class Animal:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#
+#
+# class Cat(Animal):
+#     def info(self):
+#         print(f"Я кот. Меня зовут {self.name}. Мой возраст {self.age}.")
+#
+#     def make_sound(self):
+#         print(f"{self.name} мяукает.")
+#
+#
+# class Dog(Animal):
+#     def info(self):
+#         print(f"Я собака. Меня зовут {self.name}. Мой возраст {self.age}.")
+#
+#     def make_sound(self):
+#         print(f"{self.name} гавкает.")
+#
+#
+# cat = Cat("Пушок", 2.5)
+# dog = Dog("Мухтар", 4)
+#
+# for animal in cat, dog:
+#     animal.info()
+#     animal.make_sound()
+
+# from abc import ABC, abstractmethod
+#
+#
+# class Human(ABC):
+#     def __init__(self, name, surname, age):
+#         self.name = name
+#         self.surname = surname
+#         self.age = age
+#
+#     @abstractmethod
+#     def info(self):
+#         print(f"\n{self.surname} {self.name} {self.age}", end=" ")
+#
+#
+# class Student(Human):
+#     def __init__(self, name, surname, age, speciality, groups, rating):
+#         super().__init__(name, surname, age)
+#         self.speciality = speciality
+#         self.groups = groups
+#         self.rating = rating
+#
+#     def info(self):
+#         super().info()
+#         print(f"{self.speciality} {self.groups} {self.rating}", end=" ")
+#
+#
+# class Teacher(Human):
+#     def __init__(self, name, surname, age, subject, experience):
+#         super().__init__(name, surname, age)
+#         self.subject = subject
+#         self.experience = experience
+#
+#     def info(self):
+#         super().info()
+#         print(f"{self.subject} {self.experience}", end=" ")
+#
+#
+# class Graduate(Student):
+#     def __init__(self, name, surname, age, speciality, groups, rating, topic):
+#         super().__init__(name, surname, age, speciality, groups, rating)
+#         self.topic = topic
+#
+#     def info(self):
+#         super().info()
+#         print(f"{self.topic}")
+#
+#
+# group = [
+#     Student("Даши", "Батодалаев", 16, "ГК", "Web_011", 5),
+#     Student("Линар", "Загидуллин", 32, "РПО", "PD_011", 5),
+#     Teacher("Андрей", "Даньшин", 38, "Астрофизика", 110),
+#     Graduate("Сергей", "Шугани", 15, "PПО", "PD_011", 5,
+#              "Защита персональных данных")
+# ]
+#
+# for i in group:
+#     i.info()
+
+
+# Функторы
+
+# class Counter:
+#     def __init__(self):
+#         self.count = 0
+#
+#     def __call__(self, *args, **kwargs):
+#         self.count += 1
+#         print(self.count)
+#
+#
+# c1 = Counter()
+# c1()
+# c1()
+# c1()
+
+# def string_strip(chars):
+#     def wrap(string):
+#         if not isinstance(string, str):
+#             raise ValueError("Аргумент должен быть строкой")
+#
+#         return string.strip(chars)
+#
+#     return wrap
+#
+#
+# s1 = string_strip("?:!.; ")
+# print(s1("   Hello World!  ...  "))
+#
+#
+# class StringStrip:
+#     def __init__(self, chars):
+#         self.chars = chars
+#
+#     def __call__(self, string):
+#         if not isinstance(string, str):
+#             raise ValueError("Аргумент должен быть строкой")
+#
+#         return string.strip(self.chars)
+#
+#
+# s2 = StringStrip("?:!.; ")
+# print(s2("   Hello World!  ...  "))
+
+
+# class StringStrip:
+#     def __init__(self, chars):
+#         self.chars = chars
+#
+#     def __call__(self, *args, **kwargs):
+#         if not isinstance(args[0], str):
+#             raise ValueError("Аргумент должен быть строкой")
+#
+#         return args[0].strip(self.chars)
+#
+#
+# s2 = StringStrip("?:!.; ")
+# print(s2("   Hello World!  ...  "))

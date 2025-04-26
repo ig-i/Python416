@@ -817,30 +817,30 @@ from unittest.mock import PropertyMock
 # shape2.show_rect()
 
 
-class Student:
-    def __init__(self, name):
-        self.name = name
-        self.note = self.Noteboock()
-
-    def show(self):
-        print(self.name, end="")
-        self.note.show()             # обращаемся к методу show вложенному в класс Noteboock
-
-    class Noteboock:
-        def __init__(self):
-            self.model = "HP"
-            self.cpu = "i7"
-            self.ddr = "16"
-
-        def show(self):
-            print(f" => {self.model}, {self.cpu}, {self.ddr}")
-
-
-s1 = Student("Roman")
-s2 = Student("Vladimir")
-
-s1.show()
-s2.show()
+# class Student:
+#     def __init__(self, name):
+#         self.name = name
+#         self.note = self.Noteboock()
+#
+#     def show(self):
+#         print(self.name, end="")
+#         self.note.show()             # обращаемся к методу show вложенному в класс Noteboock
+#
+#     class Noteboock:
+#         def __init__(self):
+#             self.model = "HP"
+#             self.cpu = "i7"
+#             self.ddr = "16"
+#
+#         def show(self):
+#             print(f" => {self.model}, {self.cpu}, {self.ddr}")
+#
+#
+# s1 = Student("Roman")
+# s2 = Student("Vladimir")
+#
+# s1.show()
+# s2.show()
 
 
 
