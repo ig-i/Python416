@@ -6,7 +6,8 @@ class Square:
         return 4 * self.a
 
 
-s1 = Square(10)
-s2 = Square(20)
-print(s1.perimeter())
-print(s2.perimeter())
+if __name__ == "__main__":    # защита модуля от вывода из другого документа
+    s1 = Square(10)
+    s2 = Square(20)
+    print(s1.perimeter())
+    print(s2.perimeter())

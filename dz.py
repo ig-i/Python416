@@ -842,104 +842,130 @@ from unittest.mock import PropertyMock
 # s1.show()
 # s2.show()
 
-import math
-from abc import ABC, abstractmethod
+# import math
+# from abc import ABC, abstractmethod
+#
+#
+# class Shape(ABC):  # родительский класс
+#     def __init__(self, color):
+#         self.color = color
+#
+#     @abstractmethod
+#     def perimeter(self):
+#         pass
+#
+#     @abstractmethod
+#     def square(self):
+#         pass
+#
+#     @abstractmethod
+#     def draw(self):
+#         pass
+#
+#     @abstractmethod
+#     def print_info(self):
+#         pass
+#
+#
+# class Square(Shape):  # квадрат
+#     def __init__(self, side, color):
+#         super().__init__(color)
+#         self.side = side
+#
+#     def square(self):
+#         return self.side * self.side
+#
+#     def perimeter(self):
+#         return 4 * self.side
+#
+#     def draw(self):
+#         return ("* " * self.side + "\n") * self.side
+#
+#     def print_info(self):
+#         print(f"=== Квадрат ===\nСторона: {self.side}\nЦвет: {self.color}\nПлощадь:"
+#               f" {self.square()}\nПериметр: {self.perimeter()}\n{self.draw()}")
+#
+#
+# class Rectangle(Shape):  # прямоугольник
+#     def __init__(self, length, width, color):
+#         super().__init__(color)
+#         self.length = length
+#         self.width = width
+#
+#     def square(self):
+#         return self.length * self.width
+#
+#     def perimeter(self):
+#         return 2 * (self.length + self.width)
+#
+#     def draw(self):
+#         return ("* " * self.width + "\n") * self.length
+#
+#     def print_info(self):
+#         print(f"=== Прямоугольник ===\nДлина: {self.length}\nШирина: {self.width}\nЦвет: {self.color}\nПлощадь:"
+#               f" {self.square()}\nПериметр: {self.perimeter()}\n{self.draw()}")
+#
+#
+# class Triangle(Shape):  # треугольник
+#     def __init__(self, side_1, side_2, side_3, color):
+#         super().__init__(color)
+#         self.side_1 = side_1
+#         self.side_2 = side_2
+#         self.side_3 = side_3
+#
+#     def square(self):
+#         p = self.perimeter() / 2
+#         return round(math.sqrt(p * (p - self.side_1) * (p - self.side_2) * (p - self.side_3)), 2)
+#
+#     def perimeter(self):
+#         return self.side_1 + self.side_2 + self.side_3
+#
+#     def draw(self):
+#         rows = []
+#         for i in range(self.side_2):
+#             rows.append(" " * i + "*" * (self.side_1 - 2 * i))
+#         return "\n".join(reversed(rows))
+#
+#     def print_info(self):
+#         print(f"=== Треугольник ===\nСторона 1: {self.side_1}\nСторона 2: {self.side_2}\nСторона 3: "
+#               f"{self.side_3}"
+#               f"\nЦвет: {self.color}\nПлощадь: {self.square()}\nПериметр: {self.perimeter()}\n{self.draw()}")
+#
+#
+# group = [
+#     Square(3, "red"),
+#     Rectangle(3, 7, "green"),
+#     Triangle(11, 6, 6, "yellow")
+#     ]
+#
+# for i in group:
+#     i.print_info()
 
+# ДЗ 13/05/25
 
-class Shape(ABC):  # родительский класс
-    def __init__(self, color):
-        self.color = color
-
-    @abstractmethod
-    def perimeter(self):
-        pass
-
-    @abstractmethod
-    def square(self):
-        pass
-
-    @abstractmethod
-    def draw(self):
-        pass
-
-    @abstractmethod
-    def print_info(self):
-        pass
-
-
-class Square(Shape):  # квадрат
-    def __init__(self, side, color):
-        super().__init__(color)
-        self.side = side
-
-    def square(self):
-        return self.side * self.side
-
-    def perimeter(self):
-        return 4 * self.side
-
-    def draw(self):
-        return ("* " * self.side + "\n") * self.side
-
-    def print_info(self):
-        print(f"=== Квадрат ===\nСторона: {self.side}\nЦвет: {self.color}\nПлощадь:"
-              f" {self.square()}\nПериметр: {self.perimeter()}\n{self.draw()}")
-
-
-class Rectangle(Shape):  # прямоугольник
-    def __init__(self, length, width, color):
-        super().__init__(color)
-        self.length = length
-        self.width = width
-
-    def square(self):
-        return self.length * self.width
-
-    def perimeter(self):
-        return 2 * (self.length + self.width)
-
-    def draw(self):
-        return ("* " * self.width + "\n") * self.length
-
-    def print_info(self):
-        print(f"=== Прямоугольник ===\nДлина: {self.length}\nШирина: {self.width}\nЦвет: {self.color}\nПлощадь:"
-              f" {self.square()}\nПериметр: {self.perimeter()}\n{self.draw()}")
-
-
-class Triangle(Shape):  # треугольник
-    def __init__(self, side_1, side_2, side_3, color):
-        super().__init__(color)
-        self.side_1 = side_1
-        self.side_2 = side_2
-        self.side_3 = side_3
-
-    def square(self):
-        p = self.perimeter() / 2
-        return round(math.sqrt(p * (p - self.side_1) * (p - self.side_2) * (p - self.side_3)), 2)
-
-    def perimeter(self):
-        return self.side_1 + self.side_2 + self.side_3
-
-    def draw(self):
-        rows = []
-        for i in range(self.side_2):
-            rows.append(" " * i + "*" * (self.side_1 - 2 * i))
-        return "\n".join(reversed(rows))
-
-    def print_info(self):
-        print(f"=== Треугольник ===\nСторона 1: {self.side_1}\nСторона 2: {self.side_2}\nСторона 3: "
-              f"{self.side_3}"
-              f"\nЦвет: {self.color}\nПлощадь: {self.square()}\nПериметр: {self.perimeter()}\n{self.draw()}")
-
-
-group = [
-    Square(3, "red"),
-    Rectangle(3, 7, "green"),
-    Triangle(11, 6, 6, "yellow")
-    ]
-
-for i in group:
-    i.print_info()
+# class Car:
+#     def __init__(self, brand, model, year, mileage):
+#         self.brand = brand
+#         self.model = model
+#         self.year = year
+#         self.mileage = mileage
+#
+#     def print_info(self):
+#         print(f"{self.brand}, {self.model}, {self.year} год, {self.mileage} км")
+#
+#
+# class ElectroCar(Car):
+#     def __init__(self, brand, model, year, mileage, power):
+#         super().__init__(brand, model, year, mileage)
+#         self.power = power
+#
+#     def get_battery(self):
+#         print(f"Этот автомобиль имеет мощность {self.power} %")
+#
+#
+# m1 = ElectroCar("Tesla", "T", 2018, 99000, 100)
+# m1.print_info()
+# m1.get_battery()
 
 
 

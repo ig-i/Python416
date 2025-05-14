@@ -6,3 +6,9 @@ class Triangle:
 
     def perimeter(self):
         return self.a + self.b + self.c
+
+    print(__name__)
+    __autor__ = "Пользователь"
+
+    if __name__ == "__main__":
+        print(f"Module {__name__} (autor: {__autor__})")
