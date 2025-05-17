@@ -2,8 +2,8 @@
     "name": "Olga",
     "age": 35,
     "20": null,
-    "null": "no",
-    "true": false,
+    "None": "no",
+    "True": false,
     "hobbies": [
         "running",
         "signing"

@@ -5182,18 +5182,18 @@ import math  # либо from math import *  либо  from math import sqrt, cei
 #     ran()
 
 
-from car.elect import ElectroCar   # импортируем дочерний класс, т.к. он наследуется от родительского
-
-m1 = ElectroCar("Tesla", "T", 2018, 99000, 100)
-m1.print_info()
-m1.get_battery()
+# from car.elect import ElectroCar   # импортируем дочерний класс, т.к. он наследуется от родительского
+#
+# m1 = ElectroCar("Tesla", "T", 2018, 99000, 100)
+# m1.print_info()
+# m1.get_battery()
 
 
 #  урок 13/05/2025  Упаковка и распаковка данных
 
 # import pickle
-
-
+#
+#
 # file_name = "basket.txt"
 #
 # shop_list = {
@@ -5202,10 +5202,10 @@ m1.get_battery()
 #     "бюджет": 1000
 # }
 #
-# with open(file_name, "wb") as f:
+# with open(file_name, "wb") as f:  # открываем файл на запись и сохраняем методом dump
 #     pickle.dump(shop_list, f)
 #
-# with open(file_name, "rb") as f:
+# with open(file_name, "rb") as f:  # считываем данные байтовых строк из файла методом load
 #     shop_list2 = pickle.load(f)
 #
 # print(shop_list2)
@@ -5224,10 +5224,10 @@ m1.get_battery()
 # obj = Test()
 # # print(obj)
 #
-# string = pickle.dumps(obj)
+# string = pickle.dumps(obj)  # сохраняем в строку наш экземпляр класса obj методом dumps
 # print(string)
 #
-# string2 = pickle.loads(string)
+# string2 = pickle.loads(string)  # считываем данные строки методом loads
 # print(string2)
 
 
@@ -5235,23 +5235,23 @@ m1.get_battery()
 #     def __init__(self):
 #         self.a = 35
 #         self.b = "test"
-#         self.c = lambda x: x * x
+#         self.c = lambda x: x * x  # функция
 #
 #     def __str__(self):
 #         return f"{self.a} {self.b} {self.c(2)}"
 #
-#     def __getstate__(self):
+#     def __getstate__(self):  # делаем копию исходного словаря и удаляем функцию которую не можем созранить
 #         attr = self.__dict__.copy()
 #         del attr['c']
 #         return attr
 #
-#     def __setstate__(self, state):
+#     def __setstate__(self, state):  # при считывании данных возвращаем через state метод (с) который удаляли
 #         self.__dict__ = state
 #         self.c = lambda x: x * x
 #
 #
-# item1 = Test2()  # 35 test 4
-# # print(item1)
+# item1 = Test2()  #  получили 35 test 4
+# print(item1)
 # item2 = pickle.dumps(item1)
 # print(item2)
 # item3 = pickle.loads(item2)
@@ -5261,7 +5261,7 @@ m1.get_battery()
 
 
 # import json
-
+#
 # data = {
 #     'name': 'Olga',
 #     'age': 35,
@@ -5276,14 +5276,14 @@ m1.get_battery()
 #         }
 #     ]
 # }
+
+# with open("data_file.json", "w") as f:  # открываем файл на чтение в формате json
+#     json.dump(data, f, indent=4)  # форматирование (отодвигаем строки на 4 пробела)
 #
-# # with open("data_file.json", "w") as f:
-# #     json.dump(data, f, indent=4)
-# #
-# # with open("data_file.json", "r") as f:
-# #     data1 = json.load(f)
-# #
-# # print(data1)
+# with open("data_file.json", "r") as f:
+#     data1 = json.load(f)
+#
+# print(data1)
 #
 # string = json.dumps(data, sort_keys=True)
 # print(string, type(string))
@@ -5327,10 +5327,10 @@ m1.get_battery()
 #     return person
 #
 #
-# def write_json(person_dict):  # {'name': ..., 'tel': ...}
+# def write_json(person_dict):  # приходит словарь {'name': ..., 'tel': ...}
 #     try:
-#         data = json.load(open("persons.json"))
-#     except FileNotFoundError:
+#         data = json.load(open("persons.json"))  # [{'name': ..., 'tel': ...}, {'name': ..., 'tel': ...}]
+#     except FileNotFoundError:  # при первой итерации выдает ошибку и создается пустой список data
 #         data = []
 #
 #     data.append(person_dict)
@@ -5342,61 +5342,68 @@ m1.get_battery()
 # for i in range(5):
 #     write_json(gen_person())
 
-
-import json
-
-
-class Student:
-    def __init__(self, name, marks):
-        self.name = name
-        self.marks = marks
-
-    def __str__(self):
-        # st = ''
-        # for i in self.marks:
-        #     st += str(i) + ", "
-        # return f"Студент => {self.name}: {st[:-2]}"
-        # st = ", ".join(map(str, self.marks))
-        # return f"Студент => {self.name}: {st}"
-        return f"Студент => {self.name}: {", ".join(map(str, self.marks))}"
-
-    def add_mark(self, mark):
-        self.marks.append(mark)
-
-    def delete_mark(self, index):
-        self.marks.pop(index)
-
-    def edit_mark(self, index, new_mark):
-        self.marks[index] = new_mark
-
-    def average_mark(self):
-        return round(sum(self.marks) / len(self.marks), 1)
-
-    def get_file_name(self):
-        return self.name + ".json"  # 'Bodnya.json'
-
-    def dump_to_json(self):
-        data = {"name": self.name, "marks": self.marks}
-        with open(self.get_file_name(), "w") as f:
-            json.dump(data, f)
-
-    def load_from_file(self):
-        with open(self.get_file_name(), "r") as f:
-            print(json.load(f))
-
-
-class Group:
-    def __init__(self, students):
-        self.students = students
-
-    def __str__(self):
-        st = "\n".join(map(str, self.students))
-        return f"{st}"
-
-
-st1 = Student("Bodnya", [5, 4, 3, 4, 5, 3])
-st2 = Student("Nikolaenko", [2, 3, 5, 4, 2])
-st3 = Student("Birukov", [3, 5, 3, 2, 5, 4])
+# import json
+#
+#
+# class Student:
+#     def __init__(self, name, marks):
+#         self.name = name
+#         self.marks = marks
+#
+#     def __str__(self):
+#         # st = ''                                       # первый вариант с методом str
+#         # for i in self.marks:
+#         #     st += str(i) + ", "
+#         # return f"Студент => {self.name}: {st[:-2]}"
+#         st = ", ".join(map(str, self.marks))             # второй вариант вариант с методом str
+#         # return f"Студент => {self.name}: {st}"
+#         return f"Студент => {self.name}: {", ".join(map(str, self.marks))}"  # третий вариант с методом str
+#
+#     def add_mark(self, mark):
+#         self.marks.append(mark)
+#
+#     def delete_mark(self, index):
+#         self.marks.pop(index)
+#
+#     def edit_mark(self, index, new_mark):
+#         self.marks[index] = new_mark
+#
+#     def average_mark(self):
+#         return round(sum(self.marks) / len(self.marks), 1)
+#
+#     def get_file_name(self):
+#         return self.name + ".json"  # 'Bodnya.json'
+#
+#     def dump_to_json(self):
+#         data = {"name": self.name, "marks": self.marks}
+#         with open(self.get_file_name(), "w") as f:
+#             json.dump(data, f)
+#
+#     def load_from_file(self):
+#         with open(self.get_file_name(), "r") as f:
+#             print(json.load(f))
+#
+#     def add_student(self, student):
+#         self.students.append(student)
+#
+#
+# class Group:
+#     def __init__(self, students):
+#         self.students = students
+#         self.group = group
+#
+#     def __str__(self):
+#         st = "\n".join(map(str, self.students))
+#         return f"{st}"
+#
+#     @staticmethod
+#     def change_group(gr1, gr2, index):
+#         gr2.add_student(gr2.remove_student(index))
+#
+#
+# st1 = Student("Bodnya", [5, 4, 3, 4, 5, 3])
+# st2 = Student("Nikolaenko", [2, 3, 5, 4, 2])
+# st3 = Student("Birukov", [3, 5, 3, 2, 5, 4])
 # print(st1)
 # st1.add_mark(4)
 # print(st1)
@@ -5407,6 +5414,49 @@ st3 = Student("Birukov", [3, 5, 3, 2, 5, 4])
 # print(st1.average_mark())
 # st1.dump_to_json()
 # st1.load_from_file()
-sts1 = [st1, st2]
-group1 = Group(sts1)
-print(group1)
+# sts1 = [st1, st2]
+# group1 = Group(sts1)
+# print(group1)
+
+# import requests
+# import json
+
+# response = requests.get("https://jsonplaceholder.typicode.com/todos")
+# # print(type(response.text))
+# todos = json.loads(response.text)
+#
+# todos_by_user = {}
+#
+# for todo in todos:
+#     if todo["completed"]:
+#         try:
+#             todos_by_user[todo["userId"]] += 1
+#         except KeyError:
+#             todos_by_user[todo["userId"]] = 1
+# print(todos_by_user)
+#
+# top_user = sorted(todos_by_user.items(), key=lambda  x: x[1], reverse=True)
+# print(top_user)
+#
+# max_complete = top_user[0][1]
+# print(max_complete)
+
+import csv
+
+# with open("data.csv", encoding='utf-8') as f:
+#     file_reader = csv.reader(f, delimiter=";")
+#     count = 0
+#     for row in file_reader:
+#         if count == 0:
+#             print(f"Файл содержит столбцы {','.join(row)}")
+#         else:
+#             print(f"\t{row[0]} - {row[1]}. Родился в {row[2]}году")
+#         print(row)
+
+# data = [['hostname', 'vendor', 'model', 'location'],
+#         ['sw1', 'Cisco', '3750', 'London, Best str'],
+#         ['sw2', 'Cisco', '3850', 'Liverpool, Better str'],
+#         ['sw3', 'Cisco', '3650', 'Liverpool, Better str'],
+#         ['sw4', 'Cisco', '3650', 'London, Best str']]
+#
+# with open("sw_data.cs   v", delimiter=",", lineterminator="\r")
