@@ -5351,13 +5351,13 @@ import math  # либо from math import *  либо  from math import sqrt, cei
 #         self.marks = marks
 #
 #     def __str__(self):
-#         # st = ''                                       # первый вариант с методом str
-#         # for i in self.marks:
-#         #     st += str(i) + ", "
-#         # return f"Студент => {self.name}: {st[:-2]}"
-#         st = ", ".join(map(str, self.marks))             # второй вариант вариант с методом str
-#         # return f"Студент => {self.name}: {st}"
-#         return f"Студент => {self.name}: {", ".join(map(str, self.marks))}"  # третий вариант с методом str
+#         st = ''
+#         for i in self.marks:
+#             st += str(i) + ", "
+#         return f"Студент => {self.name}: {st[:-2]}"
+#         st = ", ".join(map(str, self.marks))
+#         return f"Студент => {self.name}: {st}"
+#         return f"Студент => {self.name}: {", ".join(map(str, self.marks))}"
 #
 #     def add_mark(self, mark):
 #         self.marks.append(mark)
@@ -5383,75 +5383,143 @@ import math  # либо from math import *  либо  from math import sqrt, cei
 #         with open(self.get_file_name(), "r") as f:
 #             print(json.load(f))
 #
-#     def add_student(self, student):
-#         self.students.append(student)
-#
 #
 # class Group:
-#     def __init__(self, students):
+#     def __init__(self, students, group):
 #         self.students = students
 #         self.group = group
 #
 #     def __str__(self):
 #         st = "\n".join(map(str, self.students))
-#         return f"{st}"
+#         return f"Группа: {self.group}\n{st}"
+#
+#     def add_student(self, student):
+#         self.students.append(student)
+#
+#     def remove_student(self, index):
+#         return self.students.pop(index)
 #
 #     @staticmethod
-#     def change_group(gr1, gr2, index):
-#         gr2.add_student(gr2.remove_student(index))
+#     def change_group(gr1, gr2, index):                 # метод для перевода студентов из группы в группу
+#         # st = gr1.remove_student(index)
+#         # gr2.add_student(st)
+#         gr2.add_student(gr1.remove_student(index))
+#
+#     def get_file_name(self):
+#         return self.group.lower().replace(" ", "-") + ".json"  # создаем метод для  файла в формате json в нижнем регистре
+#
+#     def dump_to_json(self):
+#         data = [
+#             {'name': student.name, 'marks': student.marks} for student in self.students
+#         ]
+#         with open(self.get_file_name(), "w") as f:          # открываем файл на запись и сохраняем данные в файл
+#             json.dump(data, f, indent=2)
+#
+#     def load_from_file(self):
+#         with open(self.get_file_name(), "r") as f:          # открываем файл на чтение и в print вызываем метод load
+#             print(json.load(f))
 #
 #
 # st1 = Student("Bodnya", [5, 4, 3, 4, 5, 3])
 # st2 = Student("Nikolaenko", [2, 3, 5, 4, 2])
 # st3 = Student("Birukov", [3, 5, 3, 2, 5, 4])
-# print(st1)
-# st1.add_mark(4)
-# print(st1)
-# st1.delete_mark(2)
-# print(st1)
-# st1.edit_mark(4, 4)
-# print(st1)
-# print(st1.average_mark())
-# st1.dump_to_json()
-# st1.load_from_file()
+# # print(st1)
+# # st1.add_mark(4)
+# # print(st1)
+# # st1.delete_mark(2)
+# # print(st1)
+# # st1.edit_mark(4, 4)
+# # print(st1)
+# # print(st1.average_mark())
+# # st1.dump_to_json()
+# # st1.load_from_file()
 # sts1 = [st1, st2]
-# group1 = Group(sts1)
+# group1 = Group(sts1, "ГК Python")
+# # print(group1)
+# # print()
+# group1.add_student(st3)
+# # print(group1)
+# # print()
+# group1.remove_student(1)
 # print(group1)
+# print()
+# sts2 = [st2]
+# group2 = Group(sts2, "ГК Web")
+# print(group2)
+# print()
+# Group.change_group(group1, group2, 0)
+# print(group1)
+# print(group2)
+#
+# group2.dump_to_json()
+# group2.load_from_file()
 
 # import requests
 # import json
-
-# response = requests.get("https://jsonplaceholder.typicode.com/todos")
+#
+# response = requests.get("https://jsonplaceholder.typicode.com/todos")  # получаем доступ к странице через абсолютный путь
 # # print(type(response.text))
-# todos = json.loads(response.text)
-#
-# todos_by_user = {}
-#
+# todos = json.loads(response.text)  # через метод get получили текстовое представление обьекта (список словарей)
+# # print(type(todos[0]))              # и через метод loads модуля json преобразовали строку в обычный код Python
+# # print(todos)
+# todos_by_user = {}  # при первой итерации создается пустой словарь и присваиваем значение 1 {1: 4, 2: 1}
+# #
 # for todo in todos:
-#     if todo["completed"]:
+#     if todo["completed"]:  # проходимся в списке по каждому словарю
 #         try:
 #             todos_by_user[todo["userId"]] += 1
 #         except KeyError:
 #             todos_by_user[todo["userId"]] = 1
-# print(todos_by_user)
+# print(todos_by_user)  # получили количество выполненных задач каждого user
 #
-# top_user = sorted(todos_by_user.items(), key=lambda  x: x[1], reverse=True)
-# print(top_user)
+# top_users = sorted(todos_by_user.items(), key=lambda x: x[1], reverse=True) # сортировка списка кортежей по индексу кортежа
+# print(top_users)  # [(5, 12), (10, 12), (1, 11), (8, 11), (7, 9), (2, 8), (9, 8), (3, 7), (4, 6), (6, 6)]
+# max_complete = top_users[0][1] # нашли максимальное значение по ключу [0]
+# print(max_complete)  # 12  это мы нашли максимальное значение по ключу [0]
 #
-# max_complete = top_user[0][1]
-# print(max_complete)
+# users = []  # ['5', '10']
+# for user, num in top_users:
+#     if num < max_complete:  # 11 < 12
+#         break
+#     users.append(str(user))
+# print(users)
+#
+# max_users = " и ".join(users)
+# print(max_users)
+
+# print(f"Пользователи {max_users} выполнили {max_complete} задач")
+
 
 import csv
 
-# with open("data.csv", encoding='utf-8') as f:
-#     file_reader = csv.reader(f, delimiter=";")
-#     count = 0
-#     for row in file_reader:
-#         if count == 0:
-#             print(f"Файл содержит столбцы {','.join(row)}")
-#         else:
-#             print(f"\t{row[0]} - {row[1]}. Родился в {row[2]}году")
-#         print(row)
+with open("data.csv", encoding='utf-8') as f:
+    file_reader = csv.reader(f, delimiter=";")  # вызываем метод reader который может прочитать данные csv
+    count = 0
+    for row in file_reader:
+        # print(row)
+        if count == 0:
+            print(f"Файл содержит столбцы {', '.join(row)}")
+        else:
+            print(f"\t{row[0]} - {row[1]}. Родился в {row[2]} году.")
+        count += 1
+
+with open("data.csv", encoding='utf-8') as f:
+    file_names = ['Имя', 'Профессия', 'Год рождения',]
+    file_reader = csv.DictReader(f, delimiter=";", fieldnames=file_names)  # отдельно передали список ключей
+    count = 0
+    for row in file_reader:
+        # print(row)
+        if count == 0:
+            print(f"Файл содержит столбцы {', '.join(row)}")
+        print(f"\t{row['Имя']} - {row['Профессия']}. Родился в {row['Год рождения']} году.")
+        count += 1
+
+with open("student.csv", "w") as f:          # открываем файл с расширением csv на запись и передаем в виде списка
+    writer = csv.writer(f, delimiter=";", lineterminator="\r")  # метод настройки для записи данных в документ csv
+    writer.writerow(["Имя", "Класс", "Возраст"])  # записываем строку внутри документа и  \r возврат каретки (удаляет лишний перенос)
+    writer.writerow(["Женя", 9, 15])
+    writer.writerow(["Саша", 5, 12])
+    writer.writerow(["Маша", 11, 17])
 
 # data = [['hostname', 'vendor', 'model', 'location'],
 #         ['sw1', 'Cisco', '3750', 'London, Best str'],
@@ -5459,4 +5527,11 @@ import csv
 #         ['sw3', 'Cisco', '3650', 'Liverpool, Better str'],
 #         ['sw4', 'Cisco', '3650', 'London, Best str']]
 #
-# with open("sw_data.cs   v", delimiter=",", lineterminator="\r")
+# with open("sw_data.csv", "w") as f:
+#     writer = csv.writer(f, delimiter=",", lineterminator="\r")
+#     for row in data:
+#         # writer.writerow(row)  # вывели в цикле (это способ записать одну строку в файл CSV)
+#      writer.writerows(data) # аналогичный результат без цикла (позволяет записывать несколько строк данных в файл CSV за одну операцию)
+#
+# with open("sw_data.csv", "r") as f:
+#     print(f.read())
