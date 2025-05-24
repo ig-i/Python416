@@ -9,6 +9,7 @@ from idlelib.debugger_r import close_subprocess_debugger
 from itertools import count
 from mimetypes import inited
 from multiprocessing.context import set_spawning_popen
+from os import write
 from sys import base_prefix
 from tkinter.font import names
 from tokenize import endpats
@@ -5492,34 +5493,34 @@ import math  # либо from math import *  либо  from math import sqrt, cei
 
 import csv
 
-with open("data.csv", encoding='utf-8') as f:
-    file_reader = csv.reader(f, delimiter=";")  # вызываем метод reader который может прочитать данные csv
-    count = 0
-    for row in file_reader:
-        # print(row)
-        if count == 0:
-            print(f"Файл содержит столбцы {', '.join(row)}")
-        else:
-            print(f"\t{row[0]} - {row[1]}. Родился в {row[2]} году.")
-        count += 1
-
-with open("data.csv", encoding='utf-8') as f:
-    file_names = ['Имя', 'Профессия', 'Год рождения',]
-    file_reader = csv.DictReader(f, delimiter=";", fieldnames=file_names)  # отдельно передали список ключей
-    count = 0
-    for row in file_reader:
-        # print(row)
-        if count == 0:
-            print(f"Файл содержит столбцы {', '.join(row)}")
-        print(f"\t{row['Имя']} - {row['Профессия']}. Родился в {row['Год рождения']} году.")
-        count += 1
-
-with open("student.csv", "w") as f:          # открываем файл с расширением csv на запись и передаем в виде списка
-    writer = csv.writer(f, delimiter=";", lineterminator="\r")  # метод настройки для записи данных в документ csv
-    writer.writerow(["Имя", "Класс", "Возраст"])  # записываем строку внутри документа и  \r возврат каретки (удаляет лишний перенос)
-    writer.writerow(["Женя", 9, 15])
-    writer.writerow(["Саша", 5, 12])
-    writer.writerow(["Маша", 11, 17])
+# with open("data.csv", encoding='utf-8') as f:
+#     file_reader = csv.reader(f, delimiter=";")  # вызываем метод reader который может прочитать данные csv
+#     count = 0
+#     for row in file_reader:
+#         # print(row)
+#         if count == 0:
+#             print(f"Файл содержит столбцы {', '.join(row)}")
+#         else:
+#             print(f"\t{row[0]} - {row[1]}. Родился в {row[2]} году.")
+#         count += 1
+#
+# with open("data.csv", encoding='utf-8') as f:
+#     file_names = ['Имя', 'Профессия', 'Год рождения',]
+#     file_reader = csv.DictReader(f, delimiter=";", fieldnames=file_names)  # отдельно передали список ключей
+#     count = 0
+#     for row in file_reader:
+#         # print(row)
+#         if count == 0:
+#             print(f"Файл содержит столбцы {', '.join(row)}")
+#         print(f"\t{row['Имя']} - {row['Профессия']}. Родился в {row['Год рождения']} году.")
+#         count += 1
+#
+# with open("student.csv", "w") as f:          # открываем файл с расширением csv на запись и передаем в виде списка
+#     writer = csv.writer(f, delimiter=";", lineterminator="\r")  # метод настройки для записи данных в документ csv
+#     writer.writerow(["Имя", "Класс", "Возраст"])  # записываем строку внутри документа и  \r возврат каретки (удаляет лишний перенос)
+#     writer.writerow(["Женя", 9, 15])
+#     writer.writerow(["Саша", 5, 12])
+#     writer.writerow(["Маша", 11, 17])
 
 # data = [['hostname', 'vendor', 'model', 'location'],
 #         ['sw1', 'Cisco', '3750', 'London, Best str'],
@@ -5535,3 +5536,217 @@ with open("student.csv", "w") as f:          # открываем файл с р
 #
 # with open("sw_data.csv", "r") as f:
 #     print(f.read())
+
+
+# with open("student1.csv", "w") as f:
+#     names = ["Имя", "Возраст"]
+#     writer = csv.DictWriter(f,delimiter=";", lineterminator="\r", fieldnames=names)
+#     writer.writeheader()
+#     writer.writerow({"Имя": "Саша", "Возраст": 6})
+#     writer.writerow({"Имя": "Маша", "Возраст": 15})
+#     writer.writerow({"Имя": "Вова", "Возраст": 14})
+
+# data = [{
+#     'hostname': 'sw1',
+#     'location': 'London',
+#     'model': '3750',
+#     'vendor': 'Cisco'
+# }, {
+#     'hostname': 'sw2',
+#     'location': 'Liverpool',
+#     'model': '3850',
+#     'vendor': 'Cisco'
+# }, {
+#     'hostname': 'sw3',
+#     'location': 'Liverpool',
+#     'model': '3650',
+#     'vendor': 'Cisco'
+# }, {
+#     'hostname': 'sw4',
+#     'location': 'London',
+#     'model': '3650',
+#     'vendor': 'Cisco'
+# }]
+#
+# with open("dict_writer.csv", "w") as f:
+#     writer = csv.DictWriter(f, delimiter=";", lineterminator="\r", fieldnames=data[0].keys())
+#     writer.writeheader()
+#     for d in data:
+#         writer.writerow(d)
+
+
+# Парсинг сайта (автоматический процесс сбора и структурирования информации с веб-сайтов)
+
+# from bs4 import BeautifulSoup
+# import re
+#
+#
+# def get_salary(s): # строки через регулярные выражения оставили только числа
+#     pattern = r"\d+"
+#     # res = re.findall(pattern, s)[0]
+#     res = re.search(pattern, s).group()
+#     print(res)
+
+
+# f = open("index.html").read()                     # открываем документ на чтение
+# soup = BeautifulSoup(f, "html.parser")
+# row = soup.find("div", class_="name")           # этот метод получает доступ к одному селектору первому совпадению
+# row = soup.find("div", class_="name").text     # получаем содержимое нашего тега
+# row = soup.find_all("div", class_="name")      # получили все 4 div c классом _name в виде списка
+# row = soup.find_all("div", class_="row")       # получили доступ ко всем элемента класса row
+# row = soup.find_all("div", class_="row")[1].find_all("div", class_="name") # обратились по индексу к 1 элементу
+                                                                          # и получили доступ в нем к классу _name
+# row = soup.find_all("div", class_="row")[1].find_all("div", {"class": "name"}) # 2 вариант когда данные можем передавать в виде словаря
+# row = soup.find("div", {"data-set": "salary"}) # получили доступ к пользовательскому атрибуту <data-set>
+# row = soup.find("div", string="Alena")            # получили доступ к содержимому <div> через атрибут string
+# row = soup.find("div", string="Alena").parent  # через метод parent получили доступ к вышестоящему классу
+# row = soup.find("div", string="Alena").find_parent(class_="row") # указываем явно к какому родительскому элем. хотим получить доступ
+# row = soup.find("div", id="whois3").find_next_sibling()  # получаем элемент следующий тег за тегом id
+# row = soup.find("div", id="whois3").find_previous_sibling()  # получаем элемент предыдущий тег перед тегом id
+# row = soup.find_all("div", {"data-set": "salary"})
+# for i in row:
+#     get_salary(i.text)
+
+# import requests
+# from bs4 import BeautifulSoup
+
+# r = requests.get("https://ru.wordpress.org/")
+# print(r.text)  # получили данные сайта как обычный текст
+
+
+# def get_html(url):
+#     row = requests.get(url)
+#     return row.text
+#
+#
+# def get_data(html):
+#      soup = BeautifulSoup(html, "lxml")
+#      p1 = soup.find("div", id="intro").find("h1", class_="wp-block-heading").text  # ищем div по id и названию класса в нем
+#      return p1
+#
+#
+# def main():
+#     url = "https://ru.wordpress.org/"
+#     print(get_data(get_html(url)))
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+# import csv
+# import re
+# import requests
+# from bs4 import BeautifulSoup
+#
+#
+# def write_csv(data): # сохраняем полученные данные (data) в формате csv
+#     with open("plugins.csv", "a", encoding="utf-8") as f:
+#         writer = csv.writer(f, delimiter=",", lineterminator="\r") # метод настройки для записи данных в документ csv
+#         writer.writerow((data["name"], data["url"], data["rating"]))  # это способ записать одну строку в файл CSV
+#
+#
+# def refined(s):
+#     return re.sub(r"\D+", "", s)
+#
+#
+# def get_html(url):
+#     row = requests.get(url)
+#     return row.text
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, "lxml")
+#     p1 = soup.find_all("section", class_="plugin-section")[1]
+#     plugins = p1.find_all("li")
+#
+#     for plugin in plugins:
+#         name = plugin.find("h3").text                                    # получили названия (текст) из плагинов
+#         url = plugin.find("h3").find("a").get("href")                    # получили все ссылки из плагина и тега h3
+#         url = plugin.find("h3").find("a")["href"]                        # 2 способ получения ссылки из плагина
+#         rating = plugin.find("span", class_="rating-count").text
+#         r = refined(rating)
+#
+#
+#         data = {"name": name, "url": url, "rating": r}
+#         write_csv(data)
+#
+#
+# def main():
+#     url = "https://ru.wordpress.org/plugins/"
+#     get_data(get_html(url))
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+# import csv
+# import requests
+# from bs4 import BeautifulSoup
+#
+#
+# def get_html(url):
+#     row = requests.get(url)
+#     return row.text
+#
+#
+# def refine_cy(s):
+#     return s.split()[-1]
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, "lxml")
+#     elements = soup.find_all("li", class_="wp-block-post")
+#     for el in elements:
+#         name = el.find("h3").text
+#         url = el.find("h3").find("a").get("href")
+#         snippet = el.find("div", class_="entry-excerpt").text.strip()
+#         active = el.find("span", class_="active-installs").text.strip()
+#         tested = el.find("span", class_="tested-with").text.strip()
+#         test = refine_cy(tested)
+#         data = {
+#             "name": name,
+#             "url": url,
+#             "snippet": snippet,
+#             "active": active,
+#             "test": test
+#         }
+#         write_csv(data)
+#
+#
+# def write_csv(data):
+#     with open("plugins1.csv", "a", encoding="utf-8-sig") as f:
+#         writer = csv.writer(f, delimiter=",", lineterminator="\r")
+#         writer.writerow((data["name"], data["url"], data["snippet"], data["active"], data["test"]))
+#
+#
+# def main():
+#     for i in range(3, 23):
+#         url = f"https://ru.wordpress.org/plugins/browse/blocks/page/{i}/"
+#         get_data(get_html(url))
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+
+# import requests
+#
+#
+# row = requests.get("https://ru.wordpress.org/plugins/browse/blocks")
+# print(row)
+
+# 22/05 урок
+
+
+from parser import Parser
+
+
+def main():
+    pars = Parser("https://www.ixbt.com/live/index/news/", "news.txt")
+    pars.run()
+
+
+if __name__ == '__main__':
+    main()
+
+

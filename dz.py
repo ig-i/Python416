@@ -9,8 +9,8 @@
 # import builtins
 from fileinput import filename
 from linecache import clearcache
+from tkinter.scrolledtext import example
 from unittest.mock import PropertyMock
-
 
 # num = 97531
 # a = num % 10
@@ -1010,12 +1010,56 @@ from unittest.mock import PropertyMock
 # for i in range(5):
 #     write_json(gen_person()[0], gen_person()[1])
 
+
+# import csv
+#
+# with open("data2.csv", encoding='utf-8') as f:
+#     # file_names = ['hostname', 'vendor', 'model', 'location']
+#     file_reader = csv.reader(f, delimiter=";")
+#     for row in file_reader:
+#         print(row)
+
 import csv
-
-with open("data2.csv", encoding='utf-8') as f:
-    # file_names = ['hostname', 'vendor', 'model', 'location']
-    file_reader = csv.reader(f, delimiter=";")
-    for row in file_reader:
-        print(row)
+import requests
+from bs4 import BeautifulSoup
 
 
+def get_html(url):
+    row = requests.get(url)
+    return row.text
+
+
+def get_data(html):
+    soup = BeautifulSoup(html, "lxml")
+    element = soup.find_all("div",  class_="col-lg-6 col-md-4 col-sm-6 col-xs-6")
+    for elem in element:
+        product = elem.find("a", class_='catalog-item__name').text
+        price = elem.find("div", class_='current-price').text
+        data = {
+            "product": product,
+            "price": price
+        }
+        print(data)
+        # write_csv(data)
+
+
+def write_csv(data):
+    with open("plugin2.csv", "w", encoding='utf-8') as f:
+        writer = csv.writer(f, delimiter=";", lineterminator="\r")
+        writer.writerow((data["product"],
+                         data["price"]))
+
+
+def main():
+    url = "https://www.olant-shop.ru/"
+
+    print(get_data(get_html(url)))
+
+
+if __name__ == '__main__':
+    main()
+
+
+# Проверка доступа к сайту
+# row = requests.get("https://www.olant-shop.ru/")
+# print(row)
