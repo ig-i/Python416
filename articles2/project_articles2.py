@@ -1,4 +1,4 @@
-from controller import Controller
+from controller2 import Controller
 
 
 def main():
@@ -8,5 +8,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-

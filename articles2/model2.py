@@ -3,14 +3,17 @@ import os
 
 
 class Article:  # создается 1 статья
-    def __init__(self, title, author, pages, description):
-        self.title = title
-        self.author = author
-        self.pages = pages
-        self.description = description
+    def __init__(self, name, genre, director, age, duration, atelier, artists):
+        self.name = name
+        self.genre = genre
+        self.director = director
+        self.age = age
+        self.duration = duration
+        self.atelier = atelier
+        self.artists = artists
 
     def __str__(self):
-        return f"{self.title} ({self.author})"
+        return f"{self.name} ({self.director})"
 
 
 class ArticleModel:  # хранилище для всех статей
@@ -20,7 +23,7 @@ class ArticleModel:  # хранилище для всех статей
 
     def add_article(self, dict_article):  # этот метод сохраняет данные который пользователь ввел
         article = Article(*dict_article.values())
-        self.articles[article.title] = article
+        self.articles[article.name] = article
 
     def get_all_articles(self):
         return self.articles.values()
@@ -28,10 +31,13 @@ class ArticleModel:  # хранилище для всех статей
     def get_single_article(self, user_title):
         article = self.articles[user_title]
         dict_article = {
-            "название": article.title,
-            "автор": article.author,
-            "количество страниц": article.pages,
-            "описание": article.description
+            "название фильма": article.name,
+            "жанр": article.genre,
+            "режиссер": article.director,
+            "год выпуска": article.age,
+            "длительность": article.duration,
+            "студия": article.atelier,
+            "актеры": article.artists
         }
         return dict_article
 
@@ -48,7 +54,3 @@ class ArticleModel:  # хранилище для всех статей
                 return pickle.load(f)
         else:
             return dict()
-
-
-
-

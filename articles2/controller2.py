@@ -1,5 +1,5 @@
-from view import UserInterface
-from model import ArticleModel
+from view2 import UserInterface
+from model2 import ArticleModel
 
 
 class Controller:
@@ -28,7 +28,7 @@ class Controller:
                 self.user_interface.show_incorrect_title_error(article_title)
             else:
                 self.user_interface.show_single_article(article)
-        elif answer == "4":
+        elif answer == "4":  # удаление фильма
             article_title = self.user_interface.get_user_article()
             try:
                 title = self.article_model.remove_article(article_title)
@@ -36,15 +36,7 @@ class Controller:
                 self.user_interface.show_incorrect_title_error(article_title)
             else:
                 self.user_interface.remove_single_article(title)
-        elif answer == "q":
+        elif answer == "q":  # выход из программы
             self.article_model.save_data()
         else:
             self.user_interface.show_incorrect_answer_error(answer)
-
-
-
-
-
-
-
-

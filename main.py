@@ -5595,7 +5595,7 @@ import csv
 # row = soup.find_all("div", class_="name")      # получили все 4 div c классом _name в виде списка
 # row = soup.find_all("div", class_="row")       # получили доступ ко всем элемента класса row
 # row = soup.find_all("div", class_="row")[1].find_all("div", class_="name") # обратились по индексу к 1 элементу
-                                                                          # и получили доступ в нем к классу _name
+# и получили доступ в нем к классу _name
 # row = soup.find_all("div", class_="row")[1].find_all("div", {"class": "name"}) # 2 вариант когда данные можем передавать в виде словаря
 # row = soup.find("div", {"data-set": "salary"}) # получили доступ к пользовательскому атрибуту <data-set>
 # row = soup.find("div", string="Alena")            # получили доступ к содержимому <div> через атрибут string
@@ -5735,18 +5735,247 @@ import csv
 # row = requests.get("https://ru.wordpress.org/plugins/browse/blocks")
 # print(row)
 
-# 22/05 урок
+
+# 22/05 урок (Парсинг классов - продолжение.  Классовый подход к парсингу)
+# До этого рассматривали функциональный подход к парсингу
 
 
-from parser import Parser
+# from parser import Parser
+#
+#
+# def main():
+#     pars = Parser("https://www.ixbt.com/live/index/news/", "news.txt")
+#     pars.run()
+#
+#
+# if __name__ == '__main__':
+#     main()
 
 
-def main():
-    pars = Parser("https://www.ixbt.com/live/index/news/", "news.txt")
-    pars.run()
+# модуль (Паттерн) MVC
 
 
-if __name__ == '__main__':
-    main()
+# работа сервера 27/05/2025
+
+# import socket
+# from view import index, blog
+#
+# URLS = {
+#     '/': index,
+#     '/blog': blog
+# }
+#
+#
+# def parse_request(request):
+#     parsed = request.split()
+#     method = parsed[0]  # GET
+#     url = parsed[1]  # / или /blog
+#     return method, url
+#
+#
+# def generate_headers(method, url):
+#     if method != "GET":
+#         return 'HTTP/1.1 405 Method Not Allowed!\n\n', 405  # ошибка на стороне клиента
+#     if url not in URLS:
+#         return 'HTTP/1.1 404 Page Not Found!\n\n', 404  # страница не найдена
+#     return 'HTTP/1.1 200 OK!\n\n', 200                  # успешно
+#
+#
+# def generate_content(code, url):
+#     if code == 404:
+#         return '<h1>404</h1><h3>Page Not Found</h3>'
+#     if code == 405:
+#         return '<h1>405</h1><h3>Method Not Allowed</h3>'
+#     return URLS[url]()
+#
+#
+# def generate_response(request):
+#     method, url = parse_request(request)
+#     headers, code = generate_headers(method, url)
+#     body = generate_content(code, url)
+#     return (headers + body).encode()
+#
+#
+# def run():
+#     server_soket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#     server_soket.bind(('127.0.0.1', 5000))  # 127.0.0.1:5000
+#     server_soket.listen()  # перевод сервера в режим приема соединений
+#
+#     while True:
+#         client_soket, addr = server_soket.accept()
+#
+#         request = client_soket.recv(1024)  # максимальное количество байтов в сообщении
+#
+#         print(f"Клиент: {addr} => \n{request.decode('utf-8')}\n")
+#
+#         response = generate_response(request.decode())
+#         client_soket.sendall(response)
+#         client_soket.close()
+#
+#
+# if __name__ == '__main__':
+#     run()
 
 
+# from jinja2 import Template
+
+# name = "Игорь"
+# age = 28
+#
+# tm = Template("Мне {{ a * 2 }} лет. Меня зовут {{ n.upper() }}.")
+# msg = tm.render(n=name, a=age)
+#
+# print(msg)
+
+# per = {'name': "Игорь", 'age': 28}
+#
+# tm = Template("Мне {{ p.age }} лет. Меня зовут {{ p['name'] }}.")
+# msg = tm.render(p=per)
+#
+# print(msg)
+
+
+# class Person:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#
+#     def get_name(self):
+#         return self.name
+#
+#     def get_age(self):
+#         return self.age
+#
+#
+# per = Person("Игорь", 28)
+#
+# tm = Template("Мне {{ p.get_age() }} лет. Меня зовут {{ p.get_name() }}.")
+# msg = tm.render(p=per)
+#
+# print(msg)
+
+
+# cities = [
+#     {'id': 1, 'city': 'Москва'},
+#     {'id': 2, 'city': 'Смоленск'},
+#     {'id': 3, 'city': 'Минск'},
+#     {'id': 4, 'city': 'Сочи'},
+#     {'id': 5, 'city': 'Ярославль'},
+# ]
+
+# link = """
+# <select>
+# {% for c in cities %}
+#     {% if c.id > 3 %}
+#         <option value="{{ c['id'] }}">{{ c['city'] }}</option>
+#     {% elif c.city == 'Москва' %}
+#         <option>{{ c['city'] }}</option>
+#     {% else %}
+#         {{ c['city'] }}
+#     {% endif %}
+# {% endfor %}
+# </select>
+# """
+#
+# tm = Template(link)
+# msg = tm.render(cities=cities)
+#
+# print(msg)
+
+
+# menu = [
+#     {'href': '/index', 'link': 'Главная'},
+#     {'href': '/news', 'link': 'Новости'},
+#     {'href': '/about', 'link': 'О компании'},
+#     {'href': '/shop', 'link': 'Магазин'},
+#     {'href': '/contacts', 'link': 'Контакты'},
+# ]
+#
+# link = """
+# <ul>
+#     {% for i in menu %}
+#         {% if i.link == 'Главная' %}
+#             <li><a href="{{ i['href'] }}" class="active">{{ i['link'] }}</a></li>
+#         {% else %}
+#             <li><a href="{{ i['href'] }}">{{ i['link'] }}</a></li>
+#         {% endif %}
+#     {% endfor %}
+# </ul>
+# """
+#
+# tm = Template(link)
+# msg = tm.render(menu=menu)
+#
+# print(msg)
+
+
+# cars = [
+#     {"model": 'Audi', 'price': 23000},
+#     {"model": 'Skoda', 'price': 17300},
+#     {"model": 'Renault', 'price': 44300},
+#     {"model": 'Wolksvagen', 'price': 21300}
+# ]
+#
+# # cars = [3, 5, 7]
+#
+# # tpl = "{{cs | sum(attribute='price') }}"
+# tpl = "{{cs| max() }}"
+#
+# tm = Template(tpl)
+# msg = tm.render(cs=cars)
+#
+# print(msg)
+
+# html = """
+# {% macro set_input(name, value='', type='text', size=20) %}
+#     <input type="{{ type }}" name="{{ name }}" value="{{ value }}" size="{{ size }}">
+# {% endmacro %}
+#
+# <p>{{ set_input('username') }}</p>
+# <p>{{ set_input('email') }}</p>
+# <p>{{ set_input('password') }}</p>
+# """
+#
+# tm = Template(html)
+# msg = tm.render()
+#
+# print(msg)
+
+
+# from jinja2 import Environment, FileSystemLoader
+#
+# persons = [
+#     {"name": "Алексей"},
+#     {"name": "Никита"},
+#     {"name": "Виталий"},
+# ]
+#
+# file_loader = FileSystemLoader('templates')
+# env = Environment(loader=file_loader)
+#
+# tm = env.get_template('about.html')
+# msg = tm.render(users=persons, title="About Jinja")
+#
+# print(msg)
+
+
+# Базы данных
+
+import sqlite3
+
+# con = sqlite3.connect("profile.db")
+# cur = con.cursor()
+#
+# cur.execute("")
+#
+# con.close()
+
+with sqlite3.connect("profile.db") as con:
+    cur = con.cursor()
+    cur.execute("""CREATE TABLE IF NOT EXISTS users(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    summa REAL,
+    data TEXT
+    )""")
+    cur.execute("DROP TABLE users")

@@ -1,630 +1,210 @@
 Новость №1
 
-Название: Компания Twelve South представила новую концепцию кабеля питания USB-C с встроенным адаптером
-Ссылка: https://www.ixbt.com/live/supply/kompaniya-twelve-south-predstavila-novuyu-koncepciyu-kabelya-pitaniya-usb-c-s-vstroennym-adapterom.html
-Автор: PavelLBB
+Название: Apple предпочтёт терпеть пошлины, чем переносить производство iPhone в Америку
+Ссылка: https://www.ixbt.com/live/mobile/apple-predpochtet-terpet-poshliny-chem-perenosit-proizvodstvo-iphone-v-ameriku.html
+Автор: Prolus
 
 ********************
 Новость №2
 
-Название: Приложения Samsung Galaxy стали доступны на компьютерах под управлением Windows
-Ссылка: https://www.ixbt.com/live/sw/prilozheniya-samsung-galaxy-stali-dostupny-na-kompyuterah-pod-upravleniem-windows.html
-Автор: PavelLBB
+Название: Специальное предложение к 90-летию Московского метро в сети «Вкусно — и точка»
+Ссылка: https://www.ixbt.com/live/offtopic/specialnoe-predlozhenie-k-90-letiyu-moskovskogo-metro-v-seti-vkusno-i-tochka.html
+Автор: Korzhec
 
 ********************
 Новость №3
 
-Название: Биткоин установил новый рекорд: его стоимость впервые достигла отметки в 110 000 долларов США
-Ссылка: https://www.ixbt.com/live/crypto/bitkoin-ustanovil-novyy-rekord-ego-stoimost-vpervye-dostigla-otmetki-v-110-000-dollarov-ssha.html
+Название: Новый игровой ноутбук Jiaolong 16Pro 2025 от Mechanical Revolution с Ryzen 9 & RTX5060 уже поступил в продажу
+Ссылка: https://www.ixbt.com/live/mobilepc/novyy-igrovoy-noutbuk-jiaolong-16pro-2025-ot-mechanical-revolution-s-ryzen-9-rtx5060-uzhe-postupil-v-prodazhu.html
 Автор: Prolus
 
 ********************
 Новость №4
 
-Название: Xiaomi представила электрический внедорожник YU7 с запасом хода до 835 км
-Ссылка: https://www.ixbt.com/live/car/xiaomi-predstavila-elektricheskiy-vnedorozhnik-yu7-s-zapasom-hoda-do-835-km.html
-Автор: Aleksa
+Название: Исследование показало, что 85% потребностей Японии в энергии покроется солнечными батареями на крыше и батареями электромобилей
+Ссылка: https://www.ixbt.com/live/supply/issledovanie-pokazalo-chto-85-potrebnostey-yaponii-v-energii-pokroetsya-solnechnymi-batareyami-na-kryshe-i-batareyami-elektromobiley.html
+Автор: Technoblogger
 
 ********************
 Новость №5
 
-Название: Xiaomi выпустила умные часы Watch S4 15th Anniversary Edition с фирменным чипом Xring T1
-Ссылка: https://www.ixbt.com/live/gadgets/xiaomi-vypustila-umnye-chasy-watch-s4-15th-anniversary-edition-s-firmennym-chipom-xring-t1.html
-Автор: PavelLBB
+Название: Xiaomi выпустила серию TV S Mini LED 2025 с диагоналями от 55 до 98 дюймов
+Ссылка: https://www.ixbt.com/live/tv/xiaomi-vypustila-seriyu-tv-s-mini-led-2025-s-diagonalyami-ot-55-do-98-dyuymov.html
+Автор: dima0782
 
 ********************
 Новость №6
 
-Название: Casio представила две новые модели часов серии W-218H на европейском рынке
-Ссылка: https://www.ixbt.com/live/gadgets/casio-predstavila-dve-novye-modeli-chasov-serii-w-218h-na-evropeyskom-rynke.html
-Автор: S.Zahar
+Название: Винтовочный затвор и встроенный гироскоп. Титановая EDC-ручка Tacray Spinium становится хитом на Kickstarter
+Ссылка: https://www.ixbt.com/live/accessories/vintovochnyy-zatvor-i-vstroennyy-giroskop-titanovaya-edc-ruchka-tacray-spinium-stanovitsya-hitom-na-kickstarter.html
+Автор: Lumeniac
 
 ********************
 Новость №7
 
-Название: Это отвертка или спинер: представлена TowerSpin
-Ссылка: https://www.ixbt.com/live/instruments/toli-otvertka-toli-spiner-predstavlena-towerspin.html
-Автор: bdos
+Название: Nvidia выпустит более дешевый чип Blackwell AI для Китая
+Ссылка: https://www.ixbt.com/live/platform/nvidia-vypustit-bolee-deshevyy-chip-blackwell-ai-dlya-kitaya.html
+Автор: Prolus
 
 ********************
 Новость №8
 
-Название: Pirelli выпустила шоссейные покрышки шириной 55 мм
-Ссылка: https://www.ixbt.com/live/car/pirelli-vypustila-shosseynye-pokryshki-shirinoy-55-mm.html
-Автор: Zarulem
+Название: Опубликованы данные об импорте автомобилей в 2024 году по странам
+Ссылка: https://www.ixbt.com/live/car/opublikovany-dannye-ob-importe-avtomobiley-v-2024-godu-po-stranam.html
+Автор: Prolus
 
 ********************
 Новость №9
 
-Название: Infinix выпустила бюджетный игровой планшет Xpad GT
-Ссылка: https://www.ixbt.com/live/mobilepc/infinix-vypustila-byudzhetnyy-igrovoy-planshet-xpad-gt.html
-Автор: dima0782
+Название: В Windows 11 появилась функция создания GIF-файлов в инструменте скриншотов
+Ссылка: https://www.ixbt.com/live/sw/v-windows-11-poyavilas-funkciya-sozdaniya-gif-faylov-v-instrumente-skrinshotov.html
+Автор: Aleksa
 
 ********************
 Новость №10
 
-Название: Xiaomi представила смартфон 15S Pro с 3-нм процессором XRING O1
-Ссылка: https://www.ixbt.com/live/mobile/xiaomi-predstavila-smartfon-15s-pro-s-3-nm-processorom-xring-o1.html
+Название: Marshall выпускает саундбар Heston 120 с поддержкой Dolby Atmos
+Ссылка: https://www.ixbt.com/live/digs/marshall-vypuskaet-saundbar-heston-120-s-podderzhkoy-dolby-atmos.html
 Автор: Aleksa
 
 ********************
 Новость №11
 
-Название: Названы крупнейшие экспортеры солнечной энергии в 2022 году по странам
-Ссылка: https://www.ixbt.com/live/offtopic/nazvany-krupneyshie-eksportery-solnechnoy-energii-v-2022-godu-po-stranam.html
+Название: У Китая появились новые радары для обнаружения современных американских истребителей-невидимок
+Ссылка: https://www.ixbt.com/live/exhibitions/u-kitaya-poyavilis-novye-radary-dlya-obnaruzheniya-sovremennyh-amerikanskih-istrebiteley-nevidimok.html
 Автор: Prolus
 
 ********************
 Новость №12
 
-Название: Fujifilm представила цифровую камеру X half с 1-дюймовым сенсором
-Ссылка: https://www.ixbt.com/live/dp/fujifilm-predstavila-cifrovuyu-kameru-x-half-s-1-dyuymovym-sensorom.html
-Автор: PavelLBB
+Название: SanDisk представила флешку DDE1 с двойным разъёмом USB-A/C и скоростью чтения до 1000 МБ/с
+Ссылка: https://www.ixbt.com/live/data/sandisk-predstavila-fleshku-dde1-s-dvoynym-razemom-usb-a-c-i-skorostyu-chteniya-do-1000-mb-s.html
+Автор: GigaMOV
 
 ********************
 Новость №13
 
-Название: По слухам, серия Samsung Galaxy S26 будет оснащена совершенно новым датчиком камеры
-Ссылка: https://www.ixbt.com/live/mobile/po-sluham-seriya-samsung-galaxy-s26-budet-osnaschena-sovershenno-novym-datchikom-kamery.html
-Автор: Aleksa
+Название: ThundeRobot представила игровую мышь ML9 mini «8K Competitive Edition» с частотой опроса 8000 Гц
+Ссылка: https://www.ixbt.com/live/periphery/thunderobot-predstavila-igrovuyu-mysh-ml9-mini-8k-competitive-edition-s-chastotoy-oprosa-8000-gc.html
+Автор: GigaMOV
 
 ********************
 Новость №14
 
-Название: Xiaomi выпустила зарядное устройство GaN мощностью 90 Вт, которое помещается в ладони
-Ссылка: https://www.ixbt.com/live/supply/xiaomi-vypustila-zaryadnoe-ustroystvo-gan-moschnostyu-90-vt-kotoroe-pomeschaetsya-v-ladoni.html
-Автор: PavelLBB
+Название: Asus расширяет линейку мониторов с глянцевыми WOLED-панелями, включая модель на 540 Гц
+Ссылка: https://www.ixbt.com/live/3dv/asus-rasshiryaet-lineyku-monitorov-s-glyancevymi-woled-panelyami-vklyuchaya-model-na-540-gc.html
+Автор: GigaMOV
 
 ********************
 Новость №15
 
-Название: Xiaomi добавила в линейку зарядное устройство Small Pudding мощностью 90 Вт
-Ссылка: https://www.ixbt.com/live/supply/xiaomi-dobavila-v-lineyku-zaryadnoe-ustroystvo-small-pudding-moschnostyu-90-vt.html
-Автор: dima0782
+Название: Это один из самых мощных кнопочных телефонов: представлен TCL Flip 4 5G
+Ссылка: https://www.ixbt.com/live/mobile/eto-odin-iz-samyh-moschnyh-knopochnyh-telefonov-predstavlen-tcl-flip-4-5g.html
+Автор: Мобилкин
 
 ********************
 Новость №16
 
-Название: Asus представила новую версию док-станции для внешних видеокарт
-Ссылка: https://www.ixbt.com/live/3dv/asus-predstavila-novuyu-versiyu-dok-stancii-dlya-vneshnih-videokart.html
-Автор: dima0782
+Название: 4000 нит и 540 Гц: Asus поделилась подробностями о будущем игровом мониторе с новой OLED-панелью Tandem RGB
+Ссылка: https://www.ixbt.com/live/3dv/4000-nit-i-540-gc-asus-podelilas-podrobnostyami-o-buduschem-igrovom-monitore-s-novoy-oled-panelyu-tandem-rgb.html
+Автор: PavelLBB
 
 ********************
 Новость №17
 
-Название: Xiaomi начинает распространение HyperOS 2.2 на 154 устройства
-Ссылка: https://www.ixbt.com/live/mobile/xiaomi-nachinaet-rasprostranenie-hyperos-22-na-154-ustroystva.html
-Автор: dima0782
+Название: Компания Casio начала продажи часов линейки G-Shock Baby-G с функцией смены цвета на европейском рынке
+Ссылка: https://www.ixbt.com/live/gadgets/kompaniya-casio-nachala-prodazhi-chasov-lineyki-g-shock-baby-g-s-funkciey-smeny-cveta-na-evropeyskom-rynke.html
+Автор: PavelLBB
 
 ********************
 Новость №18
 
-Название: Представлен прицеп Convoy C.01, который превращает обычный велосипед в электро
-Ссылка: https://www.ixbt.com/live/car/predstavlen-pricep-convoy-c01-kotoryy-prevraschaet-obychnyy-velosiped-v-elektro.html
-Автор: bdos
+Название: Redmi K80 Ultra с быстрой зарядкой 120 Вт замечен на сайте сертификации 3C
+Ссылка: https://www.ixbt.com/live/mobile/redmi-k80-ultra-s-bystroy-zaryadkoy-120-vt-zamechen-na-sayte-sertifikacii-3c.html
+Автор: Prolus
 
 ********************
 Новость №19
 
-Название: Автоматическую коробку передач от Aurus будут устанавливать на отечественные автобусы
-Ссылка: https://www.ixbt.com/live/car/avtomaticheskuyu-korobku-peredach-ot-aurus-budut-ustanavlivat-na-otechestvennye-avtobusy.html
-Автор: bobster
+Название: Часы Samsung Galaxy Watch смогут измерять уровень бета-каротина
+Ссылка: https://www.ixbt.com/live/gadgets/chasy-samsung-galaxy-watch-smogut-izmeryat-uroven-beta-karotina.html
+Автор: Aleksa
 
 ********************
 Новость №20
 
-Название: Поезда Сеульского метро начнут курсировать с 5 утра, начиная с августа
-Ссылка: https://www.ixbt.com/live/car/poezda-seulskogo-metro-nachnut-kursirovat-s-5-utra-nachinaya-s-avgusta.html
-Автор: Technoblogger
+Название: Lava выпустила бюджетный смартфон Shark 5G с поддержкой сетей 5G
+Ссылка: https://www.ixbt.com/live/mobile/lava-vypustila-byudzhetnyy-smartfon-shark-5g-s-podderzhkoy-setey-5g.html
+Автор: Aleksa
 
 ********************
 Новость №21
 
-Название: Городской, динамичный. Компания Avant выпустила электровелосипед Agile
-Ссылка: https://www.ixbt.com/live/car/gorodskoy-dinamichnyy-kompaniya-avant-vypustila-elektrovelosiped-agile.html
-Автор: Technoblogger
+Название: Компания Anthropic запустила две мощные модели ИИ семейства Claude 4
+Ссылка: https://www.ixbt.com/live/sw/kompaniya-anthropic-zapustila-dve-moschnye-modeli-ii-semeystva-claude-4.html
+Автор: Prolus
 
 ********************
 Новость №22
 
-Название: Dodge Charger Daytona EV 2026 года представлен в четырехдверной версии
-Ссылка: https://www.ixbt.com/live/car/dodge-charger-daytona-ev-2026-goda-predstavlen-v-chetyrehdvernoy-versii.html
-Автор: Cr1cket
+Название: ASUS выпустила серию компьютеров «все в одном» V400
+Ссылка: https://www.ixbt.com/live/platform/asus-vypustila-seriyu-kompyuterov-vse-v-odnom-v400.html
+Автор: Aleksa
 
 ********************
 Новость №23
 
-Название: Google добавляет ещё больше рекламы в результаты поиска с помощью ИИ
-Ссылка: https://www.ixbt.com/live/sw/google-dobavlyaet-esche-bolshe-reklamy-v-rezultaty-poiska-s-pomoschyu-ii.html
-Автор: dima0782
+Название: Электросамокат Xiaomi Electric Scooter 5 Plus в скором времени станет доступен для покупки на международном рынке
+Ссылка: https://www.ixbt.com/live/car/elektrosamokat-xiaomi-electric-scooter-5-plus-v-skorom-vremeni-stanet-dostupen-dlya-pokupki-na-mezhdunarodnom-rynke.html
+Автор: PavelLBB
 
 ********************
 Новость №24
 
-Название: Samsung выпускает майский патч безопасности для Galaxy S23
-Ссылка: https://www.ixbt.com/live/mobile/samsung-vypuskaet-mayskiy-patch-bezopasnosti-dlya-galaxy-s23.html
-Автор: dima0782
+Название: Большую часть строителей-иностранцев Южной Кореи составили этнические корейцы китайского происхождения и китайцы
+Ссылка: https://www.ixbt.com/live/offtopic/bolshuyu-chast-stroiteley-yuzhnoy-korei-sostavili-etnicheskie-koreycy-kitayskogo-proishozhdeniya-i-kitaycy.html
+Автор: Technoblogger
 
 ********************
 Новость №25
 
-Название: PNY представила microSD Express-карты с поддержкой Nintendo Switch 2 и скоростью до 890 МБ/с
-Ссылка: https://www.ixbt.com/live/data/pny-predstavila-microsd-express-karty-s-podderzhkoy-nintendo-switch-2-i-skorostyu-do-890-mb-s.html
-Автор: GigaMOV
+Название: Компания Royal Enfield представила электрический мотоцикл Flying Flea FF-C6
+Ссылка: https://www.ixbt.com/live/car/kompaniya-royal-enfield-predstavila-elektricheskiy-motocikl-flying-flea-ff-c6.html
+Автор: Technoblogger
 
 ********************
 Новость №26
 
-Название: SK Hynix представила накопитель UFS 4.1 с 321-слойной памятью NAND для смартфонов с ИИ
-Ссылка: https://www.ixbt.com/live/data/sk-hynix-predstavila-nakopitel-ufs-41-s-321-sloynoy-pamyatyu-nand-dlya-smartfonov-s-ii.html
-Автор: GigaMOV
+Название: «Бабушкофоны» по-европейски: представлены смартфоны Doro Aurora A10, A20 и A30
+Ссылка: https://www.ixbt.com/live/mobile/babushkofony-po-evropeyski-predstavleny-smartfony-doro-aurora-a10-a20-i-a30.html
+Автор: Мобилкин
 
 ********************
 Новость №27
 
-Название: Casio представила в Европе часы AE-1000W с функцией мирового времени и картой
-Ссылка: https://www.ixbt.com/live/gadgets/casio-predstavila-v-evrope-chasy-ae-1000w-s-funkciey-mirovogo-vremeni-i-kartoy.html
-Автор: GigaMOV
+Название: Xiaomi выпустила первый чип Xring O1 с 10-ядерной архитектурой
+Ссылка: https://www.ixbt.com/live/offtopic/xiaomi-vypustila-pervyy-chip-xring-o1-s-10-yadernoy-arhitekturoy.html
+Автор: dima0782
 
 ********************
 Новость №28
 
-Название: Игровой смартфон с беспроводной зарядкой: представлен Infinix GT 30 Pro
-Ссылка: https://www.ixbt.com/live/mobile/igrovoy-smartfon-s-besprovodnoy-zaryadkoy-predstavlen-infinix-gt-30-pro.html
-Автор: Мобилкин
-
-********************
-Новость №29
-
-Название: Анонсирован USB-концентратор с дисплеем, отображающим разрешение монитора и напряжение с силой тока подключенных устройств
-Ссылка: https://www.ixbt.com/live/supply/anonsirovan-usb-koncentrator-s-displeem-otobrazhayuschim-razreshenie-monitora-i-napryazhenie-s-siloy-toka-podklyuchennyh-ustroystv.html
-Автор: PavelLBB
-
-********************
-Новость №30
-
-Название: ASUS представила монитор ROG Swift PG32UCDMR с DisplayPort 2.1
-Ссылка: https://www.ixbt.com/live/3dv/asus-predstavila-monitor-rog-swift-pg32ucdmr-s-displayport-21.html
-Автор: Aleksa
-
-********************
-Новость №1
-
-Название: Компания Twelve South представила новую концепцию кабеля питания USB-C с встроенным адаптером
-Ссылка: https://www.ixbt.com/live/supply/kompaniya-twelve-south-predstavila-novuyu-koncepciyu-kabelya-pitaniya-usb-c-s-vstroennym-adapterom.html
-Автор: PavelLBB
-
-********************
-Новость №2
-
-Название: Приложения Samsung Galaxy стали доступны на компьютерах под управлением Windows
-Ссылка: https://www.ixbt.com/live/sw/prilozheniya-samsung-galaxy-stali-dostupny-na-kompyuterah-pod-upravleniem-windows.html
-Автор: PavelLBB
-
-********************
-Новость №3
-
-Название: Биткоин установил новый рекорд: его стоимость впервые достигла отметки в 110 000 долларов США
-Ссылка: https://www.ixbt.com/live/crypto/bitkoin-ustanovil-novyy-rekord-ego-stoimost-vpervye-dostigla-otmetki-v-110-000-dollarov-ssha.html
-Автор: Prolus
-
-********************
-Новость №4
-
-Название: Xiaomi представила электрический внедорожник YU7 с запасом хода до 835 км
-Ссылка: https://www.ixbt.com/live/car/xiaomi-predstavila-elektricheskiy-vnedorozhnik-yu7-s-zapasom-hoda-do-835-km.html
-Автор: Aleksa
-
-********************
-Новость №5
-
-Название: Xiaomi выпустила умные часы Watch S4 15th Anniversary Edition с фирменным чипом Xring T1
-Ссылка: https://www.ixbt.com/live/gadgets/xiaomi-vypustila-umnye-chasy-watch-s4-15th-anniversary-edition-s-firmennym-chipom-xring-t1.html
-Автор: PavelLBB
-
-********************
-Новость №6
-
-Название: Casio представила две новые модели часов серии W-218H на европейском рынке
-Ссылка: https://www.ixbt.com/live/gadgets/casio-predstavila-dve-novye-modeli-chasov-serii-w-218h-na-evropeyskom-rynke.html
-Автор: S.Zahar
-
-********************
-Новость №7
-
-Название: Это отвертка или спинер: представлена TowerSpin
-Ссылка: https://www.ixbt.com/live/instruments/toli-otvertka-toli-spiner-predstavlena-towerspin.html
-Автор: bdos
-
-********************
-Новость №8
-
-Название: Pirelli выпустила шоссейные покрышки шириной 55 мм
-Ссылка: https://www.ixbt.com/live/car/pirelli-vypustila-shosseynye-pokryshki-shirinoy-55-mm.html
-Автор: Zarulem
-
-********************
-Новость №9
-
-Название: Infinix выпустила бюджетный игровой планшет Xpad GT
-Ссылка: https://www.ixbt.com/live/mobilepc/infinix-vypustila-byudzhetnyy-igrovoy-planshet-xpad-gt.html
-Автор: dima0782
-
-********************
-Новость №10
-
-Название: Xiaomi представила смартфон 15S Pro с 3-нм процессором XRING O1
-Ссылка: https://www.ixbt.com/live/mobile/xiaomi-predstavila-smartfon-15s-pro-s-3-nm-processorom-xring-o1.html
-Автор: Aleksa
-
-********************
-Новость №11
-
-Название: Названы крупнейшие экспортеры солнечной энергии в 2022 году по странам
-Ссылка: https://www.ixbt.com/live/offtopic/nazvany-krupneyshie-eksportery-solnechnoy-energii-v-2022-godu-po-stranam.html
-Автор: Prolus
-
-********************
-Новость №12
-
-Название: Fujifilm представила цифровую камеру X half с 1-дюймовым сенсором
-Ссылка: https://www.ixbt.com/live/dp/fujifilm-predstavila-cifrovuyu-kameru-x-half-s-1-dyuymovym-sensorom.html
-Автор: PavelLBB
-
-********************
-Новость №13
-
-Название: По слухам, серия Samsung Galaxy S26 будет оснащена совершенно новым датчиком камеры
-Ссылка: https://www.ixbt.com/live/mobile/po-sluham-seriya-samsung-galaxy-s26-budet-osnaschena-sovershenno-novym-datchikom-kamery.html
-Автор: Aleksa
-
-********************
-Новость №14
-
-Название: Xiaomi выпустила зарядное устройство GaN мощностью 90 Вт, которое помещается в ладони
-Ссылка: https://www.ixbt.com/live/supply/xiaomi-vypustila-zaryadnoe-ustroystvo-gan-moschnostyu-90-vt-kotoroe-pomeschaetsya-v-ladoni.html
-Автор: PavelLBB
-
-********************
-Новость №15
-
-Название: Xiaomi добавила в линейку зарядное устройство Small Pudding мощностью 90 Вт
-Ссылка: https://www.ixbt.com/live/supply/xiaomi-dobavila-v-lineyku-zaryadnoe-ustroystvo-small-pudding-moschnostyu-90-vt.html
-Автор: dima0782
-
-********************
-Новость №16
-
-Название: Asus представила новую версию док-станции для внешних видеокарт
-Ссылка: https://www.ixbt.com/live/3dv/asus-predstavila-novuyu-versiyu-dok-stancii-dlya-vneshnih-videokart.html
-Автор: dima0782
-
-********************
-Новость №17
-
-Название: Xiaomi начинает распространение HyperOS 2.2 на 154 устройства
-Ссылка: https://www.ixbt.com/live/mobile/xiaomi-nachinaet-rasprostranenie-hyperos-22-na-154-ustroystva.html
-Автор: dima0782
-
-********************
-Новость №18
-
-Название: Представлен прицеп Convoy C.01, который превращает обычный велосипед в электро
-Ссылка: https://www.ixbt.com/live/car/predstavlen-pricep-convoy-c01-kotoryy-prevraschaet-obychnyy-velosiped-v-elektro.html
-Автор: bdos
-
-********************
-Новость №19
-
-Название: Автоматическую коробку передач от Aurus будут устанавливать на отечественные автобусы
-Ссылка: https://www.ixbt.com/live/car/avtomaticheskuyu-korobku-peredach-ot-aurus-budut-ustanavlivat-na-otechestvennye-avtobusy.html
+Название: В самолётах бюджетных авиакомпаний могут появиться «стоячие» места
+Ссылка: https://www.ixbt.com/live/car/v-samoletah-byudzhetnyh-aviakompaniy-mogut-poyavitsya-stoyachie-mesta.html
 Автор: bobster
 
 ********************
-Новость №20
-
-Название: Поезда Сеульского метро начнут курсировать с 5 утра, начиная с августа
-Ссылка: https://www.ixbt.com/live/car/poezda-seulskogo-metro-nachnut-kursirovat-s-5-utra-nachinaya-s-avgusta.html
-Автор: Technoblogger
-
-********************
-Новость №21
-
-Название: Городской, динамичный. Компания Avant выпустила электровелосипед Agile
-Ссылка: https://www.ixbt.com/live/car/gorodskoy-dinamichnyy-kompaniya-avant-vypustila-elektrovelosiped-agile.html
-Автор: Technoblogger
-
-********************
-Новость №22
-
-Название: Dodge Charger Daytona EV 2026 года представлен в четырехдверной версии
-Ссылка: https://www.ixbt.com/live/car/dodge-charger-daytona-ev-2026-goda-predstavlen-v-chetyrehdvernoy-versii.html
-Автор: Cr1cket
-
-********************
-Новость №23
-
-Название: Google добавляет ещё больше рекламы в результаты поиска с помощью ИИ
-Ссылка: https://www.ixbt.com/live/sw/google-dobavlyaet-esche-bolshe-reklamy-v-rezultaty-poiska-s-pomoschyu-ii.html
-Автор: dima0782
-
-********************
-Новость №24
-
-Название: Samsung выпускает майский патч безопасности для Galaxy S23
-Ссылка: https://www.ixbt.com/live/mobile/samsung-vypuskaet-mayskiy-patch-bezopasnosti-dlya-galaxy-s23.html
-Автор: dima0782
-
-********************
-Новость №25
-
-Название: PNY представила microSD Express-карты с поддержкой Nintendo Switch 2 и скоростью до 890 МБ/с
-Ссылка: https://www.ixbt.com/live/data/pny-predstavila-microsd-express-karty-s-podderzhkoy-nintendo-switch-2-i-skorostyu-do-890-mb-s.html
-Автор: GigaMOV
-
-********************
-Новость №26
-
-Название: SK Hynix представила накопитель UFS 4.1 с 321-слойной памятью NAND для смартфонов с ИИ
-Ссылка: https://www.ixbt.com/live/data/sk-hynix-predstavila-nakopitel-ufs-41-s-321-sloynoy-pamyatyu-nand-dlya-smartfonov-s-ii.html
-Автор: GigaMOV
-
-********************
-Новость №27
-
-Название: Casio представила в Европе часы AE-1000W с функцией мирового времени и картой
-Ссылка: https://www.ixbt.com/live/gadgets/casio-predstavila-v-evrope-chasy-ae-1000w-s-funkciey-mirovogo-vremeni-i-kartoy.html
-Автор: GigaMOV
-
-********************
-Новость №28
-
-Название: Игровой смартфон с беспроводной зарядкой: представлен Infinix GT 30 Pro
-Ссылка: https://www.ixbt.com/live/mobile/igrovoy-smartfon-s-besprovodnoy-zaryadkoy-predstavlen-infinix-gt-30-pro.html
-Автор: Мобилкин
-
-********************
 Новость №29
 
-Название: Анонсирован USB-концентратор с дисплеем, отображающим разрешение монитора и напряжение с силой тока подключенных устройств
-Ссылка: https://www.ixbt.com/live/supply/anonsirovan-usb-koncentrator-s-displeem-otobrazhayuschim-razreshenie-monitora-i-napryazhenie-s-siloy-toka-podklyuchennyh-ustroystv.html
-Автор: PavelLBB
+Название: 4 устройства Samsung обновились до One UI 7 на базе Android 15
+Ссылка: https://www.ixbt.com/live/mobile/4-ustroystva-samsung-obnovilis-do-one-ui-7-na-baze-android-15.html
+Автор: Aleksa
 
 ********************
 Новость №30
 
-Название: ASUS представила монитор ROG Swift PG32UCDMR с DisplayPort 2.1
-Ссылка: https://www.ixbt.com/live/3dv/asus-predstavila-monitor-rog-swift-pg32ucdmr-s-displayport-21.html
-Автор: Aleksa
-
-********************
-Новость №1
-
-Название: Компания Twelve South представила новую концепцию кабеля питания USB-C с встроенным адаптером
-Ссылка: https://www.ixbt.com/live/supply/kompaniya-twelve-south-predstavila-novuyu-koncepciyu-kabelya-pitaniya-usb-c-s-vstroennym-adapterom.html
-Автор: PavelLBB
-
-********************
-Новость №2
-
-Название: Приложения Samsung Galaxy стали доступны на компьютерах под управлением Windows
-Ссылка: https://www.ixbt.com/live/sw/prilozheniya-samsung-galaxy-stali-dostupny-na-kompyuterah-pod-upravleniem-windows.html
-Автор: PavelLBB
-
-********************
-Новость №3
-
-Название: Биткоин установил новый рекорд: его стоимость впервые достигла отметки в 110 000 долларов США
-Ссылка: https://www.ixbt.com/live/crypto/bitkoin-ustanovil-novyy-rekord-ego-stoimost-vpervye-dostigla-otmetki-v-110-000-dollarov-ssha.html
-Автор: Prolus
-
-********************
-Новость №4
-
-Название: Xiaomi представила электрический внедорожник YU7 с запасом хода до 835 км
-Ссылка: https://www.ixbt.com/live/car/xiaomi-predstavila-elektricheskiy-vnedorozhnik-yu7-s-zapasom-hoda-do-835-km.html
-Автор: Aleksa
-
-********************
-Новость №5
-
-Название: Xiaomi выпустила умные часы Watch S4 15th Anniversary Edition с фирменным чипом Xring T1
-Ссылка: https://www.ixbt.com/live/gadgets/xiaomi-vypustila-umnye-chasy-watch-s4-15th-anniversary-edition-s-firmennym-chipom-xring-t1.html
-Автор: PavelLBB
-
-********************
-Новость №6
-
-Название: Casio представила две новые модели часов серии W-218H на европейском рынке
-Ссылка: https://www.ixbt.com/live/gadgets/casio-predstavila-dve-novye-modeli-chasov-serii-w-218h-na-evropeyskom-rynke.html
-Автор: S.Zahar
-
-********************
-Новость №7
-
-Название: Это отвертка или спинер: представлена TowerSpin
-Ссылка: https://www.ixbt.com/live/instruments/toli-otvertka-toli-spiner-predstavlena-towerspin.html
-Автор: bdos
-
-********************
-Новость №8
-
-Название: Pirelli выпустила шоссейные покрышки шириной 55 мм
-Ссылка: https://www.ixbt.com/live/car/pirelli-vypustila-shosseynye-pokryshki-shirinoy-55-mm.html
-Автор: Zarulem
-
-********************
-Новость №9
-
-Название: Infinix выпустила бюджетный игровой планшет Xpad GT
-Ссылка: https://www.ixbt.com/live/mobilepc/infinix-vypustila-byudzhetnyy-igrovoy-planshet-xpad-gt.html
+Название: Ученые из Индии создали натрий-ионную батарею с возможностью зарядки на 80% за 6 минут
+Ссылка: https://www.ixbt.com/live/science/uchenye-iz-indii-sozdali-natriy-ionnuyu-batareyu-s-vozmozhnostyu-zaryadki-na-80-za-6-minut.html
 Автор: dima0782
-
-********************
-Новость №10
-
-Название: Xiaomi представила смартфон 15S Pro с 3-нм процессором XRING O1
-Ссылка: https://www.ixbt.com/live/mobile/xiaomi-predstavila-smartfon-15s-pro-s-3-nm-processorom-xring-o1.html
-Автор: Aleksa
-
-********************
-Новость №11
-
-Название: Названы крупнейшие экспортеры солнечной энергии в 2022 году по странам
-Ссылка: https://www.ixbt.com/live/offtopic/nazvany-krupneyshie-eksportery-solnechnoy-energii-v-2022-godu-po-stranam.html
-Автор: Prolus
-
-********************
-Новость №12
-
-Название: Fujifilm представила цифровую камеру X half с 1-дюймовым сенсором
-Ссылка: https://www.ixbt.com/live/dp/fujifilm-predstavila-cifrovuyu-kameru-x-half-s-1-dyuymovym-sensorom.html
-Автор: PavelLBB
-
-********************
-Новость №13
-
-Название: По слухам, серия Samsung Galaxy S26 будет оснащена совершенно новым датчиком камеры
-Ссылка: https://www.ixbt.com/live/mobile/po-sluham-seriya-samsung-galaxy-s26-budet-osnaschena-sovershenno-novym-datchikom-kamery.html
-Автор: Aleksa
-
-********************
-Новость №14
-
-Название: Xiaomi выпустила зарядное устройство GaN мощностью 90 Вт, которое помещается в ладони
-Ссылка: https://www.ixbt.com/live/supply/xiaomi-vypustila-zaryadnoe-ustroystvo-gan-moschnostyu-90-vt-kotoroe-pomeschaetsya-v-ladoni.html
-Автор: PavelLBB
-
-********************
-Новость №15
-
-Название: Xiaomi добавила в линейку зарядное устройство Small Pudding мощностью 90 Вт
-Ссылка: https://www.ixbt.com/live/supply/xiaomi-dobavila-v-lineyku-zaryadnoe-ustroystvo-small-pudding-moschnostyu-90-vt.html
-Автор: dima0782
-
-********************
-Новость №16
-
-Название: Asus представила новую версию док-станции для внешних видеокарт
-Ссылка: https://www.ixbt.com/live/3dv/asus-predstavila-novuyu-versiyu-dok-stancii-dlya-vneshnih-videokart.html
-Автор: dima0782
-
-********************
-Новость №17
-
-Название: Xiaomi начинает распространение HyperOS 2.2 на 154 устройства
-Ссылка: https://www.ixbt.com/live/mobile/xiaomi-nachinaet-rasprostranenie-hyperos-22-na-154-ustroystva.html
-Автор: dima0782
-
-********************
-Новость №18
-
-Название: Представлен прицеп Convoy C.01, который превращает обычный велосипед в электро
-Ссылка: https://www.ixbt.com/live/car/predstavlen-pricep-convoy-c01-kotoryy-prevraschaet-obychnyy-velosiped-v-elektro.html
-Автор: bdos
-
-********************
-Новость №19
-
-Название: Автоматическую коробку передач от Aurus будут устанавливать на отечественные автобусы
-Ссылка: https://www.ixbt.com/live/car/avtomaticheskuyu-korobku-peredach-ot-aurus-budut-ustanavlivat-na-otechestvennye-avtobusy.html
-Автор: bobster
-
-********************
-Новость №20
-
-Название: Поезда Сеульского метро начнут курсировать с 5 утра, начиная с августа
-Ссылка: https://www.ixbt.com/live/car/poezda-seulskogo-metro-nachnut-kursirovat-s-5-utra-nachinaya-s-avgusta.html
-Автор: Technoblogger
-
-********************
-Новость №21
-
-Название: Городской, динамичный. Компания Avant выпустила электровелосипед Agile
-Ссылка: https://www.ixbt.com/live/car/gorodskoy-dinamichnyy-kompaniya-avant-vypustila-elektrovelosiped-agile.html
-Автор: Technoblogger
-
-********************
-Новость №22
-
-Название: Dodge Charger Daytona EV 2026 года представлен в четырехдверной версии
-Ссылка: https://www.ixbt.com/live/car/dodge-charger-daytona-ev-2026-goda-predstavlen-v-chetyrehdvernoy-versii.html
-Автор: Cr1cket
-
-********************
-Новость №23
-
-Название: Google добавляет ещё больше рекламы в результаты поиска с помощью ИИ
-Ссылка: https://www.ixbt.com/live/sw/google-dobavlyaet-esche-bolshe-reklamy-v-rezultaty-poiska-s-pomoschyu-ii.html
-Автор: dima0782
-
-********************
-Новость №24
-
-Название: Samsung выпускает майский патч безопасности для Galaxy S23
-Ссылка: https://www.ixbt.com/live/mobile/samsung-vypuskaet-mayskiy-patch-bezopasnosti-dlya-galaxy-s23.html
-Автор: dima0782
-
-********************
-Новость №25
-
-Название: PNY представила microSD Express-карты с поддержкой Nintendo Switch 2 и скоростью до 890 МБ/с
-Ссылка: https://www.ixbt.com/live/data/pny-predstavila-microsd-express-karty-s-podderzhkoy-nintendo-switch-2-i-skorostyu-do-890-mb-s.html
-Автор: GigaMOV
-
-********************
-Новость №26
-
-Название: SK Hynix представила накопитель UFS 4.1 с 321-слойной памятью NAND для смартфонов с ИИ
-Ссылка: https://www.ixbt.com/live/data/sk-hynix-predstavila-nakopitel-ufs-41-s-321-sloynoy-pamyatyu-nand-dlya-smartfonov-s-ii.html
-Автор: GigaMOV
-
-********************
-Новость №27
-
-Название: Casio представила в Европе часы AE-1000W с функцией мирового времени и картой
-Ссылка: https://www.ixbt.com/live/gadgets/casio-predstavila-v-evrope-chasy-ae-1000w-s-funkciey-mirovogo-vremeni-i-kartoy.html
-Автор: GigaMOV
-
-********************
-Новость №28
-
-Название: Игровой смартфон с беспроводной зарядкой: представлен Infinix GT 30 Pro
-Ссылка: https://www.ixbt.com/live/mobile/igrovoy-smartfon-s-besprovodnoy-zaryadkoy-predstavlen-infinix-gt-30-pro.html
-Автор: Мобилкин
-
-********************
-Новость №29
-
-Название: Анонсирован USB-концентратор с дисплеем, отображающим разрешение монитора и напряжение с силой тока подключенных устройств
-Ссылка: https://www.ixbt.com/live/supply/anonsirovan-usb-koncentrator-s-displeem-otobrazhayuschim-razreshenie-monitora-i-napryazhenie-s-siloy-toka-podklyuchennyh-ustroystv.html
-Автор: PavelLBB
-
-********************
-Новость №30
-
-Название: ASUS представила монитор ROG Swift PG32UCDMR с DisplayPort 2.1
-Ссылка: https://www.ixbt.com/live/3dv/asus-predstavila-monitor-rog-swift-pg32ucdmr-s-displayport-21.html
-Автор: Aleksa
 
 ********************

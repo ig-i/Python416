@@ -1019,47 +1019,50 @@ from unittest.mock import PropertyMock
 #     for row in file_reader:
 #         print(row)
 
-import csv
-import requests
-from bs4 import BeautifulSoup
-
-
-def get_html(url):
-    row = requests.get(url)
-    return row.text
-
-
-def get_data(html):
-    soup = BeautifulSoup(html, "lxml")
-    element = soup.find_all("div",  class_="col-lg-6 col-md-4 col-sm-6 col-xs-6")
-    for elem in element:
-        product = elem.find("a", class_='catalog-item__name').text
-        price = elem.find("div", class_='current-price').text
-        data = {
-            "product": product,
-            "price": price
-        }
-        print(data)
-        # write_csv(data)
-
-
-def write_csv(data):
-    with open("plugin2.csv", "w", encoding='utf-8') as f:
-        writer = csv.writer(f, delimiter=";", lineterminator="\r")
-        writer.writerow((data["product"],
-                         data["price"]))
-
-
-def main():
-    url = "https://www.olant-shop.ru/"
-
-    print(get_data(get_html(url)))
-
-
-if __name__ == '__main__':
-    main()
+# import csv
+# import requests
+# from bs4 import BeautifulSoup
+#
+#
+# def get_html(url):
+#     row = requests.get(url)
+#     return row.text
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, "lxml")
+#     element = soup.find_all("div",  class_="col-lg-6 col-md-4 col-sm-6 col-xs-6")
+#     for elem in element:
+#         product = elem.find("a", class_='catalog-item__name').text
+#         price = elem.find("div", class_='current-price').text
+#         data = {
+#             "product": product,
+#             "price": price
+#         }
+#         print(data)
+#         # write_csv(data)
+#
+#
+# def write_csv(data):
+#     with open("plugin2.csv", "w", encoding='utf-8') as f:
+#         writer = csv.writer(f, delimiter=";", lineterminator="\r")
+#         writer.writerow((data["product"],
+#                          data["price"]))
+#
+#
+# def main():
+#     url = "https://www.olant-shop.ru/"
+#
+#     print(get_data(get_html(url)))
+#
+#
+# if __name__ == '__main__':
+#     main()
 
 
 # Проверка доступа к сайту
 # row = requests.get("https://www.olant-shop.ru/")
 # print(row)
+
+
+# ДЗ (Паттерн MVS)
