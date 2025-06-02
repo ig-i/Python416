@@ -5817,7 +5817,7 @@ import csv
 #     run()
 
 
-# from jinja2 import Template
+from jinja2 import Template
 
 # name = "Игорь"
 # age = 28
@@ -5908,7 +5908,7 @@ import csv
 #
 # print(msg)
 
-
+#
 # cars = [
 #     {"model": 'Audi', 'price': 23000},
 #     {"model": 'Skoda', 'price': 17300},
@@ -5919,7 +5919,9 @@ import csv
 # # cars = [3, 5, 7]
 #
 # # tpl = "{{cs | sum(attribute='price') }}"
-# tpl = "{{cs| max() }}"
+# # tpl = "{{cs}}"
+# tpl = "{{ (cs | max(attribute='price')).model }}"
+# # tpl = "{{cs| sum() }}"
 #
 # tm = Template(tpl)
 # msg = tm.render(cs=cars)
@@ -5927,14 +5929,14 @@ import csv
 # print(msg)
 
 # html = """
-# {% macro set_input(name, value='', type='text', size=20) %}
-#     <input type="{{ type }}" name="{{ name }}" value="{{ value }}" size="{{ size }}">
+# # {% macro set_input(name, value='', type='text', size=20) %}
+# #     <input type="{{ type }}" name="{{ name }}" value="{{ value }}" size="{{ size }}">
 # {% endmacro %}
-#
-# <p>{{ set_input('username') }}</p>
-# <p>{{ set_input('email') }}</p>
-# <p>{{ set_input('password') }}</p>
-# """
+# #
+# # <p>{{ set_input('username') }}</p>
+# # <p>{{ set_input('email') }}</p>
+# # <p>{{ set_input('password') }}</p>
+# # """
 #
 # tm = Template(html)
 # msg = tm.render()
@@ -5942,21 +5944,21 @@ import csv
 # print(msg)
 
 
-# from jinja2 import Environment, FileSystemLoader
-#
-# persons = [
-#     {"name": "Алексей"},
-#     {"name": "Никита"},
-#     {"name": "Виталий"},
-# ]
-#
-# file_loader = FileSystemLoader('templates')
-# env = Environment(loader=file_loader)
-#
-# tm = env.get_template('about.html')
-# msg = tm.render(users=persons, title="About Jinja")
-#
-# print(msg)
+from jinja2 import Environment, FileSystemLoader
+
+persons = [
+    {"name": "Алексей"},
+    {"name": "Никита"},
+    {"name": "Виталий"},
+]
+
+file_loader = FileSystemLoader('templates_1')  # указываем папку где лежит документ
+env = Environment(loader=file_loader)  # передаем переменную file_loader
+
+tm = env.get_template('main_1.html')  # получили доступ к документу с html
+msg = tm.render(users=persons, title="About Jinja")  # связываем 2 документа (список [persons] и html users
+
+print(msg)
 
 
 # Базы данных
@@ -5970,12 +5972,12 @@ import sqlite3
 #
 # con.close()
 
-with sqlite3.connect("profile.db") as con:
-    cur = con.cursor()
-    cur.execute("""CREATE TABLE IF NOT EXISTS users(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    summa REAL,
-    data TEXT
-    )""")
-    cur.execute("DROP TABLE users")
+# with sqlite3.connect("profile.db") as con:
+#     cur = con.cursor()
+#     cur.execute("""CREATE TABLE IF NOT EXISTS users(
+#     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#     name TEXT NOT NULL,
+#     summa REAL,
+#     data TEXT
+#     )""")
+#     cur.execute("DROP TABLE users")

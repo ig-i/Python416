@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% blok}</title>
+    <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+
+{% block content %}
+Блок контента
+{% endblock %}
+
 
 </body>
 </html>

@@ -1066,3 +1066,5 @@ from unittest.mock import PropertyMock
 
 
 # ДЗ (Паттерн MVS)
+
+
