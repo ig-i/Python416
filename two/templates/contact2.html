@@ -1,0 +1,18 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+
+<h1>Прислать новость</h1>
+
+
+<form action="/contact" method="post">
+    <p>Имя: <input type="text" name="username" required></p>
+    <p>Email: <input type="email" name="email" required></p>
+    <p>Тема сообщения: <input type="text" name="username" required></p>
+    <p>Сообщение:</p>
+    <p><textarea name="message" cols="40" rows="7"></textarea></p>
+    <p><input type="submit" value="Отправить"></p>
+</form>
+
+{% endblock %}
+

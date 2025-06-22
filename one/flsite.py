@@ -1,0 +1,48 @@
+from flask import Flask, render_template, request, flash
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'wertyuiopui'
+
+menu = [
+    {"name": "Главная", "url": "index"},
+    {"name": "О нас", "url": "about"},
+    {"name": "Обратная связь", "url": "contact"}
+]
+
+
+@app.route("/")
+@app.route("/index")
+def index():
+    return render_template("index.html",
+                           title="Главная", menu=menu)  # подключаем страницу html
+
+
+@app.route("/about")
+def about():
+    return render_template("about.html", title="О нас", menu=menu)  # подключаем страницу html
+
+
+@app.route("/profile/<int:username>")
+def profile(username):
+    return f"Пользователь: {username}"
+
+
+@app.errorhandler(404)
+def pag_not_found(error):
+    return render_template("page.html", title="Страница не найдена", menu=menu)
+
+
+@app.route("/contact", methods=["POST", "GET"])
+def contact():
+    if request.method == 'POST':
+        print(request.form)
+        if len(request.form['username']) > 2:
+            flash("Сообщение отправлено успешно", category='success')
+        else:
+            flash("Ошибка отправки", category='error')
+
+    return render_template("contact.html", title="Обратная связь", menu=menu)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

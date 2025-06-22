@@ -1,0 +1,21 @@
+body {
+    background: aqua;
+    margin: 0;
+    padding: 0;
+}
+.menu {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: disc;
+    background: yellowgreen;
+    padding: 30px;
+    margin-top: 0;
+    font-weight: bold;
+    
+}
+.content{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
