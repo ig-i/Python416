@@ -34,4 +34,38 @@ body {
     border: 1px solid #FF4343;
     background: #FF9C9C;
 }
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+p > a{
+    text-decoration: none;
+    color: brown;
+}
+
+li > p, li > div{
+    border: 1px solid #CCCC;
+    padding: 10px 20 px;
+}
+
+p.title{
+    margin: 0;
+    font-weight: bold;
+    background: gold;
+   
+}
+p.title a {
+    display: block;
+    padding: 10px 0;
+}
+
+p.title:hover{
+    background: orange;
+}
+.annonce{
+    margin-top: -1px;
+    margin-bottom: 40px;
+    background: #FFF;
+}
  
