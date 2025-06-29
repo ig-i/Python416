@@ -1,6 +1,6 @@
 import sqlite3
 import os
-from flask import Flask, render_template, flash, request, g
+from flask import Flask, render_template, flash, request, g, abort
 
 from two.fdatabase import FDataBase
 
@@ -39,7 +39,7 @@ def get_db():  # создаем функцию соединения с базо�
 def index():
     db = get_db()
     dbase = FDataBase(db)
-    return render_template('index2.html', menu=dbase.get_menu())
+    return render_template('index2.html', menu=dbase.get_menu(), posts=dbase.get_posts_anonce())
 
 
 @app.route("/add")
@@ -53,7 +53,36 @@ def add():
 def add_post():
     db = get_db()
     dbase = FDataBase(db)
+
+    if request.method == "POST":
+        if len(request.form["username"]) > 4 and len(request.form["post"]) > 10:
+            res = dbase.add_post(request.form["username"], request.form["post"])
+            if not res:
+                flash("Ошибка добавления новости", category="error")
+            else:
+                flash("Новость добавлена успешно", category="success")
+        else:
+            flash("Ошибка добавления новости", category="error")
+
     return render_template('add_post.html', menu=dbase.get_menu())
+
+
+@app.route("/post/<int:id_post>")
+def show_post(id_post):
+    db = get_db()
+    dbase = FDataBase(db)
+    title, post = dbase.get_post(id_post)
+    if not title:
+        abort(404)
+
+    return render_template('post.html', menu=dbase.get_menu(), title=title, post=post)
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    db = get_db()
+    dbase = FDataBase(db)
+    return render_template("page404.html", title="Страница не найдена", menu=dbase.get_menu())
 
 
 @app.teardown_appcontext

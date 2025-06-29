@@ -3,7 +3,18 @@
 {% block content %}
 
 <h1><a href="">Мировые новости - От политики до экономики!</a></h1>
-
+<hr>
+<h2>Список новостей</h2>
+<ul>
+    {% for p in posts %}
+        <li>
+            <p class="title">
+               <a href="{{ url_for('show_post', id_post=p.id) }}">{{ p.title }}</a>
+            </p>
+            <div class="annonce">{{ p.text [:240 ] }}...</div>
+        </li>
+    {% endfor %}
+</ul>
 {% endblock %}
 
 
