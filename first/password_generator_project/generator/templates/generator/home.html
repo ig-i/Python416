@@ -9,10 +9,10 @@
 <body>
 <div class="container">
 <h1>Генератор паролей</h1>
-<form action="{% url 'password' %}">
-  <p><select name="length">
-    {% for i in lst %}
-    {% if i == 12 %}
+<form action="{% url 'password' %}">     <!--прописываем переход на другую страницу password-->
+<p><select name="length">
+    {% for i in lst %}                    <!--задаем в шаблонизаторе цикл для выпадающего списка-->
+    {% if i == 12 %}                      <!--задаем количество символов пароля по умолчанию-->
     <option value="{{ i }}" selected>{{ i }}</option>
      {% else %}
     <option value="{{ i }}">{{ i }}</option>
@@ -21,13 +21,15 @@
 </select>Количество символов</p>
 
 <p>
-    <input type="checkbox" name="uppercase"> Верхний регистр <br>
+    <input type="checkbox" name="uppercase"> Верхний регистр <br>  <!-- прописываем 3 кнопки чекбокса-->
     <input type="checkbox" name="numbers"> Цифры <br>
 <input type="checkbox" name="special"> Спецсимволы <br>
 </p>
 
-
-    <input type="submit" value="Сгенерировать пароль">
+    <input type="submit" value="Сгенерировать пароль">             <!-- прописываем нижнюю кнопку-->
+    </form>
+    <form action="{% url 'norms' %}">
+    <input type="submit" value="Описание работы">
 </form>
 </div>
 </body>
