@@ -1,8 +1,16 @@
-{% extends 'skills/base.html' %}
-
+{% extends 'skills/base.html' %}  <!-- подключаем базовый шаблон -->
+{% load static %}  <!-- подключаем папку static -->
 {% block content %}
 
 <h1>Портфолио разработчика</h1>
+
+<div class="img">
+    <img src="{% static 'skills/wc.jpg' %}" alt="">
+    
+
+</div>
+
+<h2>Стек технологий:</h2>
 
 <div class="block">
     {% for project in projects %}

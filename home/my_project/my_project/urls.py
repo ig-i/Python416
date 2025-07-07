@@ -23,7 +23,7 @@ from dz_one import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index')
+    path('', views.index, name='index')  # '' путь на страницу, котор. связан с функц. index во views
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

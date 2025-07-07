@@ -1,13 +1,16 @@
-<!DOCTYPE html>
+<!DOCTYPE html>      <!-- базовый шаблон c html разметкой задействуем в index.html-->
+{% load static %}    <!-- загружаем тег static -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">   <!-- подключаем стили css из папки static-->
 </head>
 <body>
 <div class="content">
     <div class="wrap">
-        {% block content %}
+        {% block content %}   <!-- получаем из index.html всю инф.-->
+
         {% endblock %}
     </div>
 </div>

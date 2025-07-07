@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Dz(models.Model):  # создали поля в таблице с графами в базе
+class Dz(models.Model):   # создали поля в таблице с записями (графами) в базе sql
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=250)
     image = models.ImageField('dz_one/images/')

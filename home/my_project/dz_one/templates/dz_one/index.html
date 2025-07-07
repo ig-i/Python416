@@ -1,18 +1,27 @@
-{% extends 'dz_one/base.html' %}  <!--наследуемся от шаблона base.html-->
+{% extends 'dz_one/base.html' %}  <!--наследуемся от шаблона base.html с html разметкой-->
+{% load static %}
+{% block content %}               <!-- данный block content потом передаем в base.html-->
 
-{% block content %}
+<h1>РАЗРАБОТЧИК WEB-ПРОЕКТОВ НА PYTHON</h1>
 
-<h1>Создаем свой портфолио разработчика</h1>
+<div class="img">
+    <img src="{% static 'dz_one/3.jpg' %}" alt="">
+</div>
+
+<h2>ОСНОВНЫЕ НАПРАВЛЕНИЯ</h2>
+
 
 <div class="block">
-    {% for project in projects %}
+    {% for project in projects %}     <!-- проходим в цикле по всем записям из view.py и выводим -->
     <div class="element">
         <div><img src="{{ project.image.url }}" alt=""></div>
         <div class="text">
+
             <h2>
                 <a href="{{ project.url }}" target="_blank">{{ project.title }}</a>
             </h2>
-            <p>{{ project.description }}</p>
+
+            <div>{{ project.description|truncatechars:200 }}</div>    <!-- фильтр количества символов  -->
         </div>
     </div>
     {% endfor %}
