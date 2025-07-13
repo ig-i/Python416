@@ -1,0 +1,11 @@
+{% extends 'dz_one/base.html' %}  <!--наследуемся от шаблона base.html с html разметкой-->
+
+{% block content %}
+
+<div class="detail">
+    <h1>{{ dz_two.title }}</h1>
+    <h2>-- {{ dz_two.date }} --</h2>
+    {{ dz_two.description|safe }} <!-- дополнительно обработка тегов на странице -->
+</div>
+
+{% endblock %}

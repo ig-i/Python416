@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dz_one.apps.DzOneConfig',
+    'dz_two.apps.DzTwoConfig',
 ]
 
 MIDDLEWARE = [

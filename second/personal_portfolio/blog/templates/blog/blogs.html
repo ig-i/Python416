@@ -3,6 +3,7 @@
 {% block content %}
 
 <h1>Блог</h1>
+<h2 class="count">Постов: {{ blogs.count }}</h2>
 
 {% for blog in blogs %}
 
@@ -13,7 +14,7 @@
     <div class="blog_text">
         <h5>{{ blog.date|date:'d.m.Y' }}</h5>  <!-- обработчик даты (день, месяц, год)-->
         <div>{{ blog.description|striptags|truncatechars:360 }}</div>  <!-- ограничение по количеству выводимых символов, удалили теги -->
-    </div>                                                              <!-- выводим текстовое содержание на страницу
+    </div>                                                              <!-- выводим текстовое содержание на страницу-->
 </div>
 
 {% endfor %}

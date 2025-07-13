@@ -1,0 +1,24 @@
+{% extends 'dz_one/base.html' %}  <!--наследуемся от шаблона base.html с html разметкой-->
+
+{% block content %}
+
+<h1>Страница блога WEB-разработчика</h1>
+
+{% for dz in dz_two %}
+
+<div class="element">
+    <h2 class="top">
+        <a href="{% url 'detail' dz.id %}">{{ dz.title }}</a>
+    </h2>
+    <div class="blog_text">
+        <h5>{{ dz.date|date:'d.m.Y' }}</h5>
+        <div>{{ dz.description|truncatechars:360 }}</div>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}
+
