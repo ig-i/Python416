@@ -5,14 +5,52 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">   <!-- подключаем стили css из папки static-->
+    <link rel="icon" type="image/x-icon" href="{% static 'dz_one/favicon.ico' %}">
 </head>
 <body>
+<div class="menu">
+    <div class="wrap">
+        <div class="logo">
+            <a href="{% url 'index' %}">
+                <img src="{% static 'dz_one/logo.png' %}" alt="">
+            </a>
+
+        </div>
+        <ul>
+            <li><a href="{% url 'index' %}">Главная</a></li>
+            <li><a href="{% url 'dz_two' %}">Блог</a></li>
+            <li><a href="{% static 'dz_one/resume.pdf' %}" target="_blank">Резюме</a></li>
+        </ul>
+    </div>
+
+</div>
+<div class="menu">
+    <div class="wrap">
+        <ul>
+        {% if user.is_authenticated %}
+            <li class="logo">Пользователь: {{ user.username }}</li>
+            <li><a href="{% url 'currenttodos' %}">Актуальные</a></li>
+            <li>
+                <form action="{% url 'logoutuser' %}" method="post">
+                    {% csrf_token %}
+                    <button class="top">Выйти</button>
+                </form>
+            </li>
+        {% else %}
+            <li><a href="{% url 'signupuser' %}">Зарегистрироваться</a></li>
+            <li><a href="{% url 'loginuser' %}">Войти</a></li>
+        {% endif %}
+        </ul>
+    </div>
+</div>
 <div class="content">
     <div class="wrap">
-        {% block content %}   <!-- получаем из index.html всю инф.-->
+        {% block content %}
 
         {% endblock %}
     </div>
 </div>
+
+
 </body>
 </html>
