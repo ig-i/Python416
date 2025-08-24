@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Project, Tag
+
+# регистрируем таблицы в проекте
+admin.site.register(Project)
+admin.site.register(Tag)

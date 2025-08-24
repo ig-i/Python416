@@ -1,0 +1,29 @@
+{% extends 'projects/base.html' %} <!-- наследуемся от base.html -->
+{% load static %}                  <!-- подгружаем папку static -->
+{% block content %}
+
+    <!-- Main Section -->
+    <main class="formPage my-xl">
+        <div class="content-box">
+            <div class="formWrapper">
+                <a class="backButton" href="#"><img src="{% static 'images/left.png' %}" alt="left"></a>
+
+
+
+                <form class="form" method="POST" enctype="multipart/form-data"> <!-- возможность загрузки изображ. со стороны сайта -->
+                    {% csrf_token %}
+
+                    {% for field in form %} <!-- передаем в форму поля в цикле из базы данных -->
+                    <div class="form__field">
+                        <label for="formInput#text">{{ field.label }}: </label>
+                        {{ field }}
+                    </div>
+                    {% endfor %}
+
+                    <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
+                </form>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

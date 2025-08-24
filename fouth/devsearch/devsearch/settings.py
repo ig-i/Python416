@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-fa!7ghzk1qta9t3(s1i-k*idx9h1-945)qt@^9t3ut^u4cfick'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True  # показывает все ошибки и предупреждения
 
 ALLOWED_HOSTS = []
 
@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'projects.apps.ProjectsConfig',
+    'projects.apps.ProjectsConfig',  # регистрируем новое приложение
+    'users.apps.UsersConfig',          # регистрируем новое приложение
 ]
 
 MIDDLEWARE = [
@@ -116,6 +117,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'static'  # если сайт выкладываем на хостинг (обьединяет все папки в из проекта)
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'  # в корневой папке создается папка если есть картинки
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

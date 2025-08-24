@@ -31,9 +31,10 @@ def signup_user(request):
             return render(request, 'todo/signupuser.html', {'form': UserCreationForm(), 'error': 'Пароли не совпадают'})
 
 
+# Задачи
 @login_required
 def current_todos(request):
-    todos = Todo.objects.filter(user=request.user, date_completed__isnull=True)
+    todos = Todo.objects.filter(user=request.user, date_completed__isnull=True) # по какому условию будем выводить задачи
     return render(request, 'todo/currenttodos.html',
                   {'todos': todos})
 
@@ -58,16 +59,17 @@ def login_user(request):
             return redirect('currenttodos')
 
 
+# Создание задачи
 @login_required()
 def create_todo(request):
-    if request.method == "GET":
+    if request.method == "GET":  # получаем данные методом GET
         return render(request, 'todo/createtodo.html', {"form": TodoForm()})
     else:
         try:
-            form = TodoForm(request.POST)
+            form = TodoForm(request.POST)  # передаем данные методом POST (создание новой записи)
             new_todo = form.save(commit=False)
             new_todo.user = request.user
-            new_todo.save()
+            new_todo.save()  # сохраняем все  данные в базу данных
             return redirect('currenttodos')
         except ValueError:
             return render(request, 'todo/createtodo.html', {
@@ -75,17 +77,18 @@ def create_todo(request):
                 'error': 'Переданы неверные данные. Попробуйте еще раз'})
 
 
+# (Актуальные задачи) Выводим любую страницу задач по ссылке
 @login_required
-def view_todo(request, todo_pk):
+def view_todo(request, todo_pk):  # первичный ключ который придет в адресную строку и выведет страницу
     todo = get_object_or_404(Todo, pk=todo_pk)
-    if request.method == "GET":
-        form = TodoForm(instance=todo)
+    if request.method == "GET":  # передаем конкретную задачу на вывод по id на редактирование
+        form = TodoForm(instance=todo)  # создаем экз.класса (вывод формы на страницу)
         return render(request, 'todo/viewtodo.html', {'todo': todo, 'form': form})
     else:
         try:
-            form = TodoForm(request.POST, instance=todo)
-            form.save()
-            return redirect('currenttodos')
+            form = TodoForm(request.POST, instance=todo)  # передаем измененные данные в базу после редактирования формы
+            form.save()  # сохраняем данные которые только-что  изменили в форме
+            return redirect('currenttodos')  # перенаправляем пользователя на страницу с измененными данными
         except ValueError:
             return render(request, 'todo/viewtodo.html', {'todo': todo, 'form': form, 'error': 'Неверные данные'})
 
@@ -99,7 +102,7 @@ def complete_todo(request, todo_pk):
         return redirect('currenttodos')
 
 
-# Вывод выполненных задач
+# Вывод выполненных задач (Завершено)
 def completed_todos(request):
     todos = Todo.objects.filter(user=request.user, date_completed__isnull=False).order_by('-date_completed')
     return render(request, 'todo/completed_todos.html', {'todos': todos})

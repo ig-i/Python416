@@ -9,9 +9,9 @@
     <li>
      <a href="{% url 'viewtodo' todo.id %}">
         {% if todo.important %}
-        <b>{{ todo.title }}</b>
+        <b>{{ todo.title }}</b>  <!-- задача важная, жирный шрифт -->
         {% else %}
-        {{ todo.title }}
+        {{ todo.title }}         <!-- задача не важная -->
         {% endif %}
 
         {% if todo.memo %}

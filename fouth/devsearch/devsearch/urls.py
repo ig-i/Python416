@@ -16,8 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 
+# Главный urls (пути)
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('projects.urls')),
+    path('projects/', include('projects.urls')),  # подключили новый проект projects
+    path('', include('users.urls')),               # подключили новый проект users
 ]
+# добавляем путь если есть картинки на сайте
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

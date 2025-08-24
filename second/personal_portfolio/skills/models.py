@@ -1,7 +1,5 @@
 from django.db import models
 
-from django.db import models
-
 
 class Skills(models.Model):  # создание таблицы
     title = models.CharField(max_length=100)
