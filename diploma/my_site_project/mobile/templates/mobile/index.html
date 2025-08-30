@@ -1,0 +1,30 @@
+{% extends 'mobile/base.html' %}
+
+{% block content %}
+
+<h1>Авто в наличии</h1><h1>О нас</h1><h1>Условия</h1><h1>Контакты</h1><h1>Заказ авто/Регистрация</h1>
+
+<div class="block">
+    {% for project in projects %}
+    <div class="text">
+        <h2>
+            {{ project.title }}
+        </h2>
+
+    </div>
+
+    <div class="element">
+        <div><img src="{{ project.image.url }}" alt=""></div>
+        <p>{{ project.description}}</p>
+    </div>
+
+    {% endfor %}
+</div>
+
+
+
+
+
+
+
+{% endblock %}
