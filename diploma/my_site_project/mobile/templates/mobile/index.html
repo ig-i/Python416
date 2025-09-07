@@ -19,19 +19,16 @@
 <div class="block">
     {% for project in projects %}
 
-
     <div class="element">
         <h2>
             {{ project.title }}
         </h2>
 
-        <div><img src="{{ project.image.url }}" alt=""></div>
-        <p>{{ project.description}}</p>
+        <div><a href="#"><img src="{{ project.image.url }}" alt=""></a></div>
+        <div class="text">{{ project.text|linebreaks}}</div>  <!--slice:"150"-->
 
     </div>
 
     {% endfor %}
 </div>
-
-
 {% endblock %}

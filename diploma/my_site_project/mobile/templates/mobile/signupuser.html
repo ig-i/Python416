@@ -3,7 +3,12 @@
 {% block content %}
 
 <h1>Регистрация:</h1>
+<form method="post" class="register">
+    {% csrf_token %}
+    {{ form }}
+    <button class="btn">Зарегестрироваться</button>
+</form>
 
-{{ form }}
+
 
 {% endblock %}

@@ -8,8 +8,9 @@ body{
 }
 .img{
     justify-content: space-between;
-
-
+    padding: 10px 20px;
+    box-shadow: 0 2px 12px 2px #003366; 
+    
 
 }
 
@@ -23,17 +24,22 @@ body{
 .block{
     display: flex;
     flex-wrap: wrap;
-    
+    box-shadow: 0 2px 12px 2px #003366; 
+
+}
+h2{
+    text-align: center;
 }
 
 .element{
     flex-basis: 360px;
+    background: lightyellow;
+    border: 3px solid grey;
 }
 
 .menu{
     background: #003366;
-    box-shadow: 0 2px 12px 2px #003366;
-    
+     
 
 }
 

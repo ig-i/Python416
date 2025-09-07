@@ -5,6 +5,7 @@ from django.contrib.auth.models import User  # класс из таблицы au
 # создание таблицы
 class Mobile(models.Model):
     title = models.CharField(max_length=200)  # название страницы
+    text = models.CharField(max_length=2000, blank=True)
     description = models.TextField()  # многострочное текстовое поле
     date = models.DateField()  # тип данных для работы с датой
     image = models.ImageField(upload_to='mobile/images/')
