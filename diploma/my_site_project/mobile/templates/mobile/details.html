@@ -1,0 +1,16 @@
+{% extends 'mobile/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="detail">
+
+    <h1>{{ mobile.title }}</h1>
+    {{ mobile.images }}
+
+    <h2>{{ mobile.description }}</h2>
+</div>
+
+{% endblock %}

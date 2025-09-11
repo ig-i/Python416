@@ -6,13 +6,46 @@ body{
     padding: 0;
     margin: 0;
 }
+
+.container{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    
+    
+    
+}
+.navbar-auto{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.item text{
+    padding: 5px 25px;
+    color:  #667;
+    font-size: 12px;
+    padding: 5px 25px;
+}
+
+.btn {
+    padding: 10px 22px;
+    background-color: #dc3545;
+    color: #FFF;
+    border-radius: 5px;
+    margin-top: 15px;
+    list-style: none;
+    font-weight: bold;
+    text-decoration: none;  
+   
+}
+
 .img{
     justify-content: space-between;
     padding: 10px 20px;
     box-shadow: 0 2px 12px 2px #003366; 
-    
-
-}
+ }
 
 .wrap{
     max-width: 1200px;
@@ -27,7 +60,7 @@ body{
     box-shadow: 0 2px 12px 2px #003366; 
 
 }
-h2{
+h2, h1{
     text-align: center;
 }
 
@@ -39,6 +72,7 @@ h2{
 
 .menu{
     background: #003366;
+    cursor: pointer;
      
 
 }
@@ -55,10 +89,74 @@ h2{
 .menu a, .menu li{
     color: #FFF;
     text-decoration: none;
+}
     
+/* .btn11 {
+    padding: 10px 22px;
+    background-color: #dc3545;
+    color: #FFF;
+    border-radius: 5px;
+    margin-top: 15px;
+    list-style: none;
+    font-weight: bold;
+    text-decoration: none; 
+} */
 
+.btn1 {
+    display: inline-block;
+    background-color: #dc3545;
+    color: #FFF;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-decoration: none;   
+}
+.btn2 {
+    display: inline-block;
+    background-color: #667;
+    color: #FFF;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-decoration: none;   
+}
+
+
+/* .btn22 {
+    padding: 10px 22px;
+    background-color: #b3b4b4;
+    color: #FFF;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-decoration: none;
+    list-style: none;
+    font-weight: bold;
+} */
+
+.btn1 .p{
+     font-weight: bold;
 
 }
 .block img{
     max-width: 360px;
+}
+.price1, .price{
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: bold;
+}
+.container-5 h3{
+    text-align: center;
+}
+
+a:hover {
+    color: #003366;
 }

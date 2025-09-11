@@ -29,6 +29,9 @@ urlpatterns = [
     # Главная страница
     path('', views.index, name='index'),
 
+    # Карточки
+    path('<int:mobile_id>/', views.detail, name='details'),
+
 ]
 # добавляем путь если есть картинки на сайте
 if settings.DEBUG:
