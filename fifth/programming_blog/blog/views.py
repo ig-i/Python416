@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.views.generic import ListView, DetailView  # список элементов
+from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView, DeleteView  # список элементов
 
 from .models import *
 
