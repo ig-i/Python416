@@ -90,6 +90,15 @@ h2, h1{
     color: #FFF;
     text-decoration: none;
 }
+.card-text{
+    text-align: left;
+    margin-left: 6px;
+
+}
+.info{
+     text-align: left;
+     margin-left: 6px;
+}
     
 /* .btn11 {
     padding: 10px 22px;
@@ -103,17 +112,21 @@ h2, h1{
 } */
 
 .btn1 {
-    display: inline-block;
+    /* display: inline-block; */
     background-color: #dc3545;
     color: #FFF;
-    font-weight: 400;
+    /* font-weight: 400; */
     text-align: center;
-    vertical-align: middle;
+    /* vertical-align: middle;  */
     user-select: none;
     border: 1px solid;
-    font-size: 1rem;
-    line-height: 1.5;
-    text-decoration: none;   
+    /* font-size: 1rem; */
+   
+    line-height: 40px;
+    /* width: 100%;  */
+    text-decoration: none;  
+    margin-top: 6px;
+    padding: 6px; 
 }
 .btn2 {
     display: inline-block;
@@ -121,12 +134,15 @@ h2, h1{
     color: #FFF;
     font-weight: 400;
     text-align: center;
-    vertical-align: middle;
+    /* vertical-align: middle; */
     user-select: none;
     border: 1px solid;
-    font-size: 1rem;
-    line-height: 1.5;
-    text-decoration: none;   
+    /* font-size: 1rem; */
+    line-height: 20px;
+    text-decoration: none; 
+    margin-top: 1,5rem;
+    padding: 6px;
+    margin-bottom: 6px;  
 }
 
 
@@ -153,10 +169,46 @@ h2, h1{
     line-height: 14px;
     font-weight: bold;
 }
-.container-5 h3{
+.container-5 h2, p{
     text-align: center;
 }
 
 a:hover {
-    color: #003366;
+    color: #c0bd15;
+}
+.justify-content{
+    display: flex;
+    justify-content: space-between;
+}
+.d{
+   display: flex; 
+   justify-content: space-between;
+}
+.btn-form {
+    font-weight: bold;
+    background-color: #dc3545;
+}
+input, button{
+    /* width: 50%; */
+    margin-top: 6px;
+    padding: 6px;
+    margin-bottom: 20px;
+
+}
+.pt  h3{
+    text-align: center;
+}
+/*
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+} */
+.comp p{
+    font-weight: bold;
+
+}
+.call{
+   display: flex; 
+   justify-content: center; 
+   margin-top: 15px;
 }

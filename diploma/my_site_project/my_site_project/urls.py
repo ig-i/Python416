@@ -30,7 +30,12 @@ urlpatterns = [
     path('', views.index, name='index'),
 
     # Карточки
-    path('<int:mobile_id>/', views.detail, name='details'),
+    path('detail/<str:pk>/', views.detail, name='detail'),
+    path('company/', views.company, name='company'),
+    path('contact/', views.contact, name='contact'),
+    # path('current/', views.current, name='current'),
+
+
 
 ]
 # добавляем путь если есть картинки на сайте

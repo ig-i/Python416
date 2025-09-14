@@ -3,15 +3,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Drive&GO</title>
+    <title>Прокат автомобилей Drive&GO</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
 <body>
 
 <div class="content">
+
     <div class="wrap">
         {% block content %}
+<a href="{% url 'signupuser' %}"><img src="{% static 'mobile/2.jpg' %}"></a>
         {% endblock %}
     </div>
 </div>

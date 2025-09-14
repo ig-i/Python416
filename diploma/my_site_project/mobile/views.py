@@ -6,6 +6,7 @@ from django.contrib.auth import login
 from mobile.models import Mobile
 
 
+# регистрация и автоматическая авторизация
 def signup_user(request):
     if request.method == "GET":
         return render(request, 'mobile/signupuser.html', {'form': UserCreationForm()})
@@ -31,8 +32,18 @@ def index(request):
     return render(request, 'mobile/index.html', {'projects': projects})
 
 
-def detail(request, mobile_id):
-    mobile = get_object_or_404(Mobile, pk=mobile_id)
-    return render(request, 'mobile/details.html', {'mobile': mobile})
+def detail(request, pk):
+    detail_obj = Mobile.objects.get(id=pk)
+    return render(request, 'mobile/details.html', {'detail': detail_obj})
+
+
+def company(request):
+    projects = Mobile.objects.all()
+    return render(request, 'mobile/company.html', {'projects': projects})
+
+
+def contact(request):
+    projects = Mobile.objects.all()
+    return render(request, 'mobile/contact.html', {'projects': projects})
 
 

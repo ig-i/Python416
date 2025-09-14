@@ -5,11 +5,12 @@
 {% block content %}
 
 
+
 <div class="detail">
 
-    <h1>{{ mobile.title }}</h1>
-    {{ mobile.images }}
+    <img class="detailsMobile" src="{{ mobile.image.url }}" alt="">
 
+     <h1>{{ mobile.title }}</h1>
     <h2>{{ mobile.description }}</h2>
 </div>
 
