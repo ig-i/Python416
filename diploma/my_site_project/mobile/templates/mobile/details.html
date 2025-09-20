@@ -4,14 +4,13 @@
 
 {% block content %}
 
+<a href="{% url 'index' %}"><img src="{% static 'mobile/left.png' %}"></a>
+<div class="det">
 
+    <img class="detMobile" src="{{ detail.image.url }}" alt="">
 
-<div class="detail">
-
-    <img class="detailsMobile" src="{{ mobile.image.url }}" alt="">
-
-     <h1>{{ mobile.title }}</h1>
-    <h2>{{ mobile.description }}</h2>
+     <h1>{{ detail.title }}</h1>
+    <h2>{{ detail.description|linebreaks }}</h2>
 </div>
 
 {% endblock %}

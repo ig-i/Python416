@@ -33,6 +33,7 @@ urlpatterns = [
     path('detail/<str:pk>/', views.detail, name='detail'),
     path('company/', views.company, name='company'),
     path('contact/', views.contact, name='contact'),
+    path('det/<int:det_id/', views.det, name='det'),
     # path('current/', views.current, name='current'),
 
 

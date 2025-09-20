@@ -3,16 +3,17 @@
 {% block content %}
 
 
-<a href="{% url 'index' %}"><img src="{% static 'mobile/2.jpg' %}"></a>
+<a href="{% url 'index' %}"><img src="{% static 'mobile/left.png' %}"></a>
+
 <h1>Регистрация:</h1>
 
 
 <h3>{{ error }}</h3>
 
-<form method="post" class="register">
+<form  method="post" class="register">
     {% csrf_token %}
     {{ form }}
-    <button class="btn">Зарегестрироваться</button>
+    <button class="btn3">Зарегестрироваться</button>
 </form>
 
 

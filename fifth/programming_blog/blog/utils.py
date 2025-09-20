@@ -10,11 +10,11 @@ menu = [
 class DataMixin:
     def get_user_context(self, **kwargs):
         context = kwargs
-        cats = Category.objects.annotate(Count('blog'))
+        cats = Category.objects.annotate(Count('blog'))  # сколько элементов в блоге Категории заполнены тогда они вывод
 
         user_menu = menu.copy()
-        if not self.request.user.is_authenticated:
-            user_menu.pop(0)
+        if not self.request.user.is_authenticated:  # если текущий пользватель не авторизирован то передаем меню
+            user_menu.pop(0)                       # без 0 индекса (без - добавить статью)
 
         context['menu'] = user_menu
         context['cats'] = cats

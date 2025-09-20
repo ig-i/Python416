@@ -187,6 +187,7 @@ a:hover {
 .btn-form {
     font-weight: bold;
     background-color: #dc3545;
+    cursor: pointer;
 }
 input, button{
     /* width: 50%; */
@@ -211,4 +212,22 @@ input, button{
    display: flex; 
    justify-content: center; 
    margin-top: 15px;
+}
+.form-input{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.btn3{
+    border: 2px solid #264b5d;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #dc3545;
+    font-weight: bold;
+    
+}
+form label{
+    font-size: 18px;
 }

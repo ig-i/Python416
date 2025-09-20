@@ -4,7 +4,7 @@
 
 
 <div class="container" style="position">
-    <a href="{% url 'signupuser' %}"><img src="{% static 'mobile/2.jpg' %}"></a>
+    <a href="{% url 'contact' %}"><img src="{% static 'mobile/2.jpg' %}"></a>
     <a href="https://api.whatsapp.com/send?phone=79209076492">
         <img src="{% static 'mobile/whatsapp-logo.png' %}">написать в Watsapp </a>
 
@@ -36,7 +36,7 @@
 <div class="menu">
     <ul>
         <li><a href="{% url 'company' %}">О нас</a></li>
-        <li><a href="{% static 'mobile/договор.doc' %}" target="_blank">Условия</a></li>
+        <li><a href="{% static 'mobile/договор.doc' %} " target="_blank">Условия</a></li>
         <li><a href="{% url 'contact' %}">Контакты</a></li>
         <li><a href="{% url 'signupuser' %}">Регистрация</a></li>
     </ul>
@@ -74,7 +74,8 @@
                 <span class="price1">Цена</span><br>
                 <span class="price">14000</span> руб/неделя<br>
                 <a class="btn1" href="{% url 'signupuser' %}" style="color">заказать</a><br>
-                <a class="btn2" href="{% url 'signupuser' %}" style="color">подробнее</a><br>
+                <a class="btn2" href="{% url 'det' %}" style="color">подробнее</a><br>
+
             </div>
         </div>
     </div>
