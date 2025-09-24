@@ -1014,7 +1014,7 @@ from unittest.mock import PropertyMock
 # import csv
 #
 # with open("data2.csv", encoding='utf-8') as f:
-#     # file_names = ['hostname', 'vendor', 'model', 'location']
+#     # file_names = ['hostname', 'vend', 'model', 'location']
 #     file_reader = csv.reader(f, delimiter=";")
 #     for row in file_reader:
 #         print(row)

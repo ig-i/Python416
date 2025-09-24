@@ -22,11 +22,13 @@ body{
     list-style: none;
 }
 
-.item text{
+
+.nav-item{
     padding: 5px 25px;
     color:  #667;
     font-size: 12px;
     padding: 5px 25px;
+    font-weight: bold;
 }
 
 .btn {
@@ -180,10 +182,14 @@ a:hover {
     display: flex;
     justify-content: space-between;
 }
-.d{
+/* .col-1{
+    display: flex;
+    justify-content: space-between;  
+} */
+/* .d{
    display: flex; 
    justify-content: space-between;
-}
+} */
 .btn-form {
     font-weight: bold;
     background-color: #dc3545;
@@ -230,4 +236,7 @@ input, button{
 }
 form label{
     font-size: 18px;
+}
+h3{
+    text-align: center;
 }

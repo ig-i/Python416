@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from mobile import views
@@ -33,7 +33,9 @@ urlpatterns = [
     path('detail/<str:pk>/', views.detail, name='detail'),
     path('company/', views.company, name='company'),
     path('contact/', views.contact, name='contact'),
-    path('det/<int:det_id/', views.det, name='det'),
+    path('zakaz/<str:pk>/', views.zakaz, name='zakaz'),
+    path('ckeditor/', include('ckeditor_uploader.urls')),  # админка
+    # path('det/<str:pk>/', views.det, name='det'),
     # path('current/', views.current, name='current'),
 
 

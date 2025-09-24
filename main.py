@@ -5522,7 +5522,7 @@ import csv
 #     writer.writerow(["Саша", 5, 12])
 #     writer.writerow(["Маша", 11, 17])
 
-# data = [['hostname', 'vendor', 'model', 'location'],
+# data = [['hostname', 'vend', 'model', 'location'],
 #         ['sw1', 'Cisco', '3750', 'London, Best str'],
 #         ['sw2', 'Cisco', '3850', 'Liverpool, Better str'],
 #         ['sw3', 'Cisco', '3650', 'Liverpool, Better str'],
@@ -5550,22 +5550,22 @@ import csv
 #     'hostname': 'sw1',
 #     'location': 'London',
 #     'model': '3750',
-#     'vendor': 'Cisco'
+#     'vend': 'Cisco'
 # }, {
 #     'hostname': 'sw2',
 #     'location': 'Liverpool',
 #     'model': '3850',
-#     'vendor': 'Cisco'
+#     'vend': 'Cisco'
 # }, {
 #     'hostname': 'sw3',
 #     'location': 'Liverpool',
 #     'model': '3650',
-#     'vendor': 'Cisco'
+#     'vend': 'Cisco'
 # }, {
 #     'hostname': 'sw4',
 #     'location': 'London',
 #     'model': '3650',
-#     'vendor': 'Cisco'
+#     'vend': 'Cisco'
 # }]
 #
 # with open("dict_writer.csv", "w") as f:

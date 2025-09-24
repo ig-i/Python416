@@ -2,7 +2,7 @@
 from django.db import IntegrityError
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
-from django.contrib.auth import login
+from django.contrib.auth import login, logout, authenticate
 from mobile.models import Mobile
 
 from .forms import *  # импортируем стандартную форму
@@ -40,9 +40,9 @@ def detail(request, pk):
     return render(request, 'mobile/details.html', {'detail': detail_obj})
 
 
-def det(request, pk):
-    det_obj = Mobile.objects.get(id=pk)
-    return render(request, 'mobile/det.html', {'det': det_obj})
+# def det(request, pk):
+#     det_obj = Mobile.objects.get(id=pk)
+#     return render(request, 'mobile/det.html', {'det': det_obj})
 
 
 def company(request):
@@ -55,3 +55,7 @@ def contact(request):
     return render(request, 'mobile/contact.html', {'projects': projects})
 
 
+def zakaz(request, pk):
+    zakaz_obj = Mobile.objects.get(id=pk)
+    print(zakaz_obj)
+    return render(request, 'mobile/zakaz.html', {'zakaz': zakaz_obj})

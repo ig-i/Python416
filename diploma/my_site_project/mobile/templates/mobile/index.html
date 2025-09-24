@@ -6,7 +6,7 @@
 <div class="container" style="position">
     <a href="{% url 'contact' %}"><img src="{% static 'mobile/2.jpg' %}"></a>
     <a href="https://api.whatsapp.com/send?phone=79209076492">
-        <img src="{% static 'mobile/whatsapp-logo.png' %}">написать в Watsapp </a>
+        <img src="{% static 'mobile/whatsapp-logo.png' %}">написать в WhatsApp </a>
 
 
     <div class="social-box">
@@ -73,8 +73,8 @@
             <div class="info">
                 <span class="price1">Цена</span><br>
                 <span class="price">14000</span> руб/неделя<br>
-                <a class="btn1" href="{% url 'signupuser' %}" style="color">заказать</a><br>
-                <a class="btn2" href="{% url 'det' %}" style="color">подробнее</a><br>
+                <a class="btn1" href="{% url 'zakaz' project.id %}" style="color">заказать</a><br>
+                <a class="btn2" href="{% url 'detail' project.id %}" style="color">подробнее</a><br>
 
             </div>
         </div>
@@ -106,18 +106,20 @@
                     </div>
                 </form>
             </div>
+
+
             <div class="col-1">
 
-                <a class="avenir" href="tel:89209076492"
+                <a class="avenir" href="tel:89209076490"
                    style="color: #000; padding: 10px 30px; font-size: 2rem; font-weight: 500;">
                     <img style="padding-bottom: 5px;" src="{% static 'mobile/phone-ic.png' %}">
-                    8-920-907-64-92
+                    8-920-907-64-90
                 </a>
 
-                <a class="avenir" href="https://wa.me/79209076492"
+                <a class="avenir" href="79209076490"
                    style="padding: 10px 30px; font-size: 1.5rem; font-weight: 500;"><img
                         style="padding-bottom: 2px;" width="25" src="{% static 'mobile/whatsapp-logo.png' %}">
-                    написать в Watsapp
+                    написать в WhatsApp
                 </a>
             </div>
         </div>
