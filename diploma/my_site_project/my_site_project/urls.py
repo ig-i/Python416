@@ -34,9 +34,11 @@ urlpatterns = [
     path('company/', views.company, name='company'),
     path('contact/', views.contact, name='contact'),
     path('zakaz/<str:pk>/', views.zakaz, name='zakaz'),
+    path('register/', views.register, name='register'),
+    # path('contact_form/', views.contact_form, name='contact_form'),
     path('ckeditor/', include('ckeditor_uploader.urls')),  # админка
-    # path('det/<str:pk>/', views.det, name='det'),
-    # path('current/', views.current, name='current'),
+
+
 
 
 
