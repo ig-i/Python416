@@ -173,7 +173,9 @@ h2, h1{
 }
 .container-5 h2, p{
     text-align: center;
+    
 }
+
 
 a:hover {
     color: #c0bd15;
@@ -181,11 +183,28 @@ a:hover {
 .justify-content{
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    /* box-sizing: border-box; */
+   
+    /* align-items: center; */
 }
-/* .col-1{
+.just-content{
     display: flex;
-    justify-content: space-between;  
-} */
+    justify-content: space-evenly;
+    /* box-sizing: border-box;  */
+    width: 100%;
+    padding: 10px; 
+}
+.zac-2 input{
+  width: 100%; 
+  padding: 5px;
+
+  
+  /* margin-bottom: 15px; */
+  box-sizing: border-box; 
+}
+
 /* .d{
    display: flex; 
    justify-content: space-between;
@@ -197,13 +216,20 @@ a:hover {
 }
 input, button{
     /* width: 50%; */
-    margin-top: 6px;
-    padding: 6px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    padding: 5px;
+    margin-bottom: 15px;
+
+}
+.form{
+   padding: 5px;
 
 }
 .pt  h3{
     text-align: center;
+}
+.pt-1{
+   font-weight: bold; 
 }
 /*
     display: flex;
@@ -243,6 +269,22 @@ input, button{
     background-color: #dc3545;
     font-weight: bold;   
 }
+.btn5{
+     border: 2px solid #264b5d;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #dc3545;
+    font-weight: bold;   
+}
+/* .col-2{
+   
+     display: flex;
+     justify-content: space-between;
+     box-sizing: border-box;   
+    
+} */
 form label{
     font-size: 18px;
 }
@@ -259,10 +301,7 @@ h3{
    margin-top: 30px;
    padding: 10px;
 }
-.form{
-   padding: 5px;
 
-}
 
 .btn-form1{
    width: 80%;
@@ -278,25 +317,6 @@ h3{
 
 
 
-.justify-content-center {
-    /* -ms-flex-pack: center!important;
-    justify-content: center !important; */
-    /* display: flex;
-    flex-wrap: wrap; */
-
-    display: block;
-    unicode-bidi: isolate;
-    margin-right: -15px;
-    margin-left: -15px;
-    box-sizing: border-box;
-}
-
-* {
-    box-sizing: border-box;
-}
-*, ::after, ::before {
-    box-sizing: border-box;
-}
 
 
 

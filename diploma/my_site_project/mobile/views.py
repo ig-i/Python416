@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
+from django.urls import reverse_lazy
+from django.views.generic import FormView
+
 from mobile.models import Mobile
 
 from .forms import *  # импортируем форму
@@ -32,7 +35,7 @@ def signup_user(request):
 
 def index(request):
     projects = Mobile.objects.all()
-    return render(request, 'mobile/index.html', {'projects': projects})
+    return render(request, 'mobile/index.html', {'projects': projects, 'form': RegistrationForm()})
 
 
 def detail(request, pk):
@@ -53,36 +56,42 @@ def contact(request):
 
 def zakaz(request, pk):
     zakaz_obj = Mobile.objects.get(id=pk)
-    print(zakaz_obj)
-    return render(request, 'mobile/zakaz.html', {'zakaz': zakaz_obj, 'form': RegisterForm()})
-
-
-def register(request):
+    if request.method == "GET":
+        return render(request, 'mobile/zakaz.html', {'zakaz': zakaz_obj, 'form': RegisterForm()})
     if request.method == "POST":
         return render(request, 'mobile/zakaz.html', {'form': RegisterForm()})
     else:
-        return render(request, 'mobile/zakaz.html', {'form': RegisterForm()})
+        return redirect('index')
 
 
-# def contact_form(request, form):
-#     if request.method == "GET":
-#         return render(request, 'mobile/zakaz.html', {'form': ContactForm()})
-    # print(form.cleaned_data)
-    # subject = "Message"
-    # body = {
-    #     'name': form.cleaned_data['name'],
-    #     'telephone': form.cleaned_data['telephone'],
-    #     'email': form.cleaned_data['email'],
-    #     'title': form.cleaned_data['title'],
-    #     'text': form.cleaned_data['text'],
-    #     'year': form.cleaned_data['year'],
-    # }
-    # message = "\n".join(body.values())
-    # try:
-    #     send_mail(
-    #         subject, message, form.cleaned_data['email'], ['admin@localhost']
-    #     )
-    # except BadHeaderError:
-    #     return HttpResponse("Данные не отправлены")
-    #
-    # return redirect('index')
+def form_valid(request, form):
+    user = form.save()
+    print(form.cleaned_data, user)
+    # if request.method == "POST":
+    #     return render(request, 'mobile/zakaz.html', {'form': RegisterForm()})
+    subject = "Message"
+    body = {                                          # получаем из полей формы значения
+        'name': form.cleaned_data['name'],
+        'telephone': form.cleaned_data['telephone'],
+        'email': form.cleaned_data['email'],
+        'title': form.cleaned_data['title'],
+        'text': form.cleaned_data['text'],
+        'year': form.cleaned_data['year'],
+    }
+    message = "\n".join(body.values())
+    try:
+        send_mail(                                        # передаем параметры
+            subject,                                      # тема письма
+            message,                                      # само сообщение (тело письма)
+            form.cleaned_data['email'],                   # от кого будет отправляться письмо
+            ['admin@localhost']                # список адресатов которые будут получать эти письма
+        )
+    except BadHeaderError:
+        return HttpResponse("Данные не отправлены")
+    return redirect('index')
+
+# def register(request):
+#     if request.method == "POST":
+#         return render(request, 'mobile/zakaz.html', {'form': RegisterForm()})
+#     else:
+#         return render(request, 'mobile/zakaz.html', {'form': RegisterForm()})
