@@ -1,6 +1,7 @@
 from django.db import models
 
 
+# средний раздел сайта (цена)
 class PriceCard(models.Model):
     pc_value = models.CharField(max_length=20, verbose_name="Цена")
     pc_description = models.CharField(max_length=200, verbose_name="Описание")
@@ -13,6 +14,7 @@ class PriceCard(models.Model):
         verbose_name_plural = 'цены'
 
 
+# средний раздел сайта (цены на услуги)
 class PriceTable(models.Model):
     pt_title = models.CharField(max_length=200, verbose_name='услуга')
     pt_old_price = models.CharField(max_length=200, verbose_name='Старая цена')
