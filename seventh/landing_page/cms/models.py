@@ -1,6 +1,7 @@
 from django.db import models
 
 
+# верхнее меню сайта (слайды)
 class CmsSlider(models.Model):
     cms_img = models.ImageField(upload_to='slider_img', verbose_name="Изображение")
     cms_title = models.CharField(max_length=200, verbose_name="Заголовок")
