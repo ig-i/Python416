@@ -19,7 +19,7 @@
     <div class="justify-content">
 
         <div class="col">
-            <form class="zac-1" method="POST">
+            <form action="{% url 'thanks_page' %}" class="zac-1" method="post">
                 {% csrf_token %}
                 {{ form }}
                 <button class="btn4">Отправить</button>

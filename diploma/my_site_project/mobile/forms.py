@@ -16,13 +16,11 @@ class RegisterUserForm(UserCreationForm):  # переопределили ста
         fields = ['username', 'email', 'password1', 'password2']
 
 
-class RegisterForm(forms.Form):  # форма обратной связи ( не связанная с моделью)
+class RegisterForm(forms.Form):  # форма обратной связи (не связанная с моделью)
     name = forms.CharField(label="Имя", max_length=255)
     telephone = forms.CharField(label="Телефон", max_length=255)
     email = forms.EmailField(label="Email")
-    title = forms.CharField(label="Марка авто", max_length=255)
-    text = forms.CharField(label="Цвет авто", max_length=255)
-    year = forms.CharField(label="Год выпуска", max_length=255)
+    year = forms.CharField(label="Марка и год выпуска авто", max_length=255)
 
 
 class RegistrationForm(forms.Form):

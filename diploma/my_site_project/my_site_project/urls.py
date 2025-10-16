@@ -19,12 +19,12 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from mobile import views
-from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # Auth (регистрация и авторизация)
+    # (регистрация и авторизация)
     path('signup/', views.signup_user, name='signupuser'),
 
     # Главная страница
@@ -35,7 +35,8 @@ urlpatterns = [
     path('company/', views.company, name='company'),
     path('contact/', views.contact, name='contact'),
     path('zakaz/<str:pk>/', views.zakaz, name='zakaz'),
-    # path('contact_form/', views.contact_form, name='contact_form'),
+    path('thanks/', views.thanks_page, name='thanks_page'),
+    path('thank/', views.thank_page, name='thank_page'),
     path('ckeditor/', include('ckeditor_uploader.urls')),  # админка
 
 

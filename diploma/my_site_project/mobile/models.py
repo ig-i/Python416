@@ -4,17 +4,17 @@ from django.contrib.auth.models import User  # класс из таблицы au
 
 # создание таблицы
 class Mobile(models.Model):
-    title = models.CharField(max_length=200)  # название страницы
-    text = models.CharField(max_length=2000, blank=True)
+    title = models.CharField(max_length=200)  # марка авто
+    text = models.CharField(max_length=2000, blank=True)  # цвет авто
     description = models.TextField()  # многострочное текстовое поле
-    date = models.DateField()  # тип данных для работы с датой
+    date = models.DateField()  # дата
     image = models.ImageField(upload_to='mobile/images/')
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # делаем связь
-    telephone = models.CharField(max_length=2000, blank=True)  # поле ссылки (необязат. для заполн.)
+    telephone = models.CharField(max_length=2000, blank=True)  # телефон заказчика
     created = models.DateTimeField(auto_now_add=True)  # время создания
-    name = models.CharField(max_length=200, null=True, blank=True)
-    email = models.EmailField(max_length=500, null=True, blank=True)
-    year = models.CharField(max_length=200, null=True, blank=True)
+    name = models.CharField(max_length=200, null=True, blank=True)  # имя заказчика
+    email = models.EmailField(max_length=500, null=True, blank=True)  # эл.почта заказчика
+    year = models.CharField(max_length=200, null=True, blank=True)  # год выпуска авто
     url = models.URLField(blank=True)
 
 # возвращаем строковое представление обьекта (после создания модели регистрируем в админ.ру)

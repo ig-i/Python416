@@ -97,7 +97,7 @@
         <div class="just-content">
 
             <div class="col">
-                <form class="zac-2" method="POST">
+                <form action="{% url 'thank_page' %}" class="zac-2" method="post">
                     {% csrf_token %}
                     {{ form }}
                     <button class="btn5">Отправить</button>

@@ -314,6 +314,15 @@ h3{
   padding: 5px;
   box-sizing: border-box; 
 }
+.btn{
+    text-align: center;
+}
+.thank{
+    text-align: center;
+    font-weight: bold;
+   margin-top: 30px;
+   padding: 10px;
+}
 
 
 
